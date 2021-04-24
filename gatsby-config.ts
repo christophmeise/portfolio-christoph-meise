@@ -2,7 +2,8 @@
       title: "PortfolioChristophMeise",
     description:
       "Portfolio Christoph Meise - ExploreChristoph",
-    author: "Christoph Meise"
+    author: "Christoph Meise",
+    siteUrl: "https://explorechristoph.com/"
   };
 
 export const plugins =[
