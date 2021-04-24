@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
+import '../fonts/font.css';
 import { theme } from '../theme/theme';
 import Footer from './footer';
-
 interface Props {
     children?: any;
 }
