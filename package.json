@@ -50,6 +50,7 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "3.4.0",
     "gatsby-plugin-eslint": "^3.0.0",
+    "netlify-plugin-subfont": "^5.0.6",
     "prettier": "^2.2.1"
   }
 }
