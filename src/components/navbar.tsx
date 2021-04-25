@@ -29,6 +29,7 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 40px;
 `;
 
 const MenuItem = styled.div<NavbarContainerProps>`
@@ -42,11 +43,30 @@ const MenuItem = styled.div<NavbarContainerProps>`
     text-align: left;
     margin-right: 32px;
     cursor: pointer;
+
+    @media(max-width: 768px) {
+      visibility: hidden;
+      display: none;
+    }
 `;
 const NavbarButton = styled.div`
     margin-left: auto;
-`;
 
+    @media(max-width: 768px) {
+      visibility: hidden;
+      display: none;
+    }
+`;
+const BurgerMenu = styled.div`
+    margin-left: auto;
+    visibility: hidden;
+    display: none;
+
+    @media(max-width: 768px) {
+      visibility: visible;
+      display: block;
+    }
+`;
 
 export default class Navbar extends Component {
   render() {
@@ -64,6 +84,7 @@ export default class Navbar extends Component {
               <NavbarButton>
                 <Button inverted>Let's talk</Button>
               </NavbarButton>
+              <BurgerMenu>_</BurgerMenu>
             </NavbarContainer>
           </section>
         </Container>
