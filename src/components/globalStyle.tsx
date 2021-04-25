@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+
+html,
+body {
+    margin: 0;
+}
 html,
 body,
 h1,
@@ -13,8 +18,10 @@ p,
 span,
 ul,
 li,
+button,
 ol {
     font-family: 'Manrope', sans-serif;
+    text-rendering: optimizeLegibility;
 }
 
 h1 {

@@ -1,33 +1,46 @@
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import * as React from "react";
-import styled from "styled-components";
-import { Container } from "../components/container";
+import { Component } from "react";
 import { GlobalStyle } from "../components/globalStyle";
+import HeroIntro from "../components/heroIntro";
 import Layout from "../components/layout";
 
-interface HeadlineProps {
-  readonly primary?: boolean;
-};
+interface IndexProps {
+  data: {
+    heroImage: any;
+  };
+}
+export default class IndexPage extends Component<IndexProps> {
 
-const Headline = styled.h1<HeadlineProps>`
-    color: ${props => props.primary ? props.theme.colors.primary : props.theme.colors.fontBlack};
-    line-height: 98px;
-    margin-bottom: 0;
-    margin-top: 0;
-      text-align: right;
-`;
+  constructor(props: IndexProps) {
+    super(props);
+  }
 
-const IndexPage = () => {
-  return (
-    <>
-      <GlobalStyle />
-      <Layout>
-        <Container>
-          <Headline primary>Software Engineer</Headline>
-          <Headline>Christoph Meise</Headline>
-        </Container>
-      </Layout>
-    </>
-  )
+  render() {
+    const { data } = this.props;
+
+    const sources = getImage(data.heroImage);
+
+    return (
+      <>
+        <GlobalStyle />
+        <Layout>
+          <HeroIntro sources={sources} />
+        </Layout>
+      </>
+    )
+  }
+
 }
 
-export default IndexPage
+export const pageQuery = graphql`
+query {
+  heroImage: file(relativePath: {eq: "hero.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(quality: 100, layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+    }
+  }
+}
+`;
+

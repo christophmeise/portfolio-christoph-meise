@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import '../fonts/font.css';
 import { theme } from '../theme/theme';
 import Footer from './footer';
+import Navbar from './navbar';
 interface Props {
     children?: any;
 }
@@ -19,12 +20,7 @@ class Layout extends Component<Props, any> {
         return (
             <ThemeProvider theme={theme}>
                 <div className="flex-container">
-
-                    <header id="header">
-                        <section>
-                            {/* navbar */}
-                        </section>
-                    </header>
+                    <Navbar />
                     <main role="main">
                         {children}
                         {/*  <CookieConsent
