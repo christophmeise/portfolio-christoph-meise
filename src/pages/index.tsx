@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { Component } from "react";
+import FullStack from "../components/fullStack";
 import { GlobalStyle } from "../components/globalStyle";
 import HeroIntro from "../components/heroIntro";
 import Layout from "../components/layout";
@@ -26,7 +27,8 @@ export default class IndexPage extends Component<IndexProps> {
       <>
         <GlobalStyle />
         <Layout>
-          <HeroIntro sources={sources} />
+          <HeroIntro />
+          <FullStack />
         </Layout>
       </>
     )

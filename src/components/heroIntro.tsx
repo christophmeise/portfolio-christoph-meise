@@ -27,6 +27,12 @@ const HeroTextWrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+    max-height: 100vh;
+    margin-right: 42px;
+
+    @media(max-width: 768px) {
+      margin-right: 10px;
+    }
 `;
 
 interface HeadlineProps {
@@ -39,12 +45,10 @@ const Headline = styled.h1<HeadlineProps>`
     margin-bottom: 0;
     margin-top: 0;
     text-align: right;
-    margin-right: 42px;
 
     @media(max-width: 768px) {
       font-size: 36px;
       line-height: 60px;
-      margin-right: 10px;
     }
 `;
 const HeroText = styled.p`
@@ -52,7 +56,6 @@ const HeroText = styled.p`
     line-height: 32px;
     margin-bottom: 16px;
     margin-top: 16px;
-    margin-right: 42px;
     text-align: right;
     max-width: 500px;
 
@@ -61,6 +64,16 @@ const HeroText = styled.p`
       margin-left: auto;
       margin-right: auto;
     }
+`;
+const HeroTextCallToAction = styled.p`
+    color: ${props => props.theme.colors.primary};
+    text-transform: uppercase;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: -0.25px;
+    text-align: right;
+    font-weight: 600;
+
 `;
 const HeroTextDesktop = styled.div`
     display: block;
@@ -99,10 +112,14 @@ export default class HeroIntro extends Component {
             <Headline primary>Software Engineer</Headline>
             <Headline>Christoph Meise</Headline>
             <HeroTextDesktop>
-              <HeroText> <strong>Full-Stack Web Developer & UX Designer</strong> in Berlin.
-          I specialize in building high-end websites that are blazing-fast, engage customers and are used worldwide.
-          </HeroText>
+              <HeroText>
+                <strong>Full-Stack Web Developer & UX Designer</strong> in Berlin.
+              I specialize in building high-end websites that are blazing-fast, engage customers and are used worldwide.
+            </HeroText>
             </HeroTextDesktop>
+            <HeroTextCallToAction>
+              Start Exploring
+          </HeroTextCallToAction>
           </HeroTextWrapper>
           <HeroImageWrapper>
             <StaticImage

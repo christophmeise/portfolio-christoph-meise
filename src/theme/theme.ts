@@ -10,7 +10,7 @@ const theme: DefaultTheme = {
       primaryDark: '#2A00A2',
       primaryDarkmode: '#BCA4FF',
       primaryLight: '#E4DAFF',
-      primaryBg: '#F3EFFF',
+      primaryBg: '#14142B',
       secondary: '#1CC8EE',
       secondaryDark: '#0096B7',
       secondaryDarkmode: '#82E9FF',
