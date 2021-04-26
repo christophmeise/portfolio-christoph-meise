@@ -12,10 +12,13 @@ export const SubHeadlineDark = styled.h3`
 `;
 
 export const GlobalStyle = createGlobalStyle`
+    html,
+    body {
+        margin: 0;
+    }
 
-html,
-body {
-    margin: 0;
-}
+    a {
+        text-decoration: none;
+    }
 
 `;

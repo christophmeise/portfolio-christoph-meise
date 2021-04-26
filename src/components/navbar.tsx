@@ -16,6 +16,7 @@ const Header = styled.header<HeaderProps>`
     width: 100%;
     top: 0;
     z-index: 100;
+    max-width: 100vw;
 `;
 const NavbarContainer = styled.div<NavbarContainerProps>`
     color: ${props => props.inverted ? '#FFFFFF' : '#000000'};

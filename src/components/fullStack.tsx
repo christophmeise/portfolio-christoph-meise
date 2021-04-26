@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Container } from '../styles/container';
@@ -16,7 +17,7 @@ const Text = styled.p`
   margin-top: 0;
   margin-bottom: 24px;
 `;
-const CallToActionLink = styled.a`
+const CallToActionLink = styled.div`
 
   display: flex;
   align-items: center;
@@ -34,6 +35,11 @@ const FullStackGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
+
+  @media(max-width: 768px) {
+      grid-template-columns: 1fr;
+      row-gap: 60px;
+  }
 `;
 const FullStackGridItem = styled.div`
   display: flex;
@@ -124,8 +130,10 @@ export default class FullStack extends Component {
               <Subtitle>Web Development</Subtitle>
               <Text>Add multiple links in Instagram instead of just one.</Text>
               <CallToActionLink>
-                <span>Know more</span>
-                <ArrowIcon />
+                <Link to="/">
+                  <span>Know more</span>
+                  <ArrowIcon />
+                </Link>
               </CallToActionLink>
             </FullStackGridItem>
             <FullStackGridItem>
@@ -135,8 +143,10 @@ export default class FullStack extends Component {
               <Subtitle>UX Design</Subtitle>
               <Text>Add multiple links in Instagram instead of just one.</Text>
               <CallToActionLink>
-                <span>Know more</span>
-                <ArrowIcon />
+                <Link to="/">
+                  <span>Know more</span>
+                  <ArrowIcon />
+                </Link>
               </CallToActionLink>
             </FullStackGridItem>
             <FullStackGridItem>
@@ -146,8 +156,10 @@ export default class FullStack extends Component {
               <Subtitle>Backend Integrations</Subtitle>
               <Text>Add multiple links in Instagram instead of just one.</Text>
               <CallToActionLink>
-                <span>Know more</span>
-                <ArrowIcon />
+                <Link to="/">
+                  <span>Know more</span>
+                  <ArrowIcon />
+                </Link>
               </CallToActionLink>
             </FullStackGridItem>
 
