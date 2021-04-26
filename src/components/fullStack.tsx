@@ -25,10 +25,18 @@ const Text = styled.p`
   margin-top: 0;
   margin-bottom: 24px;
 `;
-const CallToActionLink = styled.p`
-  font-size: 14px;
-  font-weight: 700;
-  color: ${props => props.theme.colors.primaryDarkmode};
+const CallToActionLink = styled.a`
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  span {
+    font-size: 14px;
+    font-weight: 700;
+    color: ${props => props.theme.colors.primaryDarkmode};
+    margin-right: 0.5rem;
+  }
 `;
 
 const FullStackGrid = styled.div`
@@ -65,20 +73,21 @@ const FullStackIcon = styled.div`
   }
 
   @-webkit-keyframes ruler {
-      0%, 40%  { -webkit-transform: translate3d(0, 0px, 0) rotate(0deg); }
-      40%, 60% { -webkit-transform: translate3d(0, 7px, 0) rotate(90deg); }
-      60%, 100% { -webkit-transform: translate3d(0, 0px, 0) rotate(0deg); }
+      0%, 44%  { -webkit-transform: translate3d(0, 0px, 0) rotate(0deg); }
+      44%, 56% { -webkit-transform: translate3d(0, 7px, 0) rotate(90deg); }
+      56%, 100% { -webkit-transform: translate3d(0, 0px, 0) rotate(0deg); }
   }
   @keyframes ruler {
-      0%, 40% { transform: translate3d(0, 0px, 0) rotate(0deg); }
-      40%, 60% { transform: translate3d(0, 7px, 0) rotate(90deg); }
-      60%, 100% { transform: translate3d(0, 0px, 0) rotate(0deg); }
+      0%, 44% { transform: translate3d(0, 0px, 0) rotate(0deg); }
+      44%, 56% { transform: translate3d(0, 7px, 0) rotate(90deg); }
+      56%, 100% { transform: translate3d(0, 0px, 0) rotate(0deg); }
   }
 
   #rulersvg{
     transform-box: fill-box;
     transform-origin: center;
-    animation: ruler 6s infinite ease;
+    animation: ruler 10s infinite ease;
+    animation-delay: 4s;
   }
 
   @-webkit-keyframes boxmove {
@@ -96,11 +105,13 @@ const FullStackIcon = styled.div`
     transform-box: fill-box;
     transform-origin: center;
     animation: boxmove 6s infinite ease;
+    animation-delay: 8s;
   }
   #box2{
     transform-box: fill-box;
     transform-origin: center;
     animation: boxmove 12s infinite ease;
+    animation-delay: 8s;
   }
 `;
 
@@ -121,7 +132,10 @@ export default class FullStack extends Component {
               </FullStackIcon>
               <Subtitle>Web Development</Subtitle>
               <Text>Add multiple links in Instagram instead of just one.</Text>
-              <CallToActionLink>Know more</CallToActionLink>
+              <CallToActionLink>
+                <span>Know more</span>
+                <ArrowIcon />
+              </CallToActionLink>
             </FullStackGridItem>
             <FullStackGridItem>
               <FullStackIcon>
@@ -129,7 +143,10 @@ export default class FullStack extends Component {
               </FullStackIcon>
               <Subtitle>UX Design</Subtitle>
               <Text>Add multiple links in Instagram instead of just one.</Text>
-              <CallToActionLink>Know more</CallToActionLink>
+              <CallToActionLink>
+                <span>Know more</span>
+                <ArrowIcon />
+              </CallToActionLink>
             </FullStackGridItem>
             <FullStackGridItem>
               <FullStackIcon>
@@ -137,7 +154,10 @@ export default class FullStack extends Component {
               </FullStackIcon>
               <Subtitle>Backend Integrations</Subtitle>
               <Text>Add multiple links in Instagram instead of just one.</Text>
-              <CallToActionLink>Know more</CallToActionLink>
+              <CallToActionLink>
+                <span>Know more</span>
+                <ArrowIcon />
+              </CallToActionLink>
             </FullStackGridItem>
 
           </FullStackGrid>
@@ -145,6 +165,14 @@ export default class FullStack extends Component {
       </FullStackContainer>
     )
   }
+}
+
+const ArrowIcon = () => {
+  return (
+    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.744 1.58928C12.4185 1.26384 12.4185 0.736202 12.744 0.410765C13.0694 0.0853278 13.597 0.0853278 13.9225 0.410765L18.9225 5.41076C19.2479 5.7362 19.2479 6.26384 18.9225 6.58928L13.9225 11.5893C13.597 11.9147 13.0694 11.9147 12.744 11.5893C12.4185 11.2638 12.4185 10.7362 12.744 10.4108L16.3214 6.83334H1.67553C1.21022 6.83334 0.833008 6.46024 0.833008 6.00001C0.833008 5.53977 1.21022 5.16667 1.67553 5.16667H16.3214L12.744 1.58928Z" fill="#BCA4FF" />
+    </svg>
+  );
 }
 
 
