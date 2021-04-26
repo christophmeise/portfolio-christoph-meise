@@ -2,8 +2,10 @@ import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { Component } from "react";
+import styled from "styled-components";
 import FullStack from "../components/fullStack";
 import { GlobalStyle } from "../components/globalStyle";
+import HappyClients from "../components/happyClients";
 import HeroIntro from "../components/heroIntro";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -13,6 +15,17 @@ interface IndexProps {
     heroImage: any;
   };
 }
+
+const DarkModeContainer = styled.div`
+  background-color: ${props => props.theme.colors.primaryBg};
+  width: 100%;
+  padding: 64px 0;
+  border-radius: 100px 0px 0px 0px;
+
+  section {
+    margin-bottom: 128px;
+  }
+`;
 export default class IndexPage extends Component<IndexProps> {
 
   constructor(props: IndexProps) {
@@ -32,7 +45,10 @@ export default class IndexPage extends Component<IndexProps> {
         <GlobalStyle />
         <Layout>
           <HeroIntro />
-          <FullStack />
+          <DarkModeContainer>
+            <FullStack />
+            <HappyClients />
+          </DarkModeContainer>
         </Layout>
       </>
     )

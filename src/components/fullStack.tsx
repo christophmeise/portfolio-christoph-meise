@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Container } from '../styles/container';
+import { HeadlineDark } from './globalStyle';
 
-const FullStackContainer = styled.div`
-  background-color: ${props => props.theme.colors.primaryBg};
-  width: 100%;
-  padding: 64px 0;
-  border-radius: 100px 0px 0px 0px;
-`;
-
-const Headline = styled.h2`
-  color: ${props => props.theme.colors.fontWhite};
-`;
 const Subtitle = styled.h5`
   color: ${props => props.theme.colors.fontWhite};
   margin-top: 0;
@@ -120,11 +111,11 @@ const FullStackIcon = styled.div`
 export default class FullStack extends Component {
   render() {
     return (
-      <FullStackContainer>
+      <section>
         <Container>
-          <Headline>
+          <HeadlineDark>
             Full-Stack by all means.
-        </Headline>
+          </HeadlineDark>
           <FullStackGrid>
             <FullStackGridItem>
               <FullStackIcon>
@@ -162,7 +153,7 @@ export default class FullStack extends Component {
 
           </FullStackGrid>
         </Container>
-      </FullStackContainer>
+      </section>
     )
   }
 }
