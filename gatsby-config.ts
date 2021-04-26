@@ -12,6 +12,7 @@ export const plugins =[
       options: {
         silent: false,
         inlineFonts: true,
+        dynamic: true
       },
     },
     "gatsby-plugin-typescript",
