@@ -12,7 +12,8 @@ export const plugins =[
       options: {
         silent: false,
         fallbacks: false,
-        inlineFonts: true
+        inlineFonts: true,
+        fontDisplay: "block"
       },
     },
     "gatsby-plugin-typescript",
