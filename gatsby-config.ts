@@ -16,6 +16,7 @@ export const plugins =[
         fontDisplay: "block"
       },
     },
+    "gatsby-plugin-preact",
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
