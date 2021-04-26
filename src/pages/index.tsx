@@ -6,6 +6,7 @@ import FullStack from "../components/fullStack";
 import { GlobalStyle } from "../components/globalStyle";
 import HeroIntro from "../components/heroIntro";
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 interface IndexProps {
   data: {
@@ -22,9 +23,12 @@ export default class IndexPage extends Component<IndexProps> {
     const { data } = this.props;
 
     const sources = getImage(data.heroImage);
+    const title = "Portfolio Christoph Meise - ExploreChristoph"
+    const description = "Portfolio of Christoph Meise, Full-Stack Software Engineer and Freelancer in Berlin, Germany. ExploreChristoph now."
 
     return (
       <>
+        <Seo title={title} description={description} />
         <GlobalStyle />
         <Layout>
           <HeroIntro />
