@@ -28,6 +28,7 @@
     "gatsby-plugin-sharp": "^3.3.1",
     "gatsby-plugin-sitemap": "^3.3.0",
     "gatsby-plugin-styled-components": "^4.3.0",
+    "gatsby-plugin-subfont": "^3.3.0",
     "gatsby-plugin-typescript": "^3.3.0",
     "gatsby-source-filesystem": "^3.3.0",
     "gatsby-transformer-sharp": "^3.3.0",
@@ -50,7 +51,6 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-prettier": "3.4.0",
     "gatsby-plugin-eslint": "^3.0.0",
-    "netlify-plugin-subfont": "^5.0.6",
     "prettier": "^2.2.1"
   }
 }

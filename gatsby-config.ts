@@ -7,6 +7,13 @@
   };
 
 export const plugins =[
+   {
+      resolve: `gatsby-plugin-subfont`,
+      options: {
+        silent: false,
+        inlineFonts: true,
+      },
+    },
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
