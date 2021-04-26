@@ -76,7 +76,7 @@ ul,
 li,
 button,
 ol {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Manrope';
     text-rendering: optimizeLegibility;
 }
 
