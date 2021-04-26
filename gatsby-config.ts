@@ -11,8 +11,8 @@ export const plugins =[
       resolve: `gatsby-plugin-subfont`,
       options: {
         silent: false,
-        inlineFonts: true,
-        dynamic: true
+        fallbacks: false,
+        inlineFonts: true
       },
     },
     "gatsby-plugin-typescript",

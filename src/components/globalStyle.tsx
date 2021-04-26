@@ -6,23 +6,6 @@ html,
 body {
     margin: 0;
 }
-html,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-span,
-ul,
-li,
-button,
-ol {
-    font-family: 'Manrope', sans-serif;
-    text-rendering: optimizeLegibility;
-}
 
 h1 {
     font-size: 72px;
