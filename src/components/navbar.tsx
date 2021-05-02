@@ -75,7 +75,6 @@ const BurgerMenu = styled.div<BurgerMenuProps>`
     background-color: transparent;
     border          : none;
     cursor          : pointer;
-    display         : flex;
     padding         : 0;
     height          : 34px;
     width           : 34px;
@@ -131,7 +130,7 @@ const BurgerMenu = styled.div<BurgerMenuProps>`
 
     @media(max-width: 768px) {
       visibility: visible;
-      display: block;
+      display: flex;
     }
 `;
 
