@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { HeadlineDark } from './globalStyle';
 
-const Subtitle = styled.h5`
+const Subtitle = styled.h3`
   color: ${props => props.theme.colors.fontWhite};
   margin-top: 0;
   margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
 `;
 const Text = styled.p`
   font-size: 16px;
@@ -128,7 +130,7 @@ export default class FullStack extends Component {
                 <WebDevelopmentIcon />
               </FullStackIcon>
               <Subtitle>Web Development</Subtitle>
-              <Text>Add multiple links in Instagram instead of just one.</Text>
+              <Text>From static server-side rendered to dynamic single page applications. From standalone website to corporate application.</Text>
               <CallToActionLink>
                 <Link to="/">
                   <span>Know more</span>
@@ -141,7 +143,7 @@ export default class FullStack extends Component {
                 <UXDesignIcon />
               </FullStackIcon>
               <Subtitle>UX Design</Subtitle>
-              <Text>Add multiple links in Instagram instead of just one.</Text>
+              <Text>Styles come and go. Good design is a language, not a style. For me, UX is part of the process, not an afterthought.</Text>
               <CallToActionLink>
                 <Link to="/">
                   <span>Know more</span>
@@ -154,7 +156,7 @@ export default class FullStack extends Component {
                 <BackendIcon />
               </FullStackIcon>
               <Subtitle>Backend Integrations</Subtitle>
-              <Text>Add multiple links in Instagram instead of just one.</Text>
+              <Text>System architecture and backend engineering. Machine Learning, Blockchain and Microservices are not buzzwords for me, but successful projects.</Text>
               <CallToActionLink>
                 <Link to="/">
                   <span>Know more</span>
