@@ -31,6 +31,7 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
     flex-direction: row;
     align-items: center;
     height: 40px;
+    grid-column: standard;
 `;
 
 const MenuItem = styled.div<NavbarContainerProps>`
@@ -74,20 +75,18 @@ export default class Navbar extends Component {
     return (
       <Header id="header">
         <Container>
-          <section>
-            <NavbarContainer>
-              <Logo primary>Christoph Meise</Logo>
-              <MenuItem>About</MenuItem>
-              <MenuItem>Clients</MenuItem>
-              <MenuItem>Works</MenuItem>
-              <MenuItem>Technologies</MenuItem>
-              <MenuItem>Contact</MenuItem>
-              <NavbarButton>
-                <Button inverted>Let's talk</Button>
-              </NavbarButton>
-              <BurgerMenu>_</BurgerMenu>
-            </NavbarContainer>
-          </section>
+          <NavbarContainer>
+            <Logo primary>Christoph Meise</Logo>
+            <MenuItem>About</MenuItem>
+            <MenuItem>Clients</MenuItem>
+            <MenuItem>Works</MenuItem>
+            <MenuItem>Technologies</MenuItem>
+            <MenuItem>Contact</MenuItem>
+            <NavbarButton>
+              <Button inverted>Let's talk</Button>
+            </NavbarButton>
+            <BurgerMenu>_</BurgerMenu>
+          </NavbarContainer>
         </Container>
       </Header>
     )

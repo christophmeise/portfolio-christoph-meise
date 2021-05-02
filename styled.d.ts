@@ -3,6 +3,8 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     borderRadius: string;
+    borderRadiusSection: string,
+    borderRadiusSectionMobile: string,
 
     colors: {
       fontBlack: string;

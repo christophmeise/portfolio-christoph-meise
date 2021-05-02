@@ -9,6 +9,7 @@ import HappyClients from "../components/happyClients";
 import HeroIntro from "../components/heroIntro";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import { device } from "../theme/theme";
 
 interface IndexProps {
   data: {
@@ -20,7 +21,11 @@ const DarkModeContainer = styled.div`
   background-color: ${props => props.theme.colors.primaryBg};
   width: 100%;
   padding: 64px 0;
-  border-radius: 100px 0px 0px 0px;
+  border-radius: ${props => props.theme.borderRadiusSectionMobile} 0px 0px 0px;
+
+  @media ${device.tablet} {
+    border-radius: ${props => props.theme.borderRadiusSection} 0px 0px 0px;
+  }
 
   section {
     margin-bottom: 128px;

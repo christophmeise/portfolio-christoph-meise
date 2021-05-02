@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Container } from '../styles/container';
+import { Container, ContainerContentStandard } from '../styles/container';
 import { HeadlineDark } from './globalStyle';
 
 const Subtitle = styled.h5`
@@ -117,8 +117,8 @@ const FullStackIcon = styled.div`
 export default class FullStack extends Component {
   render() {
     return (
-      <section>
-        <Container>
+      <Container>
+        <ContainerContentStandard>
           <HeadlineDark>
             Full-Stack by all means.
           </HeadlineDark>
@@ -164,8 +164,8 @@ export default class FullStack extends Component {
             </FullStackGridItem>
 
           </FullStackGrid>
-        </Container>
-      </section>
+        </ContainerContentStandard>
+      </Container >
     )
   }
 }
