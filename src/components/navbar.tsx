@@ -12,7 +12,7 @@ interface HeaderProps {
 };
 
 const Header = styled.header<HeaderProps>`
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
     z-index: 100;
@@ -32,6 +32,7 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
     align-items: center;
     height: 40px;
     grid-column: standard;
+    padding: .5em 1em;
 `;
 
 const MenuItem = styled.div<NavbarContainerProps>`
