@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
 import { HeadlineDark } from './globalStyle';
-import SelectedWorkItemWeWater from './selectedWorkItem';
+import InnerlightCard from './works/innerlight';
+import WeWaterCard from './works/wewater';
 
 export const SelectedWorksGrid = styled.div`
   column-gap: 0px;
@@ -27,7 +28,8 @@ export default class SelectedWorks extends PureComponent {
         <ContainerContentStandard>
           <HeadlineDark>Selected works</HeadlineDark>
           <SelectedWorksGrid>
-            <SelectedWorkItemWeWater />
+            <WeWaterCard />
+            <InnerlightCard />
           </SelectedWorksGrid>
         </ContainerContentStandard>
       </Container>
