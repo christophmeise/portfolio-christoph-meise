@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Helmet } from 'react-helmet';
 
 interface SeoProps {
@@ -6,12 +6,7 @@ interface SeoProps {
   description: string;
 }
 
-export default class Seo extends Component<SeoProps> {
-
-  constructor(props: SeoProps) {
-    super(props);
-  }
-
+export default class Seo extends PureComponent<SeoProps> {
   render() {
     const { title, description } = this.props;
 
@@ -23,39 +18,39 @@ export default class Seo extends Component<SeoProps> {
         title={title}
         meta={[
           {
-            name: `description`,
-            content: description,
+            name: 'description',
+            content: description
           },
           {
-            property: `og:title`,
-            content: title,
+            property: 'og:title',
+            content: title
           },
           {
-            property: `og:description`,
-            content: description,
+            property: 'og:description',
+            content: description
           },
           {
-            property: `og:type`,
-            content: `website`,
+            property: 'og:type',
+            content: 'website'
           },
           {
-            name: `twitter:card`,
-            content: `summary`,
+            name: 'twitter:card',
+            content: 'summary'
           },
           {
-            name: `twitter:creator`,
-            content: 'Christoph Meise',
+            name: 'twitter:creator',
+            content: 'Christoph Meise'
           },
           {
-            name: `twitter:title`,
-            content: title,
+            name: 'twitter:title',
+            content: title
           },
           {
-            name: `twitter:description`,
-            content: description,
-          },
+            name: 'twitter:description',
+            content: description
+          }
         ]}
       />
-    )
+    );
   }
 }

@@ -1,31 +1,33 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { Container, ContainerContentFull, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
-import { LogoBayer, LogoDB, LogoDHL, LogoInnerLight, LogoOpremic, LogoSAP, LogoSCM, LogoSerrala, LogoWeWater } from './clientLogos';
+import {
+  LogoBayer, LogoDB, LogoDHL, LogoInnerLight, LogoOpremic, LogoSAP, LogoSCM, LogoSerrala, LogoWeWater
+} from './clientLogos';
 import { HeadlineDark, SubHeadlineDark } from './globalStyle';
 
 export const ClientGridContainer = styled.div`
   position: relative;
    &:after {
+      background-image: -webkit-linear-gradient(left,rgb(20 20 43) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 80%,rgb(20 20 43) 100% );
+      bottom: -20px;
       content: '';
-      position: absolute;
       left: 0;
+      position: absolute;
       right: 0;
       top: -20px;
-      bottom: -20px;
-      background-image: -webkit-linear-gradient(left,rgb(20 20 43) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 80%,rgb(20 20 43) 100% );
     }
 `;
 export const ClientGrid = styled.div`
+  column-gap: 18px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 18px;
-  max-width: 950px;
-  margin-top: 48px;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
+  margin-top: 48px;
+  max-width: 950px;
   overflow-x: hidden;
   padding-bottom: 6rem;
 
@@ -36,9 +38,9 @@ export const ClientGrid = styled.div`
   }
 `;
 export const ClientCol = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 
   div:not(:first-child) {
@@ -51,18 +53,18 @@ export const ClientCol = styled.div`
     }
 `;
 export const ClientRectangle = styled.div`
+  align-items: center;
   background-color: #FFFFFF;
-  width:  120px;
-  height: 68px;
-  border-radius: ${props => props.theme.borderRadius};
+  border-radius: ${(props) => props.theme.borderRadius};
   box-shadow: 0px 30px 40px rgba(212, 217, 232, 0.2);
   display: flex;
+  height: 68px;
   justify-content: center;
-  align-items: center;
+  width:  120px;
 
   svg {
-    max-width: 70%;
     max-height: 70%;
+    max-width: 70%;
   }
 
   .innerlight {
@@ -82,17 +84,17 @@ export const ClientRectangle = styled.div`
   }
 `;
 
-export default class HappyClients extends Component {
+export default class HappyClients extends PureComponent {
   render() {
     return (
       <Container centered>
         <ContainerContentStandard>
           <HeadlineDark style={{ marginBottom: '8px' }}>
             Happy Clients
-        </HeadlineDark>
+          </HeadlineDark>
           <SubHeadlineDark>
             I had the pleasure to work with some of the most repected companies worldwide.
-        </SubHeadlineDark>
+          </SubHeadlineDark>
         </ContainerContentStandard>
         <ContainerContentFull>
           <ClientGridContainer>
@@ -120,6 +122,6 @@ export default class HappyClients extends Component {
           </ClientGridContainer>
         </ContainerContentFull>
       </Container>
-    )
+    );
   }
 }

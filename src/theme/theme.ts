@@ -8,7 +8,7 @@ const size = {
   laptop: '1024px',
   laptopL: '1440px',
   desktop: '2560px'
-}
+};
 
 export const device = {
   mobileS: `(min-width: ${size.mobileS})`,
@@ -23,26 +23,27 @@ export const device = {
 
 const theme: DefaultTheme = {
   borderRadius: '16px',
+  borderRadiusBig: '32px',
   borderRadiusSection: '100px',
   borderRadiusSectionMobile: '60px',
 
   colors: {
-      fontBlack: '#18191F',
-      fontWhite: '#FCFCFC',
-      primary: '#5E3AEE',
-      primaryDark: '#2A00A2',
-      primaryDarkmode: '#BCA4FF',
-      primaryLight: '#E4DAFF',
-      primaryBg: '#14142B',
-      secondary: '#1CC8EE',
-      secondaryDark: '#0096B7',
-      secondaryDarkmode: '#82E9FF',
-      secondaryLight: '#DEF9FF',
-      secondaryBg: '#F1FCFF',
-      error: '#ED2E7E',
-      success: '#00BA88',
-      warning: '#F4B740',
-  },
+    fontBlack: '#18191F',
+    fontWhite: '#FCFCFC',
+    primary: '#5E3AEE',
+    primaryDark: '#2A00A2',
+    primaryDarkmode: '#BCA4FF',
+    primaryLight: '#E4DAFF',
+    primaryBg: '#14142B',
+    secondary: '#1CC8EE',
+    secondaryDark: '#0096B7',
+    secondaryDarkmode: '#82E9FF',
+    secondaryLight: '#DEF9FF',
+    secondaryBg: '#F1FCFF',
+    error: '#ED2E7E',
+    success: '#00BA88',
+    warning: '#F4B740'
+  }
 };
 
 export { theme };

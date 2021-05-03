@@ -1,6 +1,9 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": ["eslint-config-blvd/react", "prettier/@typescript-eslint", "prettier/react", "plugin:prettier/recommended"],
+  "extends": ["eslint-config-blvd/react"],
+  "plugins": [
+    "better-styled-components"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -14,9 +17,20 @@
     }
   },
   "rules": {
-    "max-len": ["error", { "code": 140, "ignoreUrls": true }],
+    "indent": "off",
+    "react/jsx-indent": "off",
+    "no-tabs": "off",
+    "no-param-reassign": "off",
+    "no-multiple-empty-lines": "off",
+    "semi": [2, "always"],
+    "linebreak-style": "off",
+    "better-styled-components/sort-declarations-alphabetically": 2,
+    "max-len": ["off", { "code": 140, "ignoreUrls": true }],
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "allowArgumentsExplicitlyTypedAsAny": 0,
     "react/no-unescaped-entities": [
       "error",
       {

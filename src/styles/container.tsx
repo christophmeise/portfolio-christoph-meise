@@ -1,15 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface ContainerProps {
     readonly centered?: boolean;
-};
+}
 
 export const Container = styled.section<ContainerProps>`
     display: grid;
     grid-template-columns: [full-start] minmax(2rem,1fr) [standard-start] 0 [narrow-start] minmax(1rem,67.5rem) [narrow-end] 0 [standard-end] minmax(2rem,1fr) [full-end];
-    position: relative;
     padding: 0;
-    text-align: ${props => props.centered ? 'center' : 'left'};
+    position: relative;
+    text-align: ${(props) => (props.centered ? 'center' : 'left')};
     @media (min-width: 50rem) {
        grid-template-columns: [full-start] minmax(2rem,1fr) [standard-start] 3.75rem [narrow-start] minmax(1rem,67.5rem) [narrow-end] 3.75rem [standard-end] minmax(2rem,1fr) [full-end];
     }

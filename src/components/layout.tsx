@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ThemeProvider } from 'styled-components';
 import '../fonts/font.css';
 import { theme } from '../theme/theme';
 import Footer from './footer';
 import Navbar from './navbar';
+
 interface Props {
     children?: any;
 }
 
-class Layout extends Component<Props, any> {
-
-    constructor(props: Props | Readonly<Props>) {
-        super(props);
-    }
-
+class Layout extends PureComponent<Props> {
     render() {
         const { children } = this.props;
 
         return (
-            <ThemeProvider theme={theme}>
-                <div className="flex-container">
-                    <Navbar />
-                    <main role="main">
-                        {children}
-                        {/*  <CookieConsent
+          <ThemeProvider theme={theme}>
+            <div className="flex-container">
+              <Navbar />
+              <main role="main">
+                {children}
+                {/*  <CookieConsent
                         disableStyles={true}
                         location="bottom"
                         buttonText="Accept"
@@ -46,13 +42,12 @@ class Layout extends Component<Props, any> {
 
                         </div>
                     </CookieConsent> */}
-                        <Footer />
-                    </main>
-                </div>
-            </ThemeProvider >
-        )
+                <Footer />
+              </main>
+            </div>
+          </ThemeProvider>
+        );
     }
-
 }
 
 export default Layout;

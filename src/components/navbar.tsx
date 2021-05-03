@@ -7,36 +7,34 @@ import { device } from '../theme/theme';
 
 interface NavbarContainerProps {
   readonly inverted?: boolean;
-};
-interface HeaderProps {
-  readonly fixed?: boolean;
-};
+}
+
 interface BurgerMenuProps {
   readonly sidebarOpened?: boolean;
-};
+}
 
-const Header = styled.header<HeaderProps>`
-    position: absolute;
-    width: 100%;
-    top: 0;
-    z-index: 100;
+const Header = styled.header`
     max-width: 100vw;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 `;
 const NavbarContainer = styled.div<NavbarContainerProps>`
-    color: ${props => props.inverted ? '#FFFFFF' : '#000000'};
-    line-height: 17px;
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: -0.03em;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: left;
+    align-items: center;
+    color: ${(props) => (props.inverted ? '#FFFFFF' : '#000000')};
     display: flex;
     flex-direction: row;
-    align-items: center;
-    height: 40px;
+    font-size: 22px;
+    font-weight: 800;
     grid-column: full;
+    height: 40px;
+    letter-spacing: -0.03em;
+    line-height: 17px;
+    margin-bottom: 0;
+    margin-top: 0;
     padding: .5em 1em;
+    text-align: left;
 
     @media ${device.tablet} {
         grid-column: standard;
@@ -44,16 +42,16 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
 `;
 
 const MenuItem = styled.div<NavbarContainerProps>`
-    color: ${props => props.inverted ? props.theme.colors.fontWhite : props.theme.colors.fontBlack};
-    line-height: 20px;
-    font-weight: bold;
+    color: ${(props) => (props.inverted ? props.theme.colors.fontWhite : props.theme.colors.fontBlack)};
+    cursor: pointer;
     font-size: 14px;
+    font-weight: bold;
     letter-spacing: -0.03em;
+    line-height: 20px;
     margin-bottom: 0;
+    margin-right: 32px;
     margin-top: 0;
     text-align: left;
-    margin-right: 32px;
-    cursor: pointer;
 
     @media(max-width: 768px) {
       visibility: hidden;
@@ -69,16 +67,16 @@ const NavbarButton = styled.div`
     }
 `;
 const BurgerMenu = styled.div<BurgerMenuProps>`
-    margin-left: auto;
-    visibility: hidden;
-    display: none;
     background-color: transparent;
     border          : none;
     cursor          : pointer;
-    padding         : 0;
+    display:  none;
     height          : 34px;
-    width           : 34px;
+    margin-left: auto;
     outline         : none;
+    padding         : 0;
+    visibility: hidden;
+    width           : 34px;
 
     svg {
       height: 100%;
@@ -87,7 +85,7 @@ const BurgerMenu = styled.div<BurgerMenuProps>`
 
   .line {
     fill        : none;
-    stroke      : ${props => props.theme.colors.fontWhite};
+    stroke      : ${(props) => props.theme.colors.fontWhite};
     stroke-width: 6;
     transition  : stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
       stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -138,7 +136,6 @@ interface NavbarState {
   sidebarOpened: boolean;
 }
 export default class Navbar extends Component<any, NavbarState> {
-
   constructor(props: any) {
     super(props);
     this.state = {
@@ -146,9 +143,11 @@ export default class Navbar extends Component<any, NavbarState> {
     };
   }
 
-  handleToggle = () => this.setState({ sidebarOpened: !this.state.sidebarOpened });
+  handleToggle = () => this.setState((prevState) => ({ sidebarOpened: !prevState }));
 
   render() {
+    const { sidebarOpened } = this.state;
+
     return (
       <Header id="header">
         <Container>
@@ -162,7 +161,7 @@ export default class Navbar extends Component<any, NavbarState> {
             <NavbarButton>
               <Button inverted>Let's talk</Button>
             </NavbarButton>
-            <BurgerMenu sidebarOpened={this.state.sidebarOpened} aria-label="Main Menu" onClick={() => this.handleToggle()}>
+            <BurgerMenu sidebarOpened={sidebarOpened} aria-label="Main Menu" onClick={() => this.handleToggle()}>
               <svg fillOpacity="1" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 100 100">
                 <path className="line line1" d="M 20,29.000046 H 80.00031 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
                 <path className="line line2" d="M 20,50 H 80" />
@@ -172,6 +171,6 @@ export default class Navbar extends Component<any, NavbarState> {
           </NavbarContainer>
         </Container>
       </Header>
-    )
+    );
   }
 }
