@@ -19,6 +19,7 @@ export const plugins =[
     "gatsby-plugin-preact",
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-smoothscroll",
     "gatsby-plugin-image",
     {
         resolve: "gatsby-plugin-google-analytics",
