@@ -63,26 +63,28 @@ export const WeWaterContainer = styled.div`
 
 export default class SelectedWorkItemWeWater extends PureComponent {
   componentDidMount() {
-    const ex1Layer: any = document.getElementById('wewater-container');
+    if (typeof window !== 'undefined' && window.innerWidth > 767) {
+      const ex1Layer: any = document.getElementById('wewater-container');
 
-    ex1Layer.onmousemove = (e: any) => {
-      const dim = e.target.getBoundingClientRect();
-      const xVal = e.clientX - dim.left;
-      const yVal = e.clientY - dim.top;
+      ex1Layer.onmousemove = (e: any) => {
+        const dim = e.target.getBoundingClientRect();
+        const xVal = e.clientX - dim.left;
+        const yVal = e.clientY - dim.top;
 
-      const yRotation = 20 * ((xVal - 1200 / 2) / 1200);
+        const yRotation = 20 * ((xVal - 1200 / 2) / 1200);
 
-      const xRotation = -20 * ((yVal - 406 / 2) / 406);
+        const xRotation = -20 * ((yVal - 406 / 2) / 406);
 
-      const string = `perspective(1200px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+        const string = `perspective(1200px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
 
-      ex1Layer.style.transform = string;
-    };
-    ex1Layer.onmouseout = () => {
-      ex1Layer.style.transform = `${'perspective(1200px) '
-        + '   rotateX('}0deg) `
-        + '   rotateY(0deg) ';
-    };
+        ex1Layer.style.transform = string;
+      };
+      ex1Layer.onmouseout = () => {
+        ex1Layer.style.transform = `${'perspective(1200px) '
+          + '   rotateX('}0deg) `
+          + '   rotateY(0deg) ';
+      };
+    }
   }
 
 
