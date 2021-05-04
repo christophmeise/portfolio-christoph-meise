@@ -28,6 +28,19 @@ export const HoverContainerDiv = styled.div<SelectedWorksGridItemProps>`
     transform-style: preserve-3d;
     transition: all 0.2s linear 0s;
   }
+  &#scm-container {
+    background: ${(props) => props.theme.colors.success};
+    transform-style: preserve-3d;
+    transition: all 0.2s linear 0s;
+  }
+  &#origin-container {
+    background: linear-gradient(114.44deg, #EB0055 0%, #FFFA80 100%);
+    transform-style: preserve-3d;
+    transition: all 0.2s linear 0s;
+  }
+  svg, img, div {
+    pointer-events: none;
+  }
 `;
 
 interface HoverContainerProps {
@@ -41,23 +54,22 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
       const { containerId } = this.props;
       const ex1Layer: any = document.getElementById(containerId);
 
-      ex1Layer.onmousemove = (e: any) => {
-        const xVal = e.clientX - e.currentTarget.offsetLeft;
-        const yVal = e.clientY - e.currentTarget.offsetTop;
-
-        const yRotation = 10 * ((xVal - 1200 / 2) / 1200);
-
-        const xRotation = ((yVal - 420 / 2) / 100);
-
-        const string = `perspective(800px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.1)`;
-
-        ex1Layer.style.transform = string;
+      ex1Layer.onmouseover = () => {
         ex1Layer.style.transition = 'all 0.05s linear 0s';
       };
+
+      ex1Layer.onmousemove = (e: any) => {
+        const rect = e.target.getBoundingClientRect();
+        const xVal = e.clientX - rect.left; // x position within the element.
+        const yVal = e.clientY - rect.top; // y position within the element.
+
+        const yRotation = (xVal - 600) / 220;
+        const xRotation = (yVal - 210) / -200;
+
+        ex1Layer.style.transform = `rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale(1.05)`;
+      };
       ex1Layer.onmouseout = () => {
-        ex1Layer.style.transform = `${'perspective(800px) '
-          + '   rotateX('}0deg) `
-          + '   rotateY(0deg) scale(1)';
+        ex1Layer.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
         ex1Layer.style.transition = 'all 0.2s linear 0s';
       };
     }
