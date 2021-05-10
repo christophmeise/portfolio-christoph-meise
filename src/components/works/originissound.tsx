@@ -65,7 +65,7 @@ width: 380px;
 export default class OriginIsSoundCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large={false} containerId="origin-container">
+      <HoverContainer large={false} containerId="origin-container" href="https://www.scmonline.de/">
         <OriginIsSoundContainer>
           <div>
             <h4>ORIGIN IS SOUND</h4>

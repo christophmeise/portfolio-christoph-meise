@@ -73,7 +73,7 @@ export const Stripe = styled.div<StripeProps>`
 export default class SCMCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large={false} containerId="scm-container">
+      <HoverContainer large={false} containerId="scm-container" href="https://www.scmonline.de/">
         <SCMCardContainer>
           <LogoSCM />
           <Stripes left="unset" right="0" top="0">

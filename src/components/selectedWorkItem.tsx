@@ -13,7 +13,7 @@ export const SelectedWorksGridItem = styled.div`
     transition: all 0.2s linear 0s;
   }
 `;
-export const HoverContainerDiv = styled.div<SelectedWorksGridItemProps>`
+export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
   border-radius: ${(props) => props.theme.borderRadiusBig};
   grid-column: ${(props) => (props.large ? 'span 2' : 'span 1')};
   height: ${(props) => (props.large ? '420px' : '523px')};
@@ -47,6 +47,7 @@ interface HoverContainerProps {
   containerId: string;
   children: any;
   large: boolean;
+  href: string;
 }
 export default class HoverContainer extends PureComponent<HoverContainerProps> {
   componentDidMount() {
@@ -77,11 +78,13 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
 
 
   render() {
-    const { children, containerId, large } = this.props;
+    const {
+      children, containerId, large, href
+    } = this.props;
     return (
-      <HoverContainerDiv id={containerId} large={large}>
+      <HoverContainerLink id={containerId} large={large} href={href} target="_blank">
         { children}
-      </HoverContainerDiv>
+      </HoverContainerLink>
     );
   }
 }

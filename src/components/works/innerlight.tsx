@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { device } from '../../theme/theme';
 import { LogoInnerLightWhite } from '../clientLogos';
 import HoverContainer from '../selectedWorkItem';
+import { Tag, TagContainer } from './wewater';
 
 export const InnerLightContainer = styled.div`
   display: flex;
@@ -63,7 +64,7 @@ export const InnerLightContainer = styled.div`
 export default class InnerlightCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large containerId="innerlight-container">
+      <HoverContainer large containerId="innerlight-container" href="https://innerlight-hypnotherapy.com/">
         <InnerLightContainer>
           <StaticImage
             src="../../../static/images/works/innerlight.png"
@@ -85,6 +86,20 @@ export default class InnerlightCard extends PureComponent {
               Rebranding and complete relaunch to maximize
               performance and user engagement.
             </p>
+            <TagContainer>
+              <Tag>
+                <span>GatsbyJS</span>
+              </Tag>
+              <Tag>
+                <span>Forestry</span>
+              </Tag>
+              <Tag>
+                <span>Stripe</span>
+              </Tag>
+              <Tag>
+                <span>React</span>
+              </Tag>
+            </TagContainer>
           </div>
         </InnerLightContainer>
       </HoverContainer>
