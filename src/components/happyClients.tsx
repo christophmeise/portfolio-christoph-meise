@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react';
+import { Tween } from 'react-gsap';
+import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
 import { Container, ContainerContentFull, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
@@ -20,21 +22,23 @@ export const ClientGridContainer = styled.div`
     }
 `;
 export const ClientGrid = styled.div`
-  column-gap: 18px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 48px;
-  max-width: 950px;
-  overflow-x: hidden;
-  padding-bottom: 6rem;
+  &>div {
+    column-gap: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+    max-width: 950px;
+    overflow-x: hidden;
+    padding-bottom: 6rem;
 
-  @media ${device.laptop} {
-    column-gap: 24px;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    @media ${device.laptop} {
+      column-gap: 24px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 `;
 export const ClientCol = styled.div`
@@ -87,7 +91,7 @@ export const ClientRectangle = styled.div`
 export default class HappyClients extends PureComponent {
   render() {
     return (
-      <Container centered>
+      <Container centered className="clients-trigger">
         <ContainerContentStandard>
           <HeadlineDark style={{ marginBottom: '8px' }}>
             Happy Clients
@@ -99,25 +103,36 @@ export default class HappyClients extends PureComponent {
         <ContainerContentFull>
           <ClientGridContainer>
             <ClientGrid>
-              <ClientCol>
-                <ClientRectangle><LogoDHL /></ClientRectangle>
-              </ClientCol>
-              <ClientCol>
-                <ClientRectangle><LogoBayer /></ClientRectangle>
-                <ClientRectangle><LogoDB /></ClientRectangle>
-              </ClientCol>
-              <ClientCol>
-                <ClientRectangle><LogoSerrala /></ClientRectangle>
-                <ClientRectangle><LogoSAP /></ClientRectangle>
-                <ClientRectangle><LogoInnerLight /></ClientRectangle>
-              </ClientCol>
-              <ClientCol>
-                <ClientRectangle><LogoSCM /></ClientRectangle>
-                <ClientRectangle><LogoWeWater /></ClientRectangle>
-              </ClientCol>
-              <ClientCol>
-                <ClientRectangle><LogoOpremic /></ClientRectangle>
-              </ClientCol>
+              <Controller>
+                <Scene duration={400} offset={-150} triggerElement=".clients-trigger">
+                  <Tween
+                    from={{ scale: 0, opacity: 0 }}
+                    stagger={{ from: 'random', amount: 300, grid: [5, 3] }}
+                    duration={300}
+                    ease="power3.inOut"
+                  >
+                    <ClientCol>
+                      <ClientRectangle><LogoDHL /></ClientRectangle>
+                    </ClientCol>
+                    <ClientCol>
+                      <ClientRectangle><LogoBayer /></ClientRectangle>
+                      <ClientRectangle><LogoDB /></ClientRectangle>
+                    </ClientCol>
+                    <ClientCol>
+                      <ClientRectangle><LogoSerrala /></ClientRectangle>
+                      <ClientRectangle><LogoSAP /></ClientRectangle>
+                      <ClientRectangle><LogoInnerLight /></ClientRectangle>
+                    </ClientCol>
+                    <ClientCol>
+                      <ClientRectangle><LogoSCM /></ClientRectangle>
+                      <ClientRectangle><LogoWeWater /></ClientRectangle>
+                    </ClientCol>
+                    <ClientCol>
+                      <ClientRectangle><LogoOpremic /></ClientRectangle>
+                    </ClientCol>
+                  </Tween>
+                </Scene>
+              </Controller>
             </ClientGrid>
           </ClientGridContainer>
         </ContainerContentFull>

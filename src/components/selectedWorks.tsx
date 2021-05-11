@@ -15,12 +15,12 @@ export const SelectedWorksGrid = styled.div`
   margin-bottom: 80px;
   margin-top: 48px;
   perspective: 2000px;
-  row-gap: 48px;
+  row-gap: 24px;
   width: 100%;
 
   @media ${device.laptop} {
     grid-template-columns: 1fr 1fr;
-    column-gap: 64px;
+    column-gap: 24px;
   }
 `;
 

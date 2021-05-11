@@ -1,5 +1,7 @@
 import { Link } from 'gatsby';
 import React, { PureComponent } from 'react';
+import { Tween } from 'react-gsap';
+import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { HeadlineDark } from './globalStyle';
@@ -34,6 +36,7 @@ const CallToActionLink = styled.div`
 `;
 
 const FullStackGrid = styled.div`
+  &>div {
   column-gap: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -41,6 +44,7 @@ const FullStackGrid = styled.div`
   @media(max-width: 768px) {
       grid-template-columns: 1fr;
       row-gap: 60px;
+  }
   }
 `;
 const FullStackGridItem = styled.div`
@@ -155,52 +159,61 @@ const BackendIcon = () => (
 export default class FullStack extends PureComponent {
   render() {
     return (
-      <Container id="full-stack">
+      <Container id="full-stack" className="full-stack-trigger">
         <ContainerContentStandard>
           <HeadlineDark>
             Full-Stack by all means.
           </HeadlineDark>
           <FullStackGrid>
-            <FullStackGridItem>
-              <FullStackIcon>
-                <WebDevelopmentIcon />
-              </FullStackIcon>
-              <Subtitle>Web Development</Subtitle>
-              <Text>From static server-side rendered to dynamic single page applications. From standalone website to corporate application.</Text>
-              <CallToActionLink>
-                <Link to="/">
-                  <span>Know more</span>
-                  <ArrowIcon />
-                </Link>
-              </CallToActionLink>
-            </FullStackGridItem>
-            <FullStackGridItem>
-              <FullStackIcon>
-                <UXDesignIcon />
-              </FullStackIcon>
-              <Subtitle>UX Design</Subtitle>
-              <Text>Styles come and go. Good design is a language, not a style. For me, UX is part of the process, not an afterthought.</Text>
-              <CallToActionLink>
-                <Link to="/">
-                  <span>Know more</span>
-                  <ArrowIcon />
-                </Link>
-              </CallToActionLink>
-            </FullStackGridItem>
-            <FullStackGridItem>
-              <FullStackIcon>
-                <BackendIcon />
-              </FullStackIcon>
-              <Subtitle>Backend Integrations</Subtitle>
-              <Text>System architecture and backend engineering. Machine Learning, Blockchain and Microservices are not buzzwords for me, but successful projects.</Text>
-              <CallToActionLink>
-                <Link to="/">
-                  <span>Know more</span>
-                  <ArrowIcon />
-                </Link>
-              </CallToActionLink>
-            </FullStackGridItem>
-
+            <Controller>
+              <Scene duration={300} offset={-100} triggerElement=".full-stack-trigger">
+                <Tween
+                  from={{ y: 50, visibility: 'hidden', opacity: 0 }}
+                  to={{ y: 0, visibility: 'visible', opacity: 1 }}
+                  stagger={{ from: 'start', amount: 1, grid: [1, 3] }}
+                >
+                  <FullStackGridItem>
+                    <FullStackIcon>
+                      <WebDevelopmentIcon />
+                    </FullStackIcon>
+                    <Subtitle>Web Development</Subtitle>
+                    <Text>From static server-side rendered to dynamic single page applications. From standalone website to corporate application.</Text>
+                    <CallToActionLink>
+                      <Link to="/">
+                        <span>Know more</span>
+                        <ArrowIcon />
+                      </Link>
+                    </CallToActionLink>
+                  </FullStackGridItem>
+                  <FullStackGridItem>
+                    <FullStackIcon>
+                      <UXDesignIcon />
+                    </FullStackIcon>
+                    <Subtitle>UX Design</Subtitle>
+                    <Text>Styles come and go. Good design is a language, not a style. For me, UX is part of the process, not an afterthought.</Text>
+                    <CallToActionLink>
+                      <Link to="/">
+                        <span>Know more</span>
+                        <ArrowIcon />
+                      </Link>
+                    </CallToActionLink>
+                  </FullStackGridItem>
+                  <FullStackGridItem>
+                    <FullStackIcon>
+                      <BackendIcon />
+                    </FullStackIcon>
+                    <Subtitle>Backend Integrations</Subtitle>
+                    <Text>System architecture and backend engineering. Machine Learning, Blockchain and Microservices are not buzzwords for me, but successful projects.</Text>
+                    <CallToActionLink>
+                      <Link to="/">
+                        <span>Know more</span>
+                        <ArrowIcon />
+                      </Link>
+                    </CallToActionLink>
+                  </FullStackGridItem>
+                </Tween>
+              </Scene>
+            </Controller>
           </FullStackGrid>
         </ContainerContentStandard>
       </Container>
