@@ -16,6 +16,7 @@ export const Tag = styled.div`
   border-radius: 40px;
   display: flex;
   justify-content: center;
+  margin-bottom: 6px;
   margin-right: 6px;
 
   span {

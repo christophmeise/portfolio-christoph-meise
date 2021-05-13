@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 interface ContainerProps {
-    readonly centered?: boolean;
+  readonly centered?: boolean;
 }
 
 export const Container = styled.section<ContainerProps>`
     display: grid;
-    grid-template-columns: [full-start] minmax(2rem,1fr) [standard-start] 0 [narrow-start] minmax(1rem,67.5rem) [narrow-end] 0 [standard-end] minmax(2rem,1fr) [full-end];
+    grid-template-columns: [full-start] minmax(20px,1fr) [standard-start] 0 [narrow-start] minmax(1rem,67.5rem) [narrow-end] 0 [standard-end] minmax(20px,1fr) [full-end];
     padding: 0;
     position: relative;
     text-align: ${(props) => (props.centered ? 'center' : 'left')};

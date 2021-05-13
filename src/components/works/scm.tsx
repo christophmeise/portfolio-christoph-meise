@@ -12,10 +12,7 @@ export const SCMCardContainer = styled.div`
   height:auto;
   justify-content: space-between;
   left:0;
-  margin-bottom:0;
-  margin-left:24px;
-  margin-right:0;
-  margin-top:24px;
+  overflow: hidden;
   position:absolute;
   right:0;
   top:0;
@@ -28,6 +25,8 @@ export const SCMCardContainer = styled.div`
   }
   .scm-logo {
     height: 55px;
+    padding-left: 24px;
+    padding-top: 12px;
     width: 55px;
   }
   .scm-img {
@@ -36,18 +35,7 @@ export const SCMCardContainer = styled.div`
     max-width: 100%;
     position: absolute;
     transform: translateX(-50%);
-    width: 310px;
-  }
-
-  @media ${device.tablet} {
-  .scm-img {
-    bottom: 0;
-    left: 50%;
-    max-width: 100%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 310px;
-  }
+    width: 100%;
   }
 
 `;
@@ -88,7 +76,7 @@ export default class SCMCard extends PureComponent {
       <HoverContainer large={false} containerId="scm-container" href="https://www.scmonline.de/">
         <SCMCardContainer>
           <LogoSCM />
-          <Stripes left="unset" right="0" top="0">
+          <Stripes left="unset" right="0" top="30px">
             <Stripe stripeColor="#14E8AF" translateX={150} />
             <Stripe stripeColor="#B1FFDA" translateX={0} />
             <Stripe stripeColor="#75EA96" translateX={250} />

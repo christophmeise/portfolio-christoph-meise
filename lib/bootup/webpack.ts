@@ -1,6 +1,6 @@
+import LoadablePlugin from '@loadable/webpack-plugin';
 import { GatsbyNode } from 'gatsby';
 import Path from 'path';
-
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = async ({
   stage,
@@ -8,6 +8,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = async 
   actions
 }) => {
   actions.setWebpackConfig({
+    plugins: [new LoadablePlugin()],
     module: {
       rules: stage === 'build-html'
         ? [

@@ -17,11 +17,9 @@ export const SelectedWorksGridItem = styled.div`
 export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
   border-radius: ${(props) => props.theme.borderRadiusBig};
   grid-column: span 1;
-  height: ${(props) => (props.large ? '420px' : '523px')};
+  min-height: ${(props) => (props.large ? '420px' : '523px')};
 
   @media ${device.tablet} {
-    width:  150px;
-    height: 85px;
     grid-column: ${(props) => (props.large ? 'span 2' : 'span 1')};
   }
 
