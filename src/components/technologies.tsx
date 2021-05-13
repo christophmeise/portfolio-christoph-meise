@@ -1,10 +1,10 @@
+import Loadable from '@loadable/component';
 import React, { PureComponent } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { HeadlineDark } from './globalStyle';
-import CustomGlobe from './globe';
 
 const GlobeSection = styled.div`
     overflow: hidden;
@@ -33,6 +33,7 @@ const GlobeTextContainer = styled.div`
     }
 `;
 
+const LoadableGlobe: any = Loadable(() => import('./globe'));
 export default class Technologies extends PureComponent {
   render() {
     return (
@@ -63,7 +64,7 @@ export default class Technologies extends PureComponent {
                 <GlobeSection className="globe-trigger">
                   <GlobeContainer>
                     <GlobeWrapper>
-                      <CustomGlobe />
+                      <LoadableGlobe />
                     </GlobeWrapper>
                   </GlobeContainer>
                   <Container>

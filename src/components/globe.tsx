@@ -1,5 +1,5 @@
-/* eslint-disable no-restricted-properties */
-/* eslint-disable no-plusplus */
+/* eslint-disable global-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-return-assign */
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
@@ -22,6 +22,7 @@ export default class CustomGlobe extends PureComponent {
   mount: any;
 
   componentDidMount() {
+    /*  const ThreeGlobe = require('three-globe'); */
     fetch('./countries.geojson').then((res) => res.json()).then((countries) => {
       const myGlobe = new ThreeGlobe();
       /*       const controls: any = world.controls();
