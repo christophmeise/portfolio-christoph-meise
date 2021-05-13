@@ -1,10 +1,10 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-return-assign */
+import Loadable from '@loadable/component';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
-import ThreeGlobe from 'three-globe';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const GlobeFigure = styled.div`
@@ -18,11 +18,11 @@ const GlobeFigure = styled.div`
     width: 100%;
 `;
 
+const ThreeGlobe: any = Loadable((): any => import('three-globe'));
 export default class CustomGlobe extends PureComponent {
   mount: any;
 
   componentDidMount() {
-    /*  const ThreeGlobe = require('three-globe'); */
     fetch('./countries.geojson').then((res) => res.json()).then((countries) => {
       const myGlobe = new ThreeGlobe();
       /*       const controls: any = world.controls();
