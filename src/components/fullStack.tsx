@@ -158,19 +158,25 @@ const BackendIcon = () => (
 
 export default class FullStack extends PureComponent {
   render() {
+    let staggerGrid: [number, number] = [1, 3];
+    let offset = -100;
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      staggerGrid = [3, 1];
+      offset = 0;
+    }
     return (
-      <Container id="full-stack" className="full-stack-trigger">
+      <Container id="full-stack" className="full-stack-trigger content-section">
         <ContainerContentStandard>
           <HeadlineDark>
             Full-Stack by all means.
           </HeadlineDark>
           <FullStackGrid>
             <Controller>
-              <Scene duration={300} offset={-100} triggerElement=".full-stack-trigger">
+              <Scene duration={600} offset={offset} triggerElement=".full-stack-trigger">
                 <Tween
                   from={{ y: 50, visibility: 'hidden', opacity: 0 }}
                   to={{ y: 0, visibility: 'visible', opacity: 1 }}
-                  stagger={{ from: 'start', amount: 1, grid: [1, 3] }}
+                  stagger={{ from: 'start', amount: 1, grid: staggerGrid }}
                 >
                   <FullStackGridItem>
                     <FullStackIcon>

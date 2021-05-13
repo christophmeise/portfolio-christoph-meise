@@ -1,6 +1,7 @@
 /* eslint-disable prefer-spread */
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { device } from '../theme/theme';
 
 interface SelectedWorksGridItemProps {
   large?: boolean
@@ -15,8 +16,14 @@ export const SelectedWorksGridItem = styled.div`
 `;
 export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
   border-radius: ${(props) => props.theme.borderRadiusBig};
-  grid-column: ${(props) => (props.large ? 'span 2' : 'span 1')};
+  grid-column: span 1;
   height: ${(props) => (props.large ? '420px' : '523px')};
+
+  @media ${device.tablet} {
+    width:  150px;
+    height: 85px;
+    grid-column: ${(props) => (props.large ? 'span 2' : 'span 1')};
+  }
 
   &#wewater-container {
     background: linear-gradient(114.44deg, #624AF2 0%, #50DDC3 100%);

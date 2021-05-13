@@ -13,19 +13,12 @@ export const OriginIsSoundContainer = styled.div`
   justify-content: space-between;
   left:0;
   margin-bottom:0;
-  margin-left:37px;
+  margin-left:24px;
   margin-right:0;
-  margin-top:30px;
+  margin-top:24px;
   position:absolute;
   right:0;
   top:0;
-
-  @media ${device.tablet} {
-  margin-bottom:0;
-  margin-left:37px;
-  margin-right:0;
-  margin-top:30px;
-  }
 
   h4{
     color: #ffffff;
@@ -49,17 +42,30 @@ export const OriginIsSoundContainer = styled.div`
     position: absolute;
     transform: translateX(-50%);
     width: 310px;
+    max-width: 100%;
+  }
+
+  svg {
+    max-width: 100%;
+  }
+
+  @media ${device.tablet} {
+    margin-bottom:0;
+    margin-left:37px;
+    margin-right:0;
+    margin-top:30px;
   }
 
 `;
 
 export const BackgroundGradient = styled.div`
-height: 380px;
-left: 71.5px;
-position: absolute;
-
-top: 111px;
-width: 380px;
+  height: 380px;
+  left: 50%;
+  max-width: 100%;
+  position: absolute;
+  top: 111px;
+  transform: translateX(-50%);
+  width: 380px;
 `;
 
 export default class OriginIsSoundCard extends PureComponent {

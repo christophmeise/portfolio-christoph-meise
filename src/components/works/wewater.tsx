@@ -8,6 +8,7 @@ import WeWaterIllustration from '../wewaterIllustration';
 export const TagContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 export const Tag = styled.div`
   align-items: center;
@@ -76,8 +77,7 @@ export default class WeWaterCard extends PureComponent {
             <LogoWeWaterWhite />
             <h3>
               WeWater.
-          <br />
-          Clean water worldwide.
+              Clean water worldwide.
             </h3>
             <p>
               Rebranding and complete relaunch to maximize

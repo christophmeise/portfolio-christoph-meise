@@ -27,7 +27,7 @@ export const SelectedWorksGrid = styled.div`
 export default class SelectedWorks extends PureComponent {
   render() {
     return (
-      <Container>
+      <Container className="content-section">
         <ContainerContentStandard>
           <HeadlineDark>Selected works</HeadlineDark>
           <SelectedWorksGrid>

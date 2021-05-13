@@ -13,9 +13,9 @@ export const SCMCardContainer = styled.div`
   justify-content: space-between;
   left:0;
   margin-bottom:0;
-  margin-left:37px;
+  margin-left:24px;
   margin-right:0;
-  margin-top:30px;
+  margin-top:24px;
   position:absolute;
   right:0;
   top:0;
@@ -30,16 +30,24 @@ export const SCMCardContainer = styled.div`
     height: 55px;
     width: 55px;
   }
-  #wewater-illustration {
-    display: none;
-    visibility: hidden;
+  .scm-img {
+    bottom: 0;
+    left: 50%;
+    max-width: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 310px;
   }
 
   @media ${device.tablet} {
-    #wewater-illustration {
-      display: block;
-      visibility: visible;
-    }
+  .scm-img {
+    bottom: 0;
+    left: 50%;
+    max-width: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 310px;
+  }
   }
 
 `;
@@ -72,6 +80,10 @@ export const Stripe = styled.div<StripeProps>`
 `;
 export default class SCMCard extends PureComponent {
   render() {
+    let stripesLeft = '-37px';
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      stripesLeft = '-24px';
+    }
     return (
       <HoverContainer large={false} containerId="scm-container" href="https://www.scmonline.de/">
         <SCMCardContainer>
@@ -81,7 +93,7 @@ export default class SCMCard extends PureComponent {
             <Stripe stripeColor="#B1FFDA" translateX={0} />
             <Stripe stripeColor="#75EA96" translateX={250} />
           </Stripes>
-          <Stripes left="-37px" right="unset" top="200px">
+          <Stripes left={stripesLeft} right="unset" top="200px">
             <Stripe stripeColor="#14E8AF" translateX={0} />
             <Stripe stripeColor="#75EA96" translateX={-275} />
           </Stripes>

@@ -91,7 +91,7 @@ export const ClientRectangle = styled.div`
 export default class HappyClients extends PureComponent {
   render() {
     return (
-      <Container centered className="clients-trigger">
+      <Container centered className="clients-trigger content-section">
         <ContainerContentStandard>
           <HeadlineDark style={{ marginBottom: '8px' }}>
             Happy Clients
