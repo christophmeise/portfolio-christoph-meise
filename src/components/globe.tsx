@@ -1,11 +1,10 @@
 /* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-return-assign */
-import Loadable from '@loadable/component';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import ThreeGlobe from 'three-globe';
 
 const GlobeFigure = styled.div`
     cursor: grab;
@@ -18,17 +17,13 @@ const GlobeFigure = styled.div`
     width: 100%;
 `;
 
-const ThreeGlobe: any = Loadable((): any => import('three-globe'));
 export default class CustomGlobe extends PureComponent {
   mount: any;
 
   componentDidMount() {
-    fetch('./countries.geojson').then((res) => res.json()).then((countries) => {
+    fetch('./countries_small.geojson').then((res) => res.json()).then((countries) => {
       const myGlobe = new ThreeGlobe();
-      /*       const controls: any = world.controls();
-            controls.enableZoom = false; */
       myGlobe
-        // .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
         .globeMaterial(new THREE.MeshPhongMaterial({
           color: new THREE.Color(0x5E3AEE),
           opacity: 0.35,
@@ -64,12 +59,12 @@ export default class CustomGlobe extends PureComponent {
       camera.lookAt(xyz);
 
       // controls
-      const controls = new OrbitControls(camera, this.mount);
-      controls.target.set(0, 0, 0);
-      controls.enableZoom = false;
-      controls.enablePan = false;
-      controls.enableRotate = false;
-      controls.update();
+      /*       const controls = new OrbitControls(camera, this.mount);
+            controls.target.set(0, 0, 0);
+            controls.enableZoom = false;
+            controls.enablePan = false;
+            controls.enableRotate = false;
+            controls.update(); */
 
       function resizeRendererToDisplaySize() {
         const canvas = renderer.domElement;

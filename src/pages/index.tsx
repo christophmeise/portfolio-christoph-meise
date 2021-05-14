@@ -31,6 +31,7 @@ const DarkModeContainer = styled.div`
     margin-bottom: 150px;
   }
 `;
+
 export default class IndexPage extends React.PureComponent<IndexProps> {
   render() {
     const title = 'Portfolio Christoph Meise - ExploreChristoph';
