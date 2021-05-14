@@ -1,3 +1,4 @@
+import Loadable from '@loadable/component';
 import React, { PureComponent } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
@@ -33,9 +34,15 @@ const GlobeTextContainer = styled.div`
 `;
 
 // const LoadableGlobe: any = Loadable(() => import('./globe'));
-// const BoxCanvas: any = Loadable(() => import('./boxCanvas'));
+const BoxCanvas: any = Loadable(() => import('./boxCanvas'));
 export default class Technologies extends PureComponent {
   render() {
+    let loadedCountries: any = null;
+    if (typeof window !== 'undefined' && !loadedCountries) {
+      fetch('./countries_small.geojson').then((res) => res.json()).then((countries) => {
+        loadedCountries = countries;
+      });
+    }
     return (
       <div>
         <Controller>
@@ -62,14 +69,15 @@ export default class Technologies extends PureComponent {
             <Scene duration={1000} pin triggerHook={0}>
               {(progress: any) => (
                 <GlobeSection className="globe-trigger">
-                  <GlobeContainer>
-                    <GlobeWrapper>
-                      {/* <BoxCanvas /> */}
-                      {/* <LoadableGlobe /> */}
-                    </GlobeWrapper>
-                  </GlobeContainer>
                   <Container>
                     <ContainerContentStandard>
+                      <GlobeContainer>
+                        <GlobeWrapper>
+                          {loadedCountries != null
+                            && <BoxCanvas loadedCountries={loadedCountries} />}
+                          {/* <LoadableGlobe /> */}
+                        </GlobeWrapper>
+                      </GlobeContainer>
                       <GlobeTextContainer>
                         <Timeline totalProgress={progress} paused>
                           <Tween
