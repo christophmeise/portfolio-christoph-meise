@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import loadable from '@loadable/component';
 import React, { PureComponent } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
-import * as THREE from 'three';
-import ThreeGlobe from 'three-globe';
 import { Container, ContainerContentStandard } from '../styles/container';
-import BoxCanvas from './boxCanvas';
 import { HeadlineDark } from './globalStyle';
 
 const GlobeSection = styled.div`
@@ -36,31 +35,9 @@ const GlobeTextContainer = styled.div`
 `;
 
 // const LoadableGlobe: any = Loadable(() => import('./globe'));
-// const BoxCanvas: any = Loadable(() => import('./boxCanvas'));
+const BoxCanvas: any = loadable(() => import(/* webpackPrefetch: true */ './boxCanvas'));
+
 export default class Technologies extends PureComponent {
-  myGlobe: any = null;
-
-  componentDidMount() {
-    if (typeof window !== 'undefined' && !this.myGlobe) {
-      fetch('./countries_small.geojson').then((res) => res.json()).then((countries) => {
-        const myGlobe = new ThreeGlobe();
-        myGlobe
-          .hexPolygonsData(countries.features)
-          .globeMaterial(new THREE.MeshPhongMaterial({
-            color: new THREE.Color(0x5E3AEE),
-            opacity: 0,
-            transparent: true
-          }))
-          .hexPolygonResolution(3)
-          .hexPolygonMargin(0.3)
-          .showAtmosphere(true)
-          .atmosphereColor('#5e3aee')
-          .hexPolygonColor(() => '#5e3aee');
-        this.myGlobe = myGlobe;
-      });
-    }
-  }
-
   render() {
     return (
       <div>
@@ -68,6 +45,7 @@ export default class Technologies extends PureComponent {
           <div>
             <Container centered>
               <ContainerContentStandard>
+
                 <Scene duration={400} triggerHook={0.9}>
                   <Tween
                     from={{
@@ -93,8 +71,9 @@ export default class Technologies extends PureComponent {
                       <GlobeContainer>
                         <GlobeWrapper>
                           {typeof window !== 'undefined'
-                            && this.myGlobe != null && <BoxCanvas myGlobe={this.myGlobe} />}
-                          {/* <LoadableGlobe /> */}
+                            && (
+                              <BoxCanvas />
+                            )}
                         </GlobeWrapper>
                       </GlobeContainer>
                       <GlobeTextContainer>
