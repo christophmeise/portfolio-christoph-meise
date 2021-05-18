@@ -1,3 +1,4 @@
+import loadable from '@loadable/component';
 import * as React from 'react';
 import styled from 'styled-components';
 import FullStack from '../components/fullStack';
@@ -32,6 +33,9 @@ const DarkModeContainer = styled.div`
   }
 `;
 
+const Mac: any = loadable(() => import(/* webpackPrefetch: true */ '../components/mac'));
+
+
 export default class IndexPage extends React.PureComponent<IndexProps> {
   render() {
     const title = 'Portfolio Christoph Meise - ExploreChristoph';
@@ -46,6 +50,7 @@ export default class IndexPage extends React.PureComponent<IndexProps> {
           <DarkModeContainer>
             <FullStack />
             <HappyClients />
+            {typeof window !== 'undefined' && <Mac />}
             <SelectedWorks />
             <Technologies />
           </DarkModeContainer>

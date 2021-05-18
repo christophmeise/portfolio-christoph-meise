@@ -34,9 +34,7 @@ const GlobeTextContainer = styled.div`
     }
 `;
 
-// const LoadableGlobe: any = Loadable(() => import('./globe'));
 const CustomGlobe: any = loadable(() => import(/* webpackPrefetch: true */ './customGlobe'));
-
 export default class Technologies extends PureComponent {
   render() {
     return (
@@ -45,7 +43,6 @@ export default class Technologies extends PureComponent {
           <div>
             <Container centered>
               <ContainerContentStandard>
-
                 <Scene duration={400} triggerHook={0.9}>
                   <Tween
                     from={{
