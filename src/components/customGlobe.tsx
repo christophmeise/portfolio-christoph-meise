@@ -127,7 +127,8 @@ export default class CustomGlobe extends PureComponent {
         <directionalLight position={[800, 800, 800]} intensity={0.2} />
         {this.positions?.length > 0
           && <Planet positions={this.positions} />}
-        <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />
+        {window.innerWidth > 768
+          && <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />}
       </Canvas>
     );
   }

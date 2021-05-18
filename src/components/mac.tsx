@@ -12,6 +12,7 @@ import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
 import * as THREE from 'three';
 import { Container, ContainerContentStandard } from '../styles/container';
+import { device } from '../theme/theme';
 
 const vec = new THREE.Vector3();
 
@@ -74,17 +75,28 @@ export const MacHeadline = styled.span`
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    white-space: nowrap;
-    font-size: 60px;
+    font-size: 48px;
+    width: 100%;
   }
 
   h3 {
     color: ${(props) => props.theme.colors.fontWhite};
-    margin-bottom: 200px;
-    font-size: 36px;
+    margin-bottom: 150px;
+    font-size: 26px;
   }
+
+      @media ${device.laptop} {
+      h2 {
+        top: 50%;
+        font-size: 60px;
+      }
+      h3 {
+            margin-bottom: 200px;
+            font-size: 36px;
+      }
+    }
 `;
 
 export default function Mac() {
@@ -101,11 +113,15 @@ export default function Mac() {
 
             return (
               <web.main style={{ height: '60vh', position: 'relative', background: props.open.to([0, 1], ['#14142b', '#14142b']) }}>
-                <MacHeadline>
-                  <web.h2 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 50}px,0)`) }}>
-                    Are you ready to start?
-            </web.h2>
-                </MacHeadline>
+                <Container style={{ position: 'unset' }}>
+                  <ContainerContentStandard>
+                    <MacHeadline>
+                      <web.h2 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 50}px,0)`) }}>
+                        Are you ready to start?
+                       </web.h2>
+                    </MacHeadline>
+                  </ContainerContentStandard>
+                </Container>
                 <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 0], fov: 35 }}>
                   <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['#14142b', '#14142b'])} />
                   <Suspense fallback={null}>
