@@ -35,7 +35,7 @@ const GlobeTextContainer = styled.div`
 `;
 
 // const LoadableGlobe: any = Loadable(() => import('./globe'));
-const BoxCanvas: any = loadable(() => import(/* webpackPrefetch: true */ './boxCanvas'));
+const CustomGlobe: any = loadable(() => import(/* webpackPrefetch: true */ './customGlobe'));
 
 export default class Technologies extends PureComponent {
   render() {
@@ -72,7 +72,7 @@ export default class Technologies extends PureComponent {
                         <GlobeWrapper>
                           {typeof window !== 'undefined'
                             && (
-                              <BoxCanvas />
+                              <CustomGlobe />
                             )}
                         </GlobeWrapper>
                       </GlobeContainer>

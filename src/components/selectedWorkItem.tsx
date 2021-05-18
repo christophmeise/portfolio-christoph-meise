@@ -87,7 +87,7 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
       children, containerId, large, href
     } = this.props;
     return (
-      <HoverContainerLink id={containerId} large={large} href={href} target="_blank">
+      <HoverContainerLink id={containerId} large={large} href={href} target="_blank" rel="noopener">
         { children}
       </HoverContainerLink>
     );

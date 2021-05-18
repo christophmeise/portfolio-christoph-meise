@@ -11,7 +11,7 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import React, { PureComponent, useMemo, useRef } from 'react';
-import * as THREE from 'three';
+import { ImageLoader, Object3D, Vector3 } from 'three';
 
 function GlobeSphere(props: any) {
   const mesh: any = useRef(null!);
@@ -21,8 +21,8 @@ function GlobeSphere(props: any) {
       {...props}
       ref={mesh}
     >
-      <sphereGeometry args={[600, 32, 32]} />
-      <meshPhongMaterial color="#5E3AEE" transparent opacity={0.5} />
+      <sphereGeometry attach="geometry" args={[600, 32, 32]} />
+      <meshPhongMaterial attach="material" color="#5E3AEE" transparent opacity={0.1} />
     </mesh>
   );
 }
@@ -32,18 +32,16 @@ function Planet(props: any) {
   const meshRef: any = useRef(null!);
   const { positions } = props;
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     mesh.current.rotation.y += 0.002;
   });
 
-  /*   const geom = useMemo(() => new THREE.SphereBufferGeometry(2, 2, 2), []);
-    const mat = useMemo(() => new THREE.MeshPhongMaterial(), []); */
-  const tempObject = useMemo(() => new THREE.Object3D(), []);
+  const tempObject = useMemo(() => new Object3D(), []);
 
   const arg0: any = null;
   const arg1: any = null;
 
-  useFrame((state) => {
+  useFrame(() => {
     let i = 0;
     for (let x = 0; x < positions.length; x++) {
       const id = i++;
@@ -61,17 +59,9 @@ function Planet(props: any) {
     >
       <GlobeSphere />
       <instancedMesh ref={meshRef} args={[arg0, arg1, positions.length]}>
-        <sphereBufferGeometry args={[2, 2, 2]} />
-        <meshPhongMaterial />
+        <sphereBufferGeometry args={[3, 2, 2]} />
+        <meshPhongMaterial color="#5E3AEE" />
       </instancedMesh>
-      {/*       {positions.map((dot: any) => (
-        <mesh
-          position={[dot.x, dot.y, dot.z]}
-          key={`${dot.x}${dot.y}${dot.z}`}
-          geometry={geom}
-          material={mat}
-        />
-      ))} */}
     </group>
   );
 }
@@ -88,11 +78,11 @@ function getImageData(image: any) {
 }
 
 
-export default class BoxCanvas extends PureComponent {
+export default class CustomGlobe extends PureComponent {
   positions: any = [];
 
   componentDidMount() {
-    const image = new THREE.ImageLoader().load('images/globe.png', () => {
+    const image = new ImageLoader().load('images/globe.png', () => {
       const imagedata = getImageData(image);
       const { data } = imagedata;
       let step; let x; let y;
@@ -116,7 +106,7 @@ export default class BoxCanvas extends PureComponent {
             // Pass the angle between this dot an the Y-axis (phi)
             // Pass this dot’s angle around the y axis (theta)
             // Scale each position by 600 (the radius of the globe)
-            const vector = new THREE.Vector3();
+            const vector = new Vector3();
             vector.setFromSphericalCoords(600, phi, theta);
 
             this.positions.push(vector);
