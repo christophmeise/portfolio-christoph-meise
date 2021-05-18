@@ -7,6 +7,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import React, {
   Suspense, useEffect, useRef, useState
 } from 'react';
+import { Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
 import * as THREE from 'three';
@@ -82,6 +83,7 @@ export const MacHeadline = styled.span`
   h3 {
     color: ${(props) => props.theme.colors.fontWhite};
     margin-bottom: 200px;
+    font-size: 36px;
   }
 `;
 
@@ -90,40 +92,51 @@ export default function Mac() {
   const [open, setOpen] = useState(false);
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) });
-  return (<>
-    <Controller>
-      <Scene duration={300} pin triggerHook={0}>
-        {(progress: any) => (
-          <web.main style={{ height: '75vh', position: 'relative', background: props.open.to([0, 1], ['#14142b', '#14142b']) }}>
-            {setOpen(progress > 0)}
-            <MacHeadline>
-              <web.h2 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 50}px,0)`) }}>
-                Are you ready to start?
+  return (
+    <>
+      <Controller>
+        <Scene duration={300} pin triggerHook={0}>
+          {(progress: any) => {
+            setOpen(progress > 0);
+
+            return (
+              <web.main style={{ height: '60vh', position: 'relative', background: props.open.to([0, 1], ['#14142b', '#14142b']) }}>
+                <MacHeadline>
+                  <web.h2 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 50}px,0)`) }}>
+                    Are you ready to start?
             </web.h2>
-            </MacHeadline>
-            <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 0], fov: 35 }}>
-              <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['#14142b', '#14142b'])} />
-              <Suspense fallback={null}>
-                <group rotation={[0, Math.PI, 0]} onClick={(e) => (e.stopPropagation(), setOpen(!open))}>
-                  <Model open={open} hinge={props.open.to([0, 1], [1.575, -0.425])} />
-                </group>
-                <Environment preset="city" />
-              </Suspense>
-              <ContactShadows rotation-x={Math.PI / 2} position={[0, -4.5, 0]} opacity={0.4} width={20} height={20} blur={2} far={4.5} />
-            </Canvas>
-          </web.main>
-        )}
-      </Scene>
-    </Controller >
-    <Container>
-      <ContainerContentStandard>
-        <MacHeadline>
-          <web.h3>
-            Life is too short to compromise. My purpose is to built the most stunning and immersive experiences to people around the world. To deliver complexity with ease. To start where others stop.
-            </web.h3>
-        </MacHeadline>
-      </ContainerContentStandard>
-    </Container>
-  </>
+                </MacHeadline>
+                <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 0], fov: 35 }}>
+                  <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['#14142b', '#14142b'])} />
+                  <Suspense fallback={null}>
+                    <group rotation={[0, Math.PI, 0]} onClick={(e) => (e.stopPropagation(), setOpen(!open))}>
+                      <Model open={open} hinge={props.open.to([0, 1], [1.575, -0.425])} />
+                    </group>
+                    <Environment preset="city" />
+                  </Suspense>
+                  <ContactShadows rotation-x={Math.PI / 2} position={[0, -4.5, 0]} opacity={0.4} width={20} height={20} blur={2} far={4.5} />
+                </Canvas>
+              </web.main>
+            )
+          }}
+        </Scene>
+        <Scene duration={500} triggerHook={1}>
+          <Tween
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}
+          >
+            <Container>
+              <ContainerContentStandard>
+                <MacHeadline>
+                  <web.h3>
+                    Life is too short to compromise. My purpose is to built the most stunning and immersive experiences to people around the world. To deliver complexity with ease. To start where others stop.
+                  </web.h3>
+                </MacHeadline>
+              </ContainerContentStandard>
+            </Container>
+          </Tween>
+        </Scene>
+      </Controller>
+    </>
   );
 }

@@ -60,7 +60,7 @@ export default class Technologies extends PureComponent {
                 </Scene>
               </ContainerContentStandard>
             </Container>
-            <Scene duration={1000} pin triggerHook={0}>
+            <Scene duration={1000} pin triggerHook={0.1}>
               {(progress: any) => (
                 <GlobeSection className="globe-trigger">
                   <Container>

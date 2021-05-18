@@ -21,13 +21,14 @@ export const SelectedWorksGrid = styled.div`
   @media ${device.laptop} {
     grid-template-columns: 1fr 1fr;
     column-gap: 24px;
+
   }
 `;
 
 export default class SelectedWorks extends PureComponent {
   render() {
     return (
-      <Container className="content-section">
+      <Container className="content-section works-trigger">
         <ContainerContentStandard>
           <HeadlineDark>Selected works</HeadlineDark>
           <SelectedWorksGrid>
