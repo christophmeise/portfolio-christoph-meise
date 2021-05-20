@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
@@ -23,20 +24,32 @@ const FooterCallToAction = styled.div`
 
     h2 {
         color: ${(props) => props.theme.colors.fontWhite};
+        font-size: 40px;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
 
     @media ${device.tablet} {
         padding-bottom: 80px;
         padding-top: 80px;
+        h2 {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-size: 48px;
+        }
     }
 `;
 const FooterContentContainer = styled.div`
     background-color: ${(props) => props.theme.colors.primaryBg};
     border-radius: 0px ${(props) => props.theme.borderRadiusSectionMobile} 0px 0px;
-    margin-right: 80px;
+    margin-right: 40px;
 
     h3, p, a, span {
         color: ${(props) => props.theme.colors.fontWhite};
+    }
+
+    @media ${device.tablet} {
+        margin-right: 80px;
     }
 `;
 const FooterContent = styled.div`
@@ -77,22 +90,32 @@ const FooterBottomBar = styled.div`
     }
 `;
 const FooterBottomBarLinks = styled.div`
-    text-align: right;
+    text-align: left;
+
+    @media ${device.tablet} {
+        text-align: right;
+    }
 `;
 
 export default class footer extends PureComponent {
     render() {
         return (
             <FooterContainer>
-                <FooterCallToAction>
-                    <h2>Interested in Collaboration?</h2>
-                </FooterCallToAction>
+                <Container>
+                    <ContainerContentStandard>
+                        <FooterCallToAction>
+                            <h2>Interested in Collaboration?</h2>
+                        </FooterCallToAction>
+                    </ContainerContentStandard>
+                </Container>
                 <FooterContentContainer>
                     <Container>
                         <ContainerContentStandard>
                             <FooterContent>
                                 <div>
-                                    <Logo>Christoph Meise</Logo>
+                                    <Link to="/">
+                                        <Logo>Christoph Meise</Logo>
+                                    </Link>
                                     <p>
                                         Full-Stack Web Engineer
                                         Let’s do a virtual coffee break and talk about your project and how I can help you to bring it to the next level.
@@ -126,13 +149,13 @@ export default class footer extends PureComponent {
                             <FooterBottomBar>
                                 <p>© 2021 Christoph Meise. All rights reserved</p>
                                 <FooterBottomBarLinks>
-                                    <a href="/">Terms & Conditions</a>
+                                    <Link to="/imprint">Imprint</Link>
                                     <span>|</span>
-                                    <a href="/">Privacy Policy</a>
+                                    <Link to="/privacy-policy">Privacy Policy</Link>
                                     <span>|</span>
-                                    <a href="/">Sitemap</a>
+                                    <Link to="/sitemap">Sitemap</Link>
                                     <span>|</span>
-                                    <a href="/">Disclaimer</a>
+                                    <Link to="/disclaimer">Disclaimer</Link>
                                 </FooterBottomBarLinks>
                             </FooterBottomBar>
                         </ContainerContentStandard>

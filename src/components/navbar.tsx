@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Button } from '../styles/button';
@@ -157,7 +158,9 @@ export default class Navbar extends Component<any, NavbarState> {
             <MenuItem>Clients</MenuItem>
             <MenuItem>Works</MenuItem>
             <MenuItem>Technologies</MenuItem>
-            <MenuItem>Contact</MenuItem>
+            <MenuItem>
+              <Link to="contact">Contact</Link>
+            </MenuItem>
             <NavbarButton>
               <Button inverted>Let's talk</Button>
             </NavbarButton>

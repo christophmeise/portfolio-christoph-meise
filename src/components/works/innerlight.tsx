@@ -31,8 +31,8 @@ export const InnerLightContainer = styled.div`
   }
   .innerlight-logo {
     fill: #ffffff;
-    height: 55px;
-    width: 55px;
+    height: 65px;
+    width: 65px;
   }
   .innerlight-img {
     display: none;

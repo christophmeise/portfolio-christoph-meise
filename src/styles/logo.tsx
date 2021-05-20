@@ -10,7 +10,7 @@ export const Logo = styled.span<LogoProps>`
     font-size: 22px;
     font-weight: 800;
     letter-spacing: -0.03em;
-    line-height: 17px;
+    line-height: 30px;
     margin-bottom: 0;
     margin-right: 32px;
     margin-top: 0;

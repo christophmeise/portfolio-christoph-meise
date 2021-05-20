@@ -17,16 +17,24 @@ export const SCMCardContainer = styled.div`
   right:0;
   top:0;
 
+  h5{
+    color: ${(props) => props.theme.colors.fontBlack};
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 40px;
+    margin: 0;
+    text-align: center;
+    z-index: 100;
+  }
+
   @media ${device.tablet} {
   margin-bottom:0;
-  margin-left:37px;
+  margin-left:0;
   margin-right:0;
   margin-top:30px;
   }
   .scm-logo {
-    height: 55px;
-    padding-left: 24px;
-    padding-top: 12px;
+    height: 35px;
     width: 55px;
   }
   .scm-img {
@@ -36,6 +44,10 @@ export const SCMCardContainer = styled.div`
     position: absolute;
     transform: translateX(-50%);
     width: 100%;
+
+    @media ${device.tablet} {
+      width: 85%;
+    }
   }
 
 `;
@@ -44,6 +56,12 @@ interface StripesProps {
   right: string;
   top: string;
 }
+
+export const SCMTextContainer = styled.div`
+  margin-left: 37px;
+  position: relative;
+  z-index: 100;
+`;
 
 export const Stripes = styled.div<StripesProps>`
   left: ${(props) => props.left};
@@ -69,19 +87,26 @@ export const Stripe = styled.div<StripeProps>`
 export default class SCMCard extends PureComponent {
   render() {
     let stripesLeft = '-37px';
+    let stripedTop1 = '100px';
+    let stripedTop2 = '260px';
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
       stripesLeft = '-24px';
+      stripedTop1 = '160px';
+      stripedTop2 = '320px';
     }
     return (
       <HoverContainer large={false} containerId="scm-container" href="https://www.scmonline.de/">
         <SCMCardContainer>
-          <LogoSCM />
-          <Stripes left="unset" right="0" top="30px">
+          <SCMTextContainer>
+            <LogoSCM />
+            <h5>School for Communication and Management</h5>
+          </SCMTextContainer>
+          <Stripes left="unset" right="0" top={stripedTop1}>
             <Stripe stripeColor="#14E8AF" translateX={150} />
             <Stripe stripeColor="#B1FFDA" translateX={0} />
             <Stripe stripeColor="#75EA96" translateX={250} />
           </Stripes>
-          <Stripes left={stripesLeft} right="unset" top="200px">
+          <Stripes left={stripesLeft} right="unset" top={stripedTop2}>
             <Stripe stripeColor="#14E8AF" translateX={0} />
             <Stripe stripeColor="#75EA96" translateX={-275} />
           </Stripes>

@@ -17,7 +17,7 @@ interface IndexProps {
   };
 }
 
-const DarkModeContainer = styled.div`
+export const DarkModeContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryBg};
   border-radius: ${(props) => props.theme.borderRadiusSectionMobile} 0px ${(props) => props.theme.borderRadiusSectionMobile} 0px;
   overflow: hidden;

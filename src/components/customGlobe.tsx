@@ -13,16 +13,18 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import React, { PureComponent, useMemo, useRef } from 'react';
 import { ImageLoader, Object3D, Vector3 } from 'three';
 
+
 function GlobeSphere(props: any) {
   const mesh: any = useRef(null!);
+  const { radius } = props;
 
   return (
     <mesh
       {...props}
       ref={mesh}
     >
-      <sphereGeometry attach="geometry" args={[600, 32, 32]} />
-      <meshPhongMaterial attach="material" color="#5E3AEE" transparent opacity={0.1} />
+      <sphereGeometry attach="geometry" args={[radius, 32, 32]} />
+      <meshPhongMaterial attach="material" color="#14142b" shininess={50} />
     </mesh>
   );
 }
@@ -30,10 +32,10 @@ function GlobeSphere(props: any) {
 function Planet(props: any) {
   const mesh: any = useRef(null!);
   const meshRef: any = useRef(null!);
-  const { positions } = props;
+  const { positions, radius } = props;
 
   useFrame(() => {
-    mesh.current.rotation.y += 0.002;
+    mesh.current.rotation.y -= 0.002;
   });
 
   const tempObject = useMemo(() => new Object3D(), []);
@@ -57,9 +59,9 @@ function Planet(props: any) {
       {...props}
       ref={mesh}
     >
-      <GlobeSphere />
+      <GlobeSphere radius={radius} />
       <instancedMesh ref={meshRef} args={[arg0, arg1, positions.length]}>
-        <sphereBufferGeometry args={[3, 2, 2]} />
+        <sphereBufferGeometry args={[2, 2, 2]} />
         <meshPhongMaterial color="#5E3AEE" />
       </instancedMesh>
     </group>
@@ -81,18 +83,19 @@ function getImageData(image: any) {
 export default class CustomGlobe extends PureComponent {
   positions: any = [];
 
+  GLOBE_RADIUS: any;
+
+
   componentDidMount() {
     const image = new ImageLoader().load('images/globe.png', () => {
       const imagedata = getImageData(image);
       const { data } = imagedata;
       let step; let x; let y;
-      for (y = 0; y < imagedata.height; y += 3) {
+      this.GLOBE_RADIUS = 250 + 0.3 * Math.min(document.documentElement.clientWidth, 1080);
+      for (y = 0; y < imagedata.height; y += 2) {
         const yy = y / imagedata.height;// now use as scaled y coordinate
 
-        if (yy <= 0.07) continue; // don't care about arctica, it's not on my map
-        else if (yy <= 0.14) step = Math.floor(Math.pow(2, (0.14 * imagedata.height - y) / 6) + 3);
-        else if (yy < 0.83) step = 3;
-        else break;// Don't care about antarctica, it's not on my map
+        step = 2;
 
         for (x = 0; x < imagedata.width; x += step) {
           const i = (y * imagedata.width + x) * 4;
@@ -105,14 +108,15 @@ export default class CustomGlobe extends PureComponent {
 
             // Pass the angle between this dot an the Y-axis (phi)
             // Pass this dot’s angle around the y axis (theta)
-            // Scale each position by 600 (the radius of the globe)
+            // Scale each position by GLOBE_RADIUS (the radius of the globe)
             const vector = new Vector3();
-            vector.setFromSphericalCoords(600, phi, theta);
+            vector.setFromSphericalCoords(this.GLOBE_RADIUS, phi, theta);
 
             this.positions.push(vector);
           }
         }
       }
+
 
       this.forceUpdate();
     });
@@ -120,15 +124,13 @@ export default class CustomGlobe extends PureComponent {
 
   render() {
     return (
-      <Canvas camera={{ position: [300, 300, 1200], fov: 60 }} gl={{ antialias: false }}>
+      <Canvas camera={{ position: [800, 800, 800], fov: 80 }} gl={{ antialias: false }}>
         <ambientLight intensity={2} />
-        <fog attach="fog" args={['#5E3AEE', 300, 300]} />
-        <directionalLight position={[-800, 0, -800]} intensity={0.2} />
-        <directionalLight position={[800, 800, 800]} intensity={0.2} />
-        {this.positions?.length > 0
-          && <Planet positions={this.positions} />}
+        {/*         <fog attach="fog" args={['#5E3AEE', 800, 800]} /> */}
+        {this.positions?.length > 0 && this.GLOBE_RADIUS != null
+          && <Planet positions={this.positions} radius={this.GLOBE_RADIUS} />}
         {window.innerWidth > 768
-          && <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />}
+          && <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} enableRotate />}
       </Canvas>
     );
   }

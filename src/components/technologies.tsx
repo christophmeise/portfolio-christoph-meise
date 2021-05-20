@@ -19,6 +19,10 @@ const GlobeWrapper = styled.div`
     position: relative;
     top: 0;
     width: 100%;
+
+    canvas {
+      cursor: grab;
+    }
 `;
 const GlobeContainer = styled.div`
     height: 100%;
