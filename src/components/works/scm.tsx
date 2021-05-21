@@ -25,17 +25,14 @@ export const SCMCardContainer = styled.div`
     margin: 0;
     text-align: center;
     z-index: 100;
+    padding: 0px 10px;
   }
 
-  @media ${device.tablet} {
-  margin-bottom:0;
-  margin-left:0;
-  margin-right:0;
-  margin-top:30px;
-  }
   .scm-logo {
     height: 35px;
     width: 55px;
+    margin-left: 30px;
+    margin-top:30px;
   }
   .scm-img {
     bottom: 0;
@@ -58,7 +55,6 @@ interface StripesProps {
 }
 
 export const SCMTextContainer = styled.div`
-  margin-left: 37px;
   position: relative;
   z-index: 100;
 `;
