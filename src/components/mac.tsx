@@ -123,7 +123,7 @@ export default function Mac() {
                   </ContainerContentStandard>
                 </Container>
                 <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 0], fov: 35 }}>
-                  <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['#14142b', '#14142b'])} />
+                  <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['#FFFFFF', '#14142b'])} />
                   <Suspense fallback={null}>
                     <group rotation={[0, Math.PI, 0]} onClick={(e) => (e.stopPropagation(), setOpen(!open))}>
                       <Model open={open} hinge={props.open.to([0, 1], [1.575, -0.425])} />

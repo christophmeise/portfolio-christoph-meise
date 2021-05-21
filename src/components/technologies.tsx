@@ -5,6 +5,7 @@ import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
+import { device } from '../theme/theme';
 import { HeadlineDark } from './globalStyle';
 
 const GlobeSection = styled.div`
@@ -13,7 +14,7 @@ const GlobeSection = styled.div`
 `;
 const GlobeWrapper = styled.div`
     background: ${(props) => props.theme.colors.primaryBg};
-    height: 100%;
+    height: 100vh;
     left: 0;
     overflow: hidden;
     position: relative;
@@ -25,16 +26,20 @@ const GlobeWrapper = styled.div`
     }
 `;
 const GlobeContainer = styled.div`
-    height: 100%;
+    height: 100vh;
     overflow: visible;
     position: absolute;
     width: 100%;
 `;
 const GlobeTextContainer = styled.div`
-    padding: 300px 0;
+
     pointer-events: none;
     h3, h4 {
       color: ${(props) => props.theme.colors.fontWhite};
+    }
+
+    @media ${device.laptop} {
+      padding: 300px 0;
     }
 `;
 
@@ -67,7 +72,7 @@ export default class Technologies extends PureComponent {
             <Scene duration={1000} pin triggerHook={0.1}>
               {(progress: any) => (
                 <GlobeSection className="globe-trigger">
-                  <Container>
+                  <Container style={{ height: '100vh' }}>
                     <ContainerContentStandard>
                       <GlobeContainer>
                         <GlobeWrapper>

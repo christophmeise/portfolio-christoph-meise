@@ -8,9 +8,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-return-assign */
 /* eslint-disable no-use-before-define */
-import { OrbitControls } from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
-import React, { PureComponent, useMemo, useRef } from 'react';
+import React, {
+  PureComponent, Suspense, useMemo, useRef
+} from 'react';
 import { ImageLoader, Object3D, Vector3 } from 'three';
 
 
@@ -23,8 +25,8 @@ function GlobeSphere(props: any) {
       {...props}
       ref={mesh}
     >
-      <sphereGeometry attach="geometry" args={[radius, 32, 32]} />
-      <meshPhongMaterial attach="material" color="#14142b" shininess={50} />
+      <sphereGeometry attach="geometry" args={[radius, 64, 64]} />
+      <meshPhysicalMaterial envMapIntensity={0.8} color="#14142b" clearcoat={0.2} clearcoatRoughness={0} roughness={1} metalness={0.2} />
     </mesh>
   );
 }
@@ -61,7 +63,7 @@ function Planet(props: any) {
     >
       <GlobeSphere radius={radius} />
       <instancedMesh ref={meshRef} args={[arg0, arg1, positions.length]}>
-        <sphereBufferGeometry args={[2, 2, 2]} />
+        <sphereBufferGeometry args={[1, 5, 5]} />
         <meshPhongMaterial color="#5E3AEE" />
       </instancedMesh>
     </group>
@@ -85,6 +87,10 @@ export default class CustomGlobe extends PureComponent {
 
   GLOBE_RADIUS: any;
 
+  CAMERA_ASPECT: any;
+
+  CAMERA_POSITION: Vector3 = new Vector3(600, 600, 600);
+
 
   componentDidMount() {
     const image = new ImageLoader().load('images/globe.png', () => {
@@ -92,10 +98,14 @@ export default class CustomGlobe extends PureComponent {
       const { data } = imagedata;
       let step; let x; let y;
       this.GLOBE_RADIUS = 250 + 0.3 * Math.min(document.documentElement.clientWidth, 1080);
+      this.CAMERA_ASPECT = window.innerWidth / window.innerHeight;
       for (y = 0; y < imagedata.height; y += 2) {
         const yy = y / imagedata.height;// now use as scaled y coordinate
 
-        step = 2;
+        if (yy <= 0.07) continue; // don't care about arctica, it's not on my map
+        else if (yy <= 0.14) step = Math.floor(Math.pow(2, (0.14 * imagedata.height - y) / 6) + 3);
+        else if (yy < 0.83) step = 3;
+        else break;// Don't care about antarctica, it's not on my map
 
         for (x = 0; x < imagedata.width; x += step) {
           const i = (y * imagedata.width + x) * 4;
@@ -123,14 +133,23 @@ export default class CustomGlobe extends PureComponent {
   }
 
   render() {
+    const offsetX = window.innerWidth > 768 ? -15 : -5;
     return (
-      <Canvas camera={{ position: [800, 800, 800], fov: 80 }} gl={{ antialias: false }}>
+      <Canvas
+        dpr={[1, 1.5]}
+        camera={{
+          position: this.CAMERA_POSITION, fov: 68, aspect: this.CAMERA_ASPECT, near: 1, far: 1000, filmOffset: offsetX
+        }}
+        gl={{ antialias: false }}
+      >
         <ambientLight intensity={2} />
-        {/*         <fog attach="fog" args={['#5E3AEE', 800, 800]} /> */}
+        <Suspense fallback={null}>
+          <Environment preset="night" />
+        </Suspense>
         {this.positions?.length > 0 && this.GLOBE_RADIUS != null
           && <Planet positions={this.positions} radius={this.GLOBE_RADIUS} />}
         {window.innerWidth > 768
-          && <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} enableRotate />}
+          && <OrbitControls enableZoom={false} enablePan enableRotate />}
       </Canvas>
     );
   }
