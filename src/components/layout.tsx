@@ -1,25 +1,34 @@
 import React, { PureComponent } from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import '../fonts/font.css';
 import { theme } from '../theme/theme';
 import Footer from './footer';
 import Navbar from './navbar';
 
 interface Props {
-    children?: any;
+  children?: any;
 }
 
-class Layout extends PureComponent<Props> {
-    render() {
-        const { children } = this.props;
+export const MainSection = styled.main`
+  .content-section {
+    margin-bottom: 150px;
+  }
+  .content-section-small {
+    margin-bottom: 100px;
+  }
+`;
 
-        return (
-          <ThemeProvider theme={theme}>
-            <div className="flex-container">
-              <Navbar />
-              <main role="main">
-                {children}
-                {/*  <CookieConsent
+class Layout extends PureComponent<Props> {
+  render() {
+    const { children } = this.props;
+
+    return (
+      <ThemeProvider theme={theme}>
+        <div className="flex-container">
+          <Navbar />
+          <MainSection role="main">
+            {children}
+            {/*  <CookieConsent
                         disableStyles={true}
                         location="bottom"
                         buttonText="Accept"
@@ -42,12 +51,12 @@ class Layout extends PureComponent<Props> {
 
                         </div>
                     </CookieConsent> */}
-                <Footer />
-              </main>
-            </div>
-          </ThemeProvider>
-        );
-    }
+            <Footer />
+          </MainSection>
+        </div>
+      </ThemeProvider>
+    );
+  }
 }
 
 export default Layout;

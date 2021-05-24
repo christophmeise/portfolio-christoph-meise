@@ -107,10 +107,9 @@ export default function Mac() {
   return (
     <>
       <Controller>
-        <Scene duration={300} pin triggerHook={0}>
+        <Scene duration={300} pin triggerHook={0.1}>
           {(progress: any) => {
             setOpen(progress > 0);
-
             return (
               <web.main style={{ height: '60vh', position: 'relative', background: props.open.to([0, 1], ['#14142b', '#14142b']) }}>
                 <Container style={{ position: 'unset' }}>

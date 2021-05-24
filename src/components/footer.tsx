@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { Button, ButtonSizes } from '../styles/button';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { Logo } from '../styles/logo';
 import { device } from '../theme/theme';
@@ -18,6 +19,7 @@ const FooterContainer = styled.div`
 const FooterCallToAction = styled.div`
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding-bottom: 40px;
     padding-top: 40px;
@@ -105,6 +107,7 @@ export default class footer extends PureComponent {
                     <ContainerContentStandard>
                         <FooterCallToAction>
                             <h2>Interested in Collaboration?</h2>
+                            <Button inverted size={ButtonSizes.l}>Let's talk</Button>
                         </FooterCallToAction>
                     </ContainerContentStandard>
                 </Container>

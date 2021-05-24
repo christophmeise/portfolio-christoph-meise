@@ -8,6 +8,7 @@ import HeroIntro from '../components/heroIntro';
 import Layout from '../components/layout';
 import SelectedWorks from '../components/selectedWorks';
 import Seo from '../components/seo';
+import ServicesSection from '../components/servicesSection';
 import Technologies from '../components/technologies';
 import { device } from '../theme/theme';
 
@@ -27,10 +28,6 @@ export const DarkModeContainer = styled.div`
   @media ${device.tablet} {
     border-radius: ${(props) => props.theme.borderRadiusSection} 0px ${(props) => props.theme.borderRadiusSection} 0px;
   }
-
-  .content-section {
-    margin-bottom: 150px;
-  }
 `;
 
 const Mac: any = loadable(() => import(/* webpackPrefetch: true */ '../components/mac'));
@@ -47,13 +44,14 @@ export default class IndexPage extends React.PureComponent<IndexProps> {
         <GlobalStyle />
         <Layout>
           <HeroIntro />
-          <DarkModeContainer>
+          <DarkModeContainer className="content-section">
             <FullStack />
             <HappyClients />
             {typeof window !== 'undefined' && <Mac />}
             <SelectedWorks />
             <Technologies />
           </DarkModeContainer>
+          <ServicesSection />
         </Layout>
       </>
     );

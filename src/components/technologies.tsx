@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
 import styled from 'styled-components';
-import { Button } from '../styles/button';
+import { Button, ButtonSizes } from '../styles/button';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
 import { HeadlineDark } from './globalStyle';
@@ -25,7 +25,6 @@ const GlobeWrapper = styled.div`
     canvas {
       cursor: grab;
       position: relative;
-      z-index: 10;
     }
 `;
 const GlobeContainer = styled.div`
@@ -43,14 +42,40 @@ const GlobeTextContainer = styled.div`
     }
 
     .cv-item {
+      display: flex;
+      flex-direction: column;
       margin-left: 30px;
+      pointer-events: auto;
+      user-select: none;
+      width: fit-content;
 
       h3 {
         margin-bottom: 0.5rem;
       }
+      h4 {
+        color: #BCA4FF;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0.5rem 0;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0.5rem 0;
+      }
       button {
         margin-top: 1rem;
+        width: fit-content;
       }
+      .cv-c2a {
+        display: flex;
+        flex-direction: row;
+
+        button:first-child {
+            margin-right: 0.5rem;
+        }
+      }
+
     }
 /*
     @media ${device.laptop} {
@@ -71,19 +96,10 @@ const TimelineContainer = styled.div`
 const TopOverlayContainer = styled.div`
     background: rgba(20,20,43,0) linear-gradient(
 180deg
-,rgba(20,20,43,1) 1rem,rgba(20,20,43,0) 75px);
+,rgba(20,20,43,1) 0,rgba(20,20,43,0) 75px);
     height: 75px;
     position: absolute;
-    top: -50px;
-    width: 100%;
-    z-index: 1;
-`;
-const BottomOverlayContainer = styled.div`
-    background: rgba(20,20,43,0) linear-gradient(0deg
-,rgba(20,20,43,1) 1rem,rgba(20,20,43,0) 40vh);
-    bottom: 0;
-    height: 40vh;
-    position: absolute;
+    top: 0px;
     width: 100%;
     z-index: 1;
 `;
@@ -114,9 +130,10 @@ export default class Technologies extends PureComponent {
                 </Scene>
               </ContainerContentStandard>
             </Container>
-            <Scene duration={5000} pin triggerHook={0.1}>
+            <Scene duration={4000} pin triggerHook={0.1}>
               {(progress: any) => (
                 <GlobeSection className="globe-trigger">
+                  <TopOverlayContainer />
                   <Container style={{ height: '100vh' }}>
                     <ContainerContentStandard>
                       <GlobeContainer>
@@ -129,59 +146,75 @@ export default class Technologies extends PureComponent {
                       </GlobeContainer>
                       <GlobeTextContainer>
                         <TimelineContainer />
-                        {/*       <OverlayContainer /> */}
-                        <TopOverlayContainer />
-                        <BottomOverlayContainer />
                         <Timeline
                           totalProgress={progress}
                           paused
                           target={(
                             <>
                               <div className="cv-item">
-                                <h3>Head of UX/UI</h3>
-                                <p>WeWater gUG</p>
-                                <p>01/2021 - now</p>
+                                <h3>Software Developer</h3>
+                                <h4>SAP Walldorf & Palo Alto</h4>
+                                <p>10/2014 - 09/2017</p>
+                              </div>
+                              <div className="cv-item">
+                                <h3>UX/UI Developer @Blockchain</h3>
+                                <h4>SAP Innovation Center</h4>
+                                <p>09/2017 - 04/2019</p>
+                              </div>
+                              <div className="cv-item">
+                                <h3>Lead Full-Stack Developer</h3>
+                                <h4>Dimely (Start-up)</h4>
+                                <p>03/2019 - 07/2019</p>
+                              </div>
+                              <div className="cv-item">
+                                <h3>Full-Stack Software Engineer</h3>
+                                <h4>Opremic Solutions GmbH</h4>
+                                <p>05/2019 – 09/2019</p>
+                              </div>
+                              <div className="cv-item">
+                                <h3>Senior Java Engineer</h3>
+                                <h4>Serrala O2C Solutions GmbH</h4>
+                                <p>07/2019 - 04/2020</p>
                               </div>
                               <div className="cv-item">
                                 <h3>Senior Full-Stack Web Developer</h3>
-                                <p>DB Systel GmbH</p>
+                                <h4>DB Systel GmbH</h4>
                                 <p>06/2020 - 07/2021</p>
                               </div>
                               <div className="cv-item">
                                 <h3>Head of UX/UI</h3>
-                                <p>WeWater gUG</p>
+                                <h4>WeWater gUG</h4>
                                 <p>01/2021 - now</p>
-                              </div>
-                              <div className="cv-item">
-                                <h3>Senior Full-Stack Web Developer</h3>
-                                <p>DB Systel GmbH</p>
-                                <p>06/2020 - 07/2021</p>
-                              </div>
-                              <div className="cv-item">
-                                <h3>Head of UX/UI</h3>
-                                <p>WeWater gUG</p>
-                                <p>01/2021 - now</p>
-                              </div>
-                              <div className="cv-item">
-                                <h3>Senior Full-Stack Web Developer</h3>
-                                <p>DB Systel GmbH</p>
-                                <p>06/2020 - 07/2021</p>
                               </div>
                               <div className="cv-item">
                                 <h3>Your next project?</h3>
-                                <Button inverted>Let's talk</Button>
+                                <div className="cv-c2a">
+                                  <Button inverted size={ButtonSizes.m}>Let's talk</Button>
+                                  <Button inverted size={ButtonSizes.m}>Download Full CV</Button>
+                                </div>
                               </div>
                             </>
                           )}
                         >
                           <Tween
                             from={{
-                              y: '75vh'
+                              y: '50vh'
                             }}
                             to={{
                               y: '-50vh'
                             }}
+                            stagger={{ from: 'start', amount: 0.35 }}
+                          />
+                          <Tween
+                            from={{
+                              autoAlpha: '0'
+                            }}
+                            to={{
+                              autoAlpha: '1'
+                            }}
                             stagger={{ from: 'start', amount: 0.2 }}
+                            duration={0.25}
+                            position="<"
                           />
                         </Timeline>
                       </GlobeTextContainer>
@@ -196,10 +229,3 @@ export default class Technologies extends PureComponent {
     );
   }
 }
-
-// eslint-disable-next-line no-lone-blocks
-{ /*                               <div className="cv-item">
-                                <h3>Senior Java Engineer</h3>
-                                <p>Serrala O2C Solutions GmbH</p>
-                                <p>07/2019 - 04/2020</p>
-                              </div> */ }
