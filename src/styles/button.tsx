@@ -10,7 +10,7 @@ export const Button = styled.button<ButtonProps>`
     border: 2px solid ${(props) => (props.inverted ? props.theme.colors.fontWhite : props.theme.colors.fontBlack)};
     border-radius: 40px;
     box-sizing: border-box;
-    color: ${(props) => (props.inverted ? props.theme.colors.fontWhite : props.theme.colors.fontBlack)};
+    color: ${(props) => (props.inverted ? props.theme.colors.fontWhite : props.theme.colors.primary)};
     cursor: pointer;
     display: flex;
     font-size: 14px;
