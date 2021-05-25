@@ -22,10 +22,11 @@ export const DarkModeContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryBg};
   border-radius: ${(props) => props.theme.borderRadiusSectionMobile} 0px ${(props) => props.theme.borderRadiusSectionMobile} 0px;
   overflow: hidden;
-  padding-top: 150px;
+  padding-top: 100px;
   width: 100%;
 
   @media ${device.tablet} {
+    padding-top: 150px;
     border-radius: ${(props) => props.theme.borderRadiusSection} 0px ${(props) => props.theme.borderRadiusSection} 0px;
   }
 `;

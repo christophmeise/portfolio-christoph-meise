@@ -23,10 +23,17 @@ const FooterCallToAction = styled.div`
     justify-content: center;
     padding-bottom: 40px;
     padding-top: 40px;
+    text-align: center;
 
     h2 {
         color: ${(props) => props.theme.colors.fontWhite};
         font-size: 40px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    p {
+        color: ${(props) => props.theme.colors.fontWhite};
+        font-size: 20px;
         margin-bottom: 10px;
         margin-top: 10px;
     }
@@ -38,6 +45,11 @@ const FooterCallToAction = styled.div`
             margin-bottom: 20px;
             margin-top: 20px;
             font-size: 48px;
+        }
+        p {
+            margin-bottom: 30px;
+            font-size: 22px;
+            max-width: 80%;
         }
     }
 `;
@@ -107,7 +119,10 @@ export default class footer extends PureComponent {
                     <ContainerContentStandard>
                         <FooterCallToAction>
                             <h2>Interested in Collaboration?</h2>
-                            <Button inverted size={ButtonSizes.l}>Let's talk</Button>
+                            <p>From first MVP to large enterprise platform. Whether it's around a concept, startup or application evolution, let's take it to the next level together.</p>
+                            <Link to="/contact">
+                                <Button inverted size={ButtonSizes.l}>Let's talk</Button>
+                            </Link>
                         </FooterCallToAction>
                     </ContainerContentStandard>
                 </Container>

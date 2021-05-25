@@ -134,11 +134,12 @@ export default class CustomGlobe extends PureComponent {
 
   render() {
     const offsetX = window.innerWidth > 768 ? -15 : -5;
+    const responsiveFov = window.innerWidth > 768 ? 68 : 50;
     return (
       <Canvas
         dpr={[1, 1.5]}
         camera={{
-          position: this.CAMERA_POSITION, fov: 68, aspect: this.CAMERA_ASPECT, near: 1, far: 1000, filmOffset: offsetX
+          position: this.CAMERA_POSITION, fov: responsiveFov, aspect: this.CAMERA_ASPECT, near: 1, far: 1000, filmOffset: offsetX
         }}
         gl={{ antialias: false }}
       >

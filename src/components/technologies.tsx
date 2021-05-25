@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import { Button, ButtonSizes } from '../styles/button';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
-import { HeadlineDark } from './globalStyle';
 
 const GlobeSection = styled.div`
     overflow: hidden;
@@ -33,6 +32,14 @@ const GlobeContainer = styled.div`
     position: absolute;
     width: 100%;
 `;
+const TechnologyHeadline = styled.h2`
+  color: ${(props) => props.theme.colors.fontWhite};
+  font-size: 30px;
+
+  @media ${device.tablet} {
+    font-size: 40px;
+  }
+`;
 const GlobeTextContainer = styled.div`
 
     pointer-events: none;
@@ -44,22 +51,23 @@ const GlobeTextContainer = styled.div`
     .cv-item {
       display: flex;
       flex-direction: column;
-      margin-left: 30px;
+      margin-left: 15px;
       pointer-events: auto;
       user-select: none;
       width: fit-content;
 
       h3 {
+        font-size: 24px;
         margin-bottom: 0.5rem;
       }
       h4 {
         color: #BCA4FF;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 800;
-        margin: 0.5rem 0;
+        margin: 0.3rem 0;
       }
       p {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         margin: 0.5rem 0;
       }
@@ -69,11 +77,32 @@ const GlobeTextContainer = styled.div`
       }
       .cv-c2a {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
         button:first-child {
             margin-right: 0.5rem;
         }
+
+        @media ${device.tablet} {
+          flex-direction: row;
+        }
+      }
+
+      @media ${device.tablet} {
+        margin-left: 30px;
+        h3 {
+        margin-bottom: 0.5rem;
+      }
+      h4 {
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0.5rem 0;
+      }
+             p {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0.5rem 0;
+      }
       }
 
     }
@@ -96,12 +125,18 @@ const TimelineContainer = styled.div`
 const TopOverlayContainer = styled.div`
     background: rgba(20,20,43,0) linear-gradient(
 180deg
-,rgba(20,20,43,1) 0,rgba(20,20,43,0) 75px);
-    height: 75px;
+,rgba(20,20,43,1) 0,rgba(20,20,43,0) 50px);
+    height: 50px;
     position: absolute;
     top: 0px;
     width: 100%;
     z-index: 1;
+    @media ${device.laptop} {
+       background: rgba(20,20,43,0) linear-gradient(
+180deg
+,rgba(20,20,43,1) 0,rgba(20,20,43,0) 75px);
+    height: 75px;
+    }
 `;
 
 const CustomGlobe: any = loadable(() => import(/* webpackPrefetch: true */ './customGlobe'));
@@ -123,9 +158,9 @@ export default class Technologies extends PureComponent {
                     }}
                     stagger={{ from: 'start', amount: 1 }}
                   >
-                    <HeadlineDark>
+                    <TechnologyHeadline>
                       Let's build something beautiful together.
-                    </HeadlineDark>
+                    </TechnologyHeadline>
                   </Tween>
                 </Scene>
               </ContainerContentStandard>
@@ -196,15 +231,31 @@ export default class Technologies extends PureComponent {
                             </>
                           )}
                         >
-                          <Tween
-                            from={{
-                              y: '50vh'
-                            }}
-                            to={{
-                              y: '-50vh'
-                            }}
-                            stagger={{ from: 'start', amount: 0.35 }}
-                          />
+                          {typeof window !== 'undefined'
+                            && window.innerWidth > 768 && (
+                              <Tween
+                                from={{
+                                  y: '600px'
+                                }}
+                                to={{
+                                  y: '-600px'
+                                }}
+                                stagger={{ from: 'start', amount: 0.2 }}
+                              />
+                            )}
+                          {typeof window !== 'undefined'
+                            && window.innerWidth <= 768 && (
+                              <Tween
+                                from={{
+                                  y: '800px'
+                                }}
+                                to={{
+                                  y: '-800px'
+                                }}
+                                stagger={{ from: 'start', amount: 0.2 }}
+                              />
+                            )}
+
                           <Tween
                             from={{
                               autoAlpha: '0'

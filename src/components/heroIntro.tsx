@@ -2,6 +2,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import { Container, ContainerContentStandard } from '../styles/container';
+import { device } from '../theme/theme';
 
 const GridTwoCol = styled.div`
     display: grid;
@@ -19,7 +21,7 @@ const HeroImageWrapper = styled.div`
 
     .hero-img {
       height: 750px;
-      max-height: 100vh;
+      max-height: 95vh;
     }
 
 `;
@@ -75,6 +77,7 @@ const HeroTextCallToAction = styled.p`
     font-weight: 600;
     letter-spacing: -0.25px;
     line-height: 28px;
+    margin-top: 32px;
 
     text-align: right;
     text-transform: uppercase;
@@ -104,6 +107,10 @@ const HeroTextCallToAction = styled.p`
       animation: float 1.6s ease infinite;
       transform: translatey(0px);
     }
+
+    @media ${device.tablet} {
+      margin-top: 1rem;
+    }
 `;
 const HeroTextDesktop = styled.div`
     display: block;
@@ -119,9 +126,13 @@ const HeroTextMobile = styled.div`
     visibility: hidden;
 
     @media(max-width: 768px) {
+      div {
+        text-align: center;
+      }
       visibility: visible;
       display: flex;
       width: 100%;
+      margin: 32px 0;
     }
 `;
 const ImageInlineShadow = styled.div`
@@ -144,7 +155,6 @@ export default class HeroIntro extends PureComponent {
             <HeroTextDesktop>
               <HeroText>
                 <strong>Full-Stack Web Developer & UX Designer</strong>
-                {' '}
                 in Berlin.
                 I specialize in building high-end websites that are blazing-fast, engage customers and are used worldwide.
               </HeroText>
@@ -175,13 +185,16 @@ export default class HeroIntro extends PureComponent {
         </GridTwoCol>
 
         <HeroTextMobile>
-          <HeroText>
-            {' '}
-            <strong>Full-Stack Web Developer & UX Designer</strong>
-            {' '}
+          <Container>
+            <ContainerContentStandard>
+              <p>
+                <strong>Full-Stack Web Developer & UX Designer </strong>
             in Berlin.
             I specialize in building high-end websites that are blazing-fast, engage customers and are used worldwide.
-          </HeroText>
+              </p>
+            </ContainerContentStandard>
+          </Container>
+          <HeroText />
         </HeroTextMobile>
       </>
     );

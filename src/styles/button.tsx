@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 import styled from 'styled-components';
+import { device } from '../theme/theme';
 
 export enum ButtonSizes {
     s, m, l, xl, xxl
@@ -9,6 +10,30 @@ interface ButtonProps {
     readonly size?: ButtonSizes;
 }
 
+const fontSizeChooserMobile = (props: any) => {
+    if (props.size === ButtonSizes.s) return '12px';
+    if (props.size === ButtonSizes.m) return '14px';
+    if (props.size === ButtonSizes.l) return '16px';
+    if (props.size === ButtonSizes.xl) return '18px';
+    if (props.size === ButtonSizes.xxl) return '20px';
+    return '12px';
+};
+const lineHeightChooserMobile = (props: any) => {
+    if (props.size === ButtonSizes.s) return '10px';
+    if (props.size === ButtonSizes.m) return '12px';
+    if (props.size === ButtonSizes.l) return '14px';
+    if (props.size === ButtonSizes.xl) return '16px';
+    if (props.size === ButtonSizes.xxl) return '18px';
+    return '10px';
+};
+const paddingChooserMobile = (props: any) => {
+    if (props.size === ButtonSizes.s) return '10px 26px';
+    if (props.size === ButtonSizes.m) return '12px 30px';
+    if (props.size === ButtonSizes.l) return '14px 34px';
+    if (props.size === ButtonSizes.xl) return '16px 39px';
+    if (props.size === ButtonSizes.xxl) return '22px 54px';
+    return '10px 26px';
+};
 const fontSizeChooser = (props: any) => {
     if (props.size === ButtonSizes.s) return '14px';
     if (props.size === ButtonSizes.m) return '16px';
@@ -44,10 +69,16 @@ export const Button = styled.button<ButtonProps>`
     color: ${(props) => (props.inverted ? props.theme.colors.fontWhite : props.theme.colors.primary)};
     cursor: pointer;
     display: flex;
-    font-size: ${fontSizeChooser};
+    font-size: ${fontSizeChooserMobile};
     font-weight: 600;
     letter-spacing: 0.75px;
-    line-height: ${lineHeightChooser};
-    padding: ${paddingChooser};
+    line-height: ${lineHeightChooserMobile};
+    padding: ${paddingChooserMobile};
     text-align: center;
+
+    @media ${device.laptop} {
+        font-size: ${fontSizeChooser};
+        line-height: ${lineHeightChooser};
+        padding: ${paddingChooser};
+    }
 `;

@@ -21,21 +21,3 @@ export const ContainerContentStandard = styled.div`
 export const ContainerContentFull = styled.div`
   grid-column: full;
 `;
-/* export const Container = styled.div<ContainerProps>`
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: ${props => props.centered ? 'center' : 'left'};
-    @media ${device.tablet} {
-       width: 768px;
-    }
-    @media ${device.tablet} {
-       width: 970px;
-    }
-    @media ${device.tablet} {
-        width: 1170px;
-    }
-`;
-
- */

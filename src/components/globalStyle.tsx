@@ -1,7 +1,13 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { device } from '../theme/theme';
 
 export const HeadlineDark = styled.h2`
   color: ${(props) => props.theme.colors.fontWhite};
+  font-size: 40px;
+
+  @media ${device.tablet} {
+    font-size: 48px;
+  }
 `;
 export const SubHeadlineDark = styled.h3`
   color: ${(props) => props.theme.colors.fontWhite};
