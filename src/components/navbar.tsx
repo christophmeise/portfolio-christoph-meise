@@ -153,7 +153,9 @@ export default class Navbar extends Component<any, NavbarState> {
       <Header id="header">
         <Container>
           <NavbarContainer>
-            <Logo primary>Christoph Meise</Logo>
+            <Link to="/">
+              <Logo primary>Christoph Meise</Logo>
+            </Link>
             <MenuItem>About</MenuItem>
             <MenuItem>Clients</MenuItem>
             <MenuItem>Works</MenuItem>
