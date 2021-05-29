@@ -1,7 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import React, { PureComponent } from 'react';
-import { Tween } from 'react-gsap';
 import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
@@ -150,13 +149,7 @@ export default class HeroIntro extends PureComponent {
     return (
       <>
         <GridTwoCol>
-          <Tween
-            from={{ x: -50, autoAlpha: 0 }}
-            to={{ x: 0, autoAlpha: 1 }}
-            duration={1}
-            stagger={{ amount: 1 }}
-            wrapper={<HeroTextWrapper />}
-          >
+          <HeroTextWrapper>
             <Headline primary>Software Engineer</Headline>
             <Headline>Christoph Meise</Headline>
             <HeroTextDesktop>
@@ -177,7 +170,7 @@ export default class HeroIntro extends PureComponent {
                 <path id="svg-mousewheel" fill="#5E3AEE" d="M317.3 197.8c-10.1 3.4-18.2 11.3-21.5 21.2-1.6 4.8-2.4 134.4-.8 144.3 1.3 8.3 3.8 13.5 9.1 18.8 12.8 12.8 33.6 12.5 46.3-.6 2.6-2.6 5.5-7 6.8-10.3l2.3-5.7.3-66.9c.3-72 0-77.5-4.5-85.9-7.1-12.9-24.1-19.6-38-14.9z" />
               </svg>
             </HeroTextCallToAction>
-          </Tween>
+          </HeroTextWrapper>
           <HeroImageWrapper>
             <StaticImage
               src="../../static/images/hero.jpg"

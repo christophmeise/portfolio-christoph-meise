@@ -11,7 +11,7 @@ export const plugins = [
     resolve: 'gatsby-plugin-subfont',
     options: {
       silent: false,
-      fallbacks: false,
+      fallbacks: true,
       inlineFonts: true,
       fontDisplay: 'block'
     }
