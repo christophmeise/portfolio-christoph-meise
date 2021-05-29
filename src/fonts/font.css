@@ -75,6 +75,8 @@ span,
 ul,
 li,
 button,
+textarea,
+input,
 ol {
     font-family: 'Manrope';
     text-rendering: optimizeLegibility;

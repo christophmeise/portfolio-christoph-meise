@@ -1,108 +1,142 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-indent-props */
-/* eslint-disable camelcase */
-/* eslint-disable react/no-access-state-in-setstate */
 import React from 'react';
+import styled from 'styled-components';
+import { Button, ButtonSizes } from '../styles/button';
 
+const CustomForm = styled.form`
+    margin-top: 64px;
+    label {
+        color: ${(props) => props.theme.colors.fontWhite};
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px;
+        margin-bottom: 16px;
+        margin-left: 28px;
+        text-align: left;
+    }
+    input {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: ${(props) => props.theme.colors.fontBlack};
+        display: block;
+        font-size: 20px;
+        height: 38px;
+        line-height: 28px;
+        margin-bottom: 0;
+        min-height: 72px;
+        padding: 8px 12px;
+        padding-left: 28px;
+        width: 100%;
+    }
+    textarea {
+        background-color: #fff;
+        background-position: 99% 95%;
+        background-repeat: no-repeat;
+        background-size: 16px;
+        border: 1px #000;
+        color:  ${(props) => props.theme.colors.fontBlack};
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 0;
+        max-width: 100%;
+        min-height: 160px;
+        min-width: 100%;
+        padding-left: 28px;
+        padding-right: 24px;
+        padding-top: 16px;
+        width: 75%;
+    }
+    fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+`;
+
+const FormField = styled.div`
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+    width: 75%;
+`;
+const Submit = styled.div`
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 64px;
+    padding-bottom: 64px;
+`;
 class ContactForm extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            first_name: '', last_name: '', email: '', phone: '', message: ''
+            name: '', email: '', message: ''
         };
     }
 
     handleChange = (e: any) => {
-        this.setState({ ...this.state, [e.target.name]: e.target.value });
+        this.setState((prevState: any) => ({ ...prevState, [e.target.name]: e.target.value }));
     };
 
     render() {
         const { disabled } = this.props;
         const {
-            first_name, last_name, email, phone, message
+            name, email, message
         } = this.state;
 
         return (
-            <form
-                className="ui form"
+            <CustomForm
                 name="form-contact"
                 method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 action="/contact/thanks"
             >
-                <fieldset style={{ border: 'none' }} disabled={disabled}>
+                <fieldset disabled={disabled}>
                     <input type="hidden" name="form-name" value="form-contact" />
                     <input type="hidden" name="bot-field" />
-                    <div className="field">
-                        <label htmlFor="first_name" aria-controls="first_name">First name</label>
-                        <div className="ui fluid input">
-                            <input
-                                required
-                                type="text"
-                                name="first_name"
-                                value={first_name}
-                                placeholder="First name"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label htmlFor="last_name" aria-controls="last_name">Last name</label>
-                        <div className="ui fluid input">
-                            <input
-                                required
-                                type="text"
-                                name="last_name"
-                                value={last_name}
-                                placeholder="Last name"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label htmlFor="email" aria-controls="email">Email</label>
-                        <div className="ui fluid input">
-                            <input
-                                required
-                                type="email"
-                                name="email"
-                                value={email}
-                                placeholder="Email"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label htmlFor="phone" aria-controls="phone">Phone</label>
-                        <div className="ui fluid input">
-                            <input
-                                required
-                                type="tel"
-                                name="phone"
-                                value={phone}
-                                placeholder="Phone"
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                    </div>
-                    <div className="field">
-                        <label htmlFor="message" aria-controls="message">Your message</label>
-                        <textarea
-                            name="message"
-                            placeholder="Let's grab a coffee"
-                            value={message}
-                            rows={3}
+                    <FormField className="field">
+                        <label htmlFor="name" aria-controls="name">Name & Company</label>
+                        <input
+                            required
+                            type="text"
+                            name="name"
+                            value={name}
+                            placeholder="James Smith from ACME"
                             onChange={this.handleChange}
                         />
-                    </div>
-                    <div className="field">
-                        <button className="ui button primary" type="submit">
+                    </FormField>
+                    <FormField className="field">
+                        <label htmlFor="email" aria-controls="email">Email</label>
+                        <input
+                            required
+                            type="email"
+                            name="email"
+                            value={email}
+                            placeholder="james@smith.me"
+                            onChange={this.handleChange}
+                        />
+                    </FormField>
+                    <FormField>
+                        <label htmlFor="message" aria-controls="message">Project Description</label>
+                        <textarea
+                            name="message"
+                            maxLength={5000}
+                            placeholder="We are looking for a developer to create something beautiful..."
+                            value={message}
+                            rows={5}
+                            onChange={this.handleChange}
+                        />
+                    </FormField>
+                    <Submit>
+                        <Button size={ButtonSizes.l} inverted type="submit">
                             Submit
-                        </button>
-                    </div>
+                        </Button>
+                    </Submit>
                 </fieldset>
-            </form>
+            </CustomForm>
         );
     }
 }

@@ -75,10 +75,17 @@ export const Button = styled.button<ButtonProps>`
     line-height: ${lineHeightChooserMobile};
     padding: ${paddingChooserMobile};
     text-align: center;
+    transition: all 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
 
     @media ${device.laptop} {
         font-size: ${fontSizeChooser};
         line-height: ${lineHeightChooser};
         padding: ${paddingChooser};
+    }
+
+    &:hover {
+        background: ${(props) => (props.inverted ? props.theme.colors.primary : 'transparent')};
+        border: 2px solid ${(props) => (props.inverted ? props.theme.colors.primary : props.theme.colors.primaryLight)};
+        color: ${(props) => (props.inverted ? props.theme.colors.fontWhite : props.theme.colors.primaryLight)};
     }
 `;

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import loadable from '@loadable/component';
+import { Link } from 'gatsby';
 import React, { PureComponent } from 'react';
 import { Timeline, Tween } from 'react-gsap';
 import { Controller, Scene } from 'react-scrollmagic';
@@ -51,10 +52,16 @@ const GlobeTextContainer = styled.div`
     .cv-item {
       display: flex;
       flex-direction: column;
-      margin-left: 15px;
+      margin-left: 16px;
+      margin-top: 32px;
       pointer-events: auto;
       user-select: none;
       width: fit-content;
+
+      div {
+        display: inline-flex;
+        align-items: center;
+      }
 
       h3 {
         font-size: 24px;
@@ -64,12 +71,13 @@ const GlobeTextContainer = styled.div`
         color: #BCA4FF;
         font-size: 18px;
         font-weight: 800;
-        margin: 0.3rem 0;
+        margin: 0;
+        margin-right: 1rem;
       }
       p {
         font-size: 16px;
         font-weight: 600;
-        margin: 0.5rem 0;
+        margin: 0;
       }
       button {
         margin-top: 1rem;
@@ -96,12 +104,13 @@ const GlobeTextContainer = styled.div`
       h4 {
         font-size: 20px;
         font-weight: 800;
-        margin: 0.5rem 0;
+        margin: 0;
+         margin-right: 1rem;
       }
              p {
         font-size: 18px;
         font-weight: 600;
-        margin: 0.5rem 0;
+        margin: 0;
       }
       }
 
@@ -188,44 +197,62 @@ export default class Technologies extends PureComponent {
                             <>
                               <div className="cv-item">
                                 <h3>Software Developer</h3>
-                                <h4>SAP Walldorf & Palo Alto</h4>
-                                <p>10/2014 - 09/2017</p>
+                                <div>
+                                  <h4>SAP Walldorf & Palo Alto</h4>
+                                  <p>10/2014 - 09/2017</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>UX/UI Developer @Blockchain</h3>
-                                <h4>SAP Innovation Center</h4>
-                                <p>09/2017 - 04/2019</p>
+                                <div>
+                                  <h4>SAP Innovation Center</h4>
+                                  <p>09/2017 - 04/2019</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>Lead Full-Stack Developer</h3>
-                                <h4>Dimely (Start-up)</h4>
-                                <p>03/2019 - 07/2019</p>
+                                <div>
+                                  <h4>Dimely (Start-up)</h4>
+                                  <p>03/2019 - 07/2019</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>Full-Stack Software Engineer</h3>
-                                <h4>Opremic Solutions GmbH</h4>
-                                <p>05/2019 – 09/2019</p>
+                                <div>
+                                  <h4>Opremic Solutions GmbH</h4>
+                                  <p>05/2019 – 09/2019</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>Senior Java Engineer</h3>
-                                <h4>Serrala O2C Solutions GmbH</h4>
-                                <p>07/2019 - 04/2020</p>
+                                <div>
+                                  <h4>Serrala O2C Solutions GmbH</h4>
+                                  <p>07/2019 - 04/2020</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>Senior Full-Stack Web Developer</h3>
-                                <h4>DB Systel GmbH</h4>
-                                <p>06/2020 - 07/2021</p>
+                                <div>
+                                  <h4>DB Systel GmbH</h4>
+                                  <p>06/2020 - 07/2021</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>Head of UX/UI</h3>
-                                <h4>WeWater gUG</h4>
-                                <p>01/2021 - now</p>
+                                <div>
+                                  <h4>WeWater gUG</h4>
+                                  <p>01/2021 - now</p>
+                                </div>
                               </div>
                               <div className="cv-item">
                                 <h3>Your next project?</h3>
                                 <div className="cv-c2a">
-                                  <Button inverted size={ButtonSizes.m}>Let's talk</Button>
-                                  <Button inverted size={ButtonSizes.m}>Download Full CV</Button>
+                                  <Link to="/contact">
+                                    <Button inverted size={ButtonSizes.m}>Let's talk</Button>
+                                  </Link>
+                                  <a href="/cv/CurriculumVitae.pdf" target="_blank" rel="noopener">
+                                    <Button inverted size={ButtonSizes.m}>Download Full CV</Button>
+                                  </a>
                                 </div>
                               </div>
                             </>
@@ -235,24 +262,24 @@ export default class Technologies extends PureComponent {
                             && window.innerWidth > 768 && (
                               <Tween
                                 from={{
-                                  y: '600px'
+                                  y: '500px'
                                 }}
                                 to={{
-                                  y: '-600px'
+                                  y: '-500px'
                                 }}
-                                stagger={{ from: 'start', amount: 0.2 }}
+                                stagger={{ from: 'start', amount: 0.25 }}
                               />
                             )}
                           {typeof window !== 'undefined'
                             && window.innerWidth <= 768 && (
                               <Tween
                                 from={{
-                                  y: '800px'
+                                  y: '700px'
                                 }}
                                 to={{
-                                  y: '-800px'
+                                  y: '-700px'
                                 }}
-                                stagger={{ from: 'start', amount: 0.2 }}
+                                stagger={{ from: 'start', amount: 0.25 }}
                               />
                             )}
 
@@ -263,7 +290,7 @@ export default class Technologies extends PureComponent {
                             to={{
                               autoAlpha: '1'
                             }}
-                            stagger={{ from: 'start', amount: 0.2 }}
+                            stagger={{ from: 'start', amount: 0.25 }}
                             duration={0.25}
                             position="<"
                           />

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 interface LogoProps {
-    readonly primary?: boolean;
+    readonly darkmode?: boolean;
 }
 
 export const Logo = styled.span<LogoProps>`
-    color: ${(props) => (props.primary ? '#000000' : '#FFFFFF')};
+    color: ${(props) => (props.darkmode ? '#FFFFFF' : '#000000')};
     cursor: pointer;
     font-size: 22px;
     font-weight: 800;

@@ -8,11 +8,11 @@ import { device } from '../theme/theme';
 
 const FooterContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
-  border-radius: 0px ${(props) => props.theme.borderRadiusSectionMobile} 0px 0px;
+  border-radius: ${(props) => props.theme.borderRadiusSectionMobile} 0px 0px 0px;
   width: 100%;
 
   @media ${device.tablet} {
-    border-radius: 0px ${(props) => props.theme.borderRadiusSection} 0px 0px;
+    border-radius: ${(props) => props.theme.borderRadiusSection} 0px 0px 0px;
   }
 `;
 
@@ -63,6 +63,7 @@ const FooterContentContainer = styled.div`
     }
 
     @media ${device.tablet} {
+        border-radius: 0px ${(props) => props.theme.borderRadiusSection} 0px 0px;
         margin-right: 80px;
     }
 `;
@@ -111,21 +112,28 @@ const FooterBottomBarLinks = styled.div`
     }
 `;
 
-export default class footer extends PureComponent {
+interface FooterProps {
+    showCallToAction?: boolean;
+}
+export default class footer extends PureComponent<any, FooterProps> {
     render() {
+        const { showCallToAction } = this.props;
         return (
             <FooterContainer>
-                <Container>
-                    <ContainerContentStandard>
-                        <FooterCallToAction>
-                            <h2>Interested in Collaboration?</h2>
-                            <p>From first MVP to large enterprise platform. Whether it's around a concept, startup or application evolution, let's take it to the next level together.</p>
-                            <Link to="/contact">
-                                <Button inverted size={ButtonSizes.l}>Let's talk</Button>
-                            </Link>
-                        </FooterCallToAction>
-                    </ContainerContentStandard>
-                </Container>
+                {showCallToAction
+                    && (
+                        <Container>
+                            <ContainerContentStandard>
+                                <FooterCallToAction>
+                                    <h2>Interested in Collaboration?</h2>
+                                    <p>From first MVP to large enterprise platform. Whether it's around a concept, startup or application evolution, let's take it to the next level together.</p>
+                                    <Link to="/contact">
+                                        <Button inverted size={ButtonSizes.l}>Let's talk</Button>
+                                    </Link>
+                                </FooterCallToAction>
+                            </ContainerContentStandard>
+                        </Container>
+                    )}
                 <FooterContentContainer>
                     <Container>
                         <ContainerContentStandard>
@@ -136,10 +144,12 @@ export default class footer extends PureComponent {
                                     </Link>
                                     <p>
                                         Full-Stack Web Engineer
+                                        <br />
                                         Let’s do a virtual coffee break and talk about your project and how I can help you to bring it to the next level.
                                     </p>
                                 </div>
                                 <div>
+                                    {/*
                                     <h3>Quick Links</h3>
                                     <p>
                                         Portfolio
@@ -150,6 +160,7 @@ export default class footer extends PureComponent {
                                     <p>
                                         Careers
                                     </p>
+                                    */}
                                 </div>
                                 <div>
                                     <h3>Reach me</h3>
@@ -172,8 +183,6 @@ export default class footer extends PureComponent {
                                     <Link to="/privacy-policy">Privacy Policy</Link>
                                     <span>|</span>
                                     <Link to="/sitemap">Sitemap</Link>
-                                    <span>|</span>
-                                    <Link to="/disclaimer">Disclaimer</Link>
                                 </FooterBottomBarLinks>
                             </FooterBottomBar>
                         </ContainerContentStandard>

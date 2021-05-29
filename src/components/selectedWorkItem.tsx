@@ -29,7 +29,7 @@ export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
     transition: all 0.2s linear 0s;
   }
   &#innerlight-container {
-    background: #F48C14;
+    background: linear-gradient(to right, #fdc830, #f37335);
     transform-style: preserve-3d;
     transition: all 0.2s linear 0s;
   }

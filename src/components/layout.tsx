@@ -7,6 +7,9 @@ import Navbar from './navbar';
 
 interface Props {
   children?: any;
+  darkmode?: any;
+  showCallToAction?: any;
+  showFooter?: any;
 }
 
 export const MainSection = styled.main`
@@ -20,12 +23,14 @@ export const MainSection = styled.main`
 
 class Layout extends PureComponent<Props> {
   render() {
-    const { children } = this.props;
+    const {
+      children, darkmode, showCallToAction, showFooter
+    } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
         <div className="flex-container">
-          <Navbar />
+          <Navbar darkmode={darkmode} />
           <MainSection role="main">
             {children}
             {/*  <CookieConsent
@@ -51,7 +56,8 @@ class Layout extends PureComponent<Props> {
 
                         </div>
                     </CookieConsent> */}
-            <Footer />
+            {showFooter
+              && <Footer showCallToAction={showCallToAction} />}
           </MainSection>
         </div>
       </ThemeProvider>

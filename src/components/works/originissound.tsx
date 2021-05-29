@@ -20,6 +20,11 @@ export const OriginIsSoundContainer = styled.div`
   right:0;
   top:0;
 
+  .coming-soon-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   h4{
     color: #ffffff;
     font-size: 19px;
@@ -52,7 +57,7 @@ export const OriginIsSoundContainer = styled.div`
   @media ${device.tablet} {
     margin-bottom:0;
     margin-left:37px;
-    margin-right:0;
+    margin-right:37px;
     margin-top:30px;
   }
 
@@ -67,6 +72,20 @@ export const BackgroundGradient = styled.div`
   transform: translateX(-50%);
   width: 380px;
 `;
+export const ComingSoon = styled.p`
+border: 2px solid #EB0055;
+    border-radius: 100px;
+    color: #EB0055;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 35px;
+    margin: 0;
+    margin-left: 0.5rem;
+    padding: 0 0.75rem;
+    transform: rotate(
+15deg
+);
+`;
 
 export default class OriginIsSoundCard extends PureComponent {
   render() {
@@ -74,7 +93,10 @@ export default class OriginIsSoundCard extends PureComponent {
       <HoverContainer large={false} containerId="origin-container" href="https://www.scmonline.de/">
         <OriginIsSoundContainer>
           <div>
-            <h4>ORIGIN IS SOUND</h4>
+            <div className="coming-soon-container">
+              <h4>ORIGIN IS SOUND</h4>
+              <ComingSoon>Coming soon</ComingSoon>
+            </div>
             <h5>Artist Portfolio</h5>
           </div>
           <BackgroundGradient>

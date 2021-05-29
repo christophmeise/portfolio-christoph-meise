@@ -43,7 +43,7 @@ export default class IndexPage extends React.PureComponent<IndexProps> {
       <>
         <Seo title={title} description={description} />
         <GlobalStyle />
-        <Layout>
+        <Layout showCallToAction showFooter>
           <HeroIntro />
           <DarkModeContainer className="content-section">
             <FullStack />

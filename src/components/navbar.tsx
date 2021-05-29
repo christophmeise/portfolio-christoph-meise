@@ -133,10 +133,13 @@ const BurgerMenu = styled.div<BurgerMenuProps>`
     }
 `;
 
+interface NavbarProps {
+  darkmode?: boolean;
+}
 interface NavbarState {
   sidebarOpened: boolean;
 }
-export default class Navbar extends Component<any, NavbarState> {
+export default class Navbar extends Component<NavbarProps, NavbarState> {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -148,23 +151,23 @@ export default class Navbar extends Component<any, NavbarState> {
 
   render() {
     const { sidebarOpened } = this.state;
+    const { darkmode } = this.props;
 
     return (
       <Header id="header">
         <Container>
           <NavbarContainer>
             <Link to="/">
-              <Logo primary>Christoph Meise</Logo>
+              <Logo darkmode={darkmode}>Christoph Meise</Logo>
             </Link>
-            <MenuItem>About</MenuItem>
-            <MenuItem>Clients</MenuItem>
-            <MenuItem>Works</MenuItem>
-            <MenuItem>Technologies</MenuItem>
-            <MenuItem>
-              <Link to="contact">Contact</Link>
-            </MenuItem>
+            {/*             <MenuItem inverted={darkmode}>About</MenuItem>
+            <MenuItem inverted={darkmode}>Clients</MenuItem>
+            <MenuItem inverted={darkmode}>Works</MenuItem>
+            <MenuItem inverted={darkmode}>Technologies</MenuItem> */}
             <NavbarButton>
-              <Button inverted>Let's talk</Button>
+              <Link to="/contact">
+                <Button inverted>Let's talk</Button>
+              </Link>
             </NavbarButton>
             <BurgerMenu sidebarOpened={sidebarOpened} aria-label="Main Menu" onClick={() => this.handleToggle()}>
               <svg fillOpacity="1" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 100 100">

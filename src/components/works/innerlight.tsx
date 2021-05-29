@@ -18,7 +18,7 @@ export const InnerLightContainer = styled.div`
   @media ${device.tablet} {
     padding-bottom: 62px;
     padding-left: 10px;
-    padding-right: 48px;
+    padding-right: 36px;
     padding-top: 62px;
 
     .innerlight-img {
@@ -75,6 +75,7 @@ export default class InnerlightCard extends PureComponent {
             className="innerlight-img"
             loading="eager"
             objectPosition="left"
+            objectFit="contain"
             placeholder="none"
           />
           <div className="innerlight-content">
@@ -83,8 +84,7 @@ export default class InnerlightCard extends PureComponent {
               Inner Light Hypnotherapy
             </h3>
             <p>
-              Rebranding and complete relaunch to maximize
-              performance and user engagement.
+              With Inner Light, people and companies from all over the world can find access to high-class content on the subject of personal development and hypnotherapy. Book online pre-talk and buy therapy directly and securely online.
             </p>
             <TagContainer>
               <Tag>
