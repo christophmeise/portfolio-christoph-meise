@@ -63,7 +63,7 @@ export default class MacCanvas extends PureComponent<any, any> {
     const { open, isOpened } = this.props;
     return (
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 0], fov: 35 }}>
-        <three.pointLight position={[10, 10, 10]} intensity={1.5} color={open.to([0, 1], ['#FFFFFF', '#14142b'])} />
+        <three.pointLight position={[10, 10, 10]} intensity={1.5} color={open.to([0, 1], ['#FFFFFF', '#FFFFFF'])} />
         <Suspense fallback={null}>
           <group rotation={[0, Math.PI, 0]} onClick={(e) => (e.stopPropagation(), navigate('/contact'))}>
             <Model open={isOpened} hinge={open.to([0, 1], [1.575, -0.425])} />

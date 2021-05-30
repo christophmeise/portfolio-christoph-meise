@@ -68,7 +68,8 @@ export default class ServicesSection extends PureComponent {
                   <Tween
                     from={{ x: -50, opacity: 0 }}
                     to={{ x: 0, opacity: 1 }}
-                    stagger={{ from: 'start', amount: 1 }}
+                    stagger={{ from: 'start', amount: 0.5 }}
+                    duration={0.5}
                   >
                     {this.tags.map((tag) => <ServiceTag key={tag}>{tag}</ServiceTag>)}
                   </Tween>

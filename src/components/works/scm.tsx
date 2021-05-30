@@ -17,7 +17,7 @@ export const SCMCardContainer = styled.div`
   right:0;
   top:0;
 
-  h5{
+  h4{
     color: ${(props) => props.theme.colors.fontBlack};
     font-size: 28px;
     font-weight: 800;
@@ -95,7 +95,7 @@ export default class SCMCard extends PureComponent {
         <SCMCardContainer>
           <SCMTextContainer>
             <LogoSCM />
-            <h5>School for Communication and Management</h5>
+            <h4>School for Communication and Management</h4>
           </SCMTextContainer>
           <Stripes left="unset" right="0" top={stripedTop1}>
             <Stripe stripeColor="#14E8AF" translateX={150} />

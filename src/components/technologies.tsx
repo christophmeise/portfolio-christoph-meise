@@ -82,6 +82,7 @@ const GlobeTextContainer = styled.div`
           div {
             display: inline-flex;
             align-items: center;
+            flex-direction: row;
           }
           h4 {
             margin-bottom: 0;
