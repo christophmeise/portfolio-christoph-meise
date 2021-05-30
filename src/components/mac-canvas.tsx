@@ -68,7 +68,10 @@ export default class MacCanvas extends PureComponent<any, any> {
           <group rotation={[0, Math.PI, 0]} onClick={(e) => (e.stopPropagation(), navigate('/contact'))}>
             <Model open={isOpened} hinge={open.to([0, 1], [1.575, -0.425])} />
           </group>
-          <Environment preset="city" />
+          {window.innerWidth > 768
+            && (
+              <Environment preset="city" />
+            )}
         </Suspense>
         <ContactShadows rotation-x={Math.PI / 2} position={[0, -4.5, 0]} opacity={0.4} width={20} height={20} blur={2} far={4.5} />
       </Canvas>
