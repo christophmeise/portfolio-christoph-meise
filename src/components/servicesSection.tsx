@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Reveal, Tween } from 'react-gsap';
 import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
@@ -63,7 +64,15 @@ export default class ServicesSection extends PureComponent {
             </ServicesColumn>
             <ServicesColumn>
               <ServiceTags>
-                {this.tags.map((tag) => <ServiceTag>{tag}</ServiceTag>)}
+                <Reveal threshold={1}>
+                  <Tween
+                    from={{ x: -50, opacity: 0 }}
+                    to={{ x: 0, opacity: 1 }}
+                    stagger={{ from: 'start', amount: 1 }}
+                  >
+                    {this.tags.map((tag) => <ServiceTag key={tag}>{tag}</ServiceTag>)}
+                  </Tween>
+                </Reveal>
               </ServiceTags>
             </ServicesColumn>
           </ServicesContainer>

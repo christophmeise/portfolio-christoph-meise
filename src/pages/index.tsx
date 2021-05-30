@@ -1,4 +1,3 @@
-import loadable from '@loadable/component';
 import * as React from 'react';
 import styled from 'styled-components';
 import FullStack from '../components/fullStack';
@@ -6,6 +5,7 @@ import { GlobalStyle } from '../components/globalStyle';
 import HappyClients from '../components/happyClients';
 import HeroIntro from '../components/heroIntro';
 import Layout from '../components/layout';
+import Mac from '../components/mac';
 import SelectedWorks from '../components/selectedWorks';
 import Seo from '../components/seo';
 import ServicesSection from '../components/servicesSection';
@@ -30,9 +30,6 @@ export const DarkModeContainer = styled.div`
     border-radius: ${(props) => props.theme.borderRadiusSection} 0px ${(props) => props.theme.borderRadiusSection} 0px;
   }
 `;
-
-const Mac: any = loadable(() => import(/* webpackPrefetch: true */ '../components/mac'));
-
 
 export default class IndexPage extends React.PureComponent<IndexProps> {
   render() {

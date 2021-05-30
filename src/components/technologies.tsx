@@ -59,8 +59,9 @@ const GlobeTextContainer = styled.div`
       width: fit-content;
 
       div {
-        display: inline-flex;
-        align-items: center;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       h3 {
@@ -73,7 +74,19 @@ const GlobeTextContainer = styled.div`
         font-weight: 800;
         margin: 0;
         margin-right: 1rem;
+        margin-bottom: 0.5rem;
       }
+
+
+        @media ${device.tablet} {
+          div {
+            display: inline-flex;
+            align-items: center;
+          }
+          h4 {
+            margin-bottom: 0;
+          }
+        }
       p {
         font-size: 16px;
         font-weight: 600;

@@ -83,7 +83,7 @@ const FooterContent = styled.div`
     @media ${device.tablet} {
         grid-template-columns: 1fr 1fr 1fr;
         column-gap: 30px;
-        padding: 80px 0px;
+        padding: 64px 0px;
     }
 `;
 const FooterBottomBar = styled.div`
@@ -101,7 +101,7 @@ const FooterBottomBar = styled.div`
 
     @media ${device.tablet} {
         grid-template-columns: 1fr 1fr;
-        padding: 24px 0px;
+        padding-bottom: 24px;
     }
 `;
 const FooterBottomBarLinks = styled.div`
@@ -181,8 +181,8 @@ export default class footer extends PureComponent<any, FooterProps> {
                                     <Link to="/imprint">Imprint</Link>
                                     <span>|</span>
                                     <Link to="/privacy-policy">Privacy Policy</Link>
-                                    <span>|</span>
-                                    <Link to="/sitemap">Sitemap</Link>
+                                    {/*                                     <span>|</span>
+                                    <Link to="/sitemap">Sitemap</Link> */}
                                 </FooterBottomBarLinks>
                             </FooterBottomBar>
                         </ContainerContentStandard>

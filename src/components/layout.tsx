@@ -14,7 +14,7 @@ interface Props {
 
 export const MainSection = styled.main`
   .content-section {
-    margin-bottom: 150px;
+    margin-bottom: 200px;
   }
   .content-section-small {
     margin-bottom: 100px;

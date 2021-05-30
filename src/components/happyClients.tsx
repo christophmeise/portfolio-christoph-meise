@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Timeline, Tween } from 'react-gsap';
-import { Controller, Scene } from 'react-scrollmagic';
+import { Reveal, Tween } from 'react-gsap';
 import styled from 'styled-components';
 import { Container, ContainerContentFull, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
@@ -101,63 +100,70 @@ export default class HappyClients extends PureComponent {
         <ContainerContentFull>
           <ClientGridContainer>
             <ClientGrid>
-              <Controller>
+              {/*               <Controller>
                 <Scene duration={650} offset={-200} triggerElement=".clients-trigger">
                   {(progress: any) => (
                     <Timeline
                       totalProgress={progress}
-                    >
-                      <Tween
-                        from={{ y: 50, opacity: 0 }}
-                        duration={300}
-                        wrapper={<div className="client-col" />}
-                        position="<"
-                      >
-                        <div className="client-rectangle"><LogoDHL /></div>
-                      </Tween>
-                      <Tween
-                        from={{ y: 50, opacity: 0 }}
-                        stagger={{ from: 'start', amount: 100 }}
-                        duration={300}
-                        wrapper={<div className="client-col" />}
-                        position="<"
-                      >
-                        <div className="client-rectangle"><LogoBayer /></div>
-                        <div className="client-rectangle"><LogoDB /></div>
-                      </Tween>
-                      <Tween
-                        from={{ y: 50, opacity: 0 }}
-                        stagger={{ from: 'start', amount: 100 }}
-                        duration={300}
-                        wrapper={<div className="client-col" />}
-                        position="<"
-                      >
-                        <div className="client-rectangle"><LogoSerrala /></div>
-                        <div className="client-rectangle"><LogoSAP /></div>
-                        <div className="client-rectangle"><LogoInnerLight /></div>
-                      </Tween>
-                      <Tween
-                        from={{ y: 50, opacity: 0 }}
-                        stagger={{ from: 'start', amount: 100 }}
-                        duration={300}
-                        wrapper={<div className="client-col" />}
-                        position="<"
-                      >
-                        <div className="client-rectangle"><LogoSCM /></div>
-                        <div className="client-rectangle"><LogoWeWater /></div>
-                      </Tween>
-                      <Tween
-                        from={{ y: 50, opacity: 0 }}
-                        duration={300}
-                        wrapper={<div className="client-col" />}
-                        position="<"
-                      >
-                        <div className="client-rectangle"><LogoOpremic /></div>
-                      </Tween>
-                    </Timeline>
+                    > */}
+              <Reveal threshold={1}>
+                <Tween
+                  from={{ y: 50, opacity: 0 }}
+                  to={{ y: 0, opacity: 1 }}
+                  duration={1}
+                  wrapper={<div className="client-col" />}
+                  position="<"
+                >
+                  <div className="client-rectangle"><LogoDHL /></div>
+                </Tween>
+                <Tween
+                  from={{ y: 50, opacity: 0 }}
+                  to={{ y: 0, opacity: 1 }}
+                  stagger={{ from: 'start', amount: 0.5 }}
+                  duration={1}
+                  wrapper={<div className="client-col" />}
+                  position="<"
+                >
+                  <div className="client-rectangle"><LogoBayer /></div>
+                  <div className="client-rectangle"><LogoDB /></div>
+                </Tween>
+                <Tween
+                  from={{ y: 50, opacity: 0 }}
+                  to={{ y: 0, opacity: 1 }}
+                  stagger={{ from: 'start', amount: 0.5 }}
+                  duration={1}
+                  wrapper={<div className="client-col" />}
+                  position="<"
+                >
+                  <div className="client-rectangle"><LogoSerrala /></div>
+                  <div className="client-rectangle"><LogoSAP /></div>
+                  <div className="client-rectangle"><LogoInnerLight /></div>
+                </Tween>
+                <Tween
+                  from={{ y: 50, opacity: 0 }}
+                  to={{ y: 0, opacity: 1 }}
+                  stagger={{ from: 'start', amount: 0.5 }}
+                  duration={1}
+                  wrapper={<div className="client-col" />}
+                  position="<"
+                >
+                  <div className="client-rectangle"><LogoSCM /></div>
+                  <div className="client-rectangle"><LogoWeWater /></div>
+                </Tween>
+                <Tween
+                  from={{ y: 50, opacity: 0 }}
+                  to={{ y: 0, opacity: 1 }}
+                  duration={1}
+                  wrapper={<div className="client-col" />}
+                  position="<"
+                >
+                  <div className="client-rectangle"><LogoOpremic /></div>
+                </Tween>
+              </Reveal>
+              {/*                     </Timeline>
                   )}
                 </Scene>
-              </Controller>
+              </Controller> */}
             </ClientGrid>
           </ClientGridContainer>
         </ContainerContentFull>

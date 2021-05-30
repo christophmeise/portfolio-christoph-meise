@@ -1,5 +1,6 @@
 /* eslint-disable prefer-spread */
 import React, { PureComponent } from 'react';
+import { Reveal, Tween } from 'react-gsap';
 import styled from 'styled-components';
 import { device } from '../theme/theme';
 
@@ -87,9 +88,17 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
       children, containerId, large, href
     } = this.props;
     return (
-      <HoverContainerLink id={containerId} large={large} href={href} target="_blank" rel="noopener">
-        { children}
-      </HoverContainerLink>
+      <Reveal>
+        <Tween
+          from={{ y: 50, opacity: 0 }}
+          to={{ y: 0, opacity: 1 }}
+          duration={0.3}
+        >
+          <HoverContainerLink id={containerId} large={large} href={href} target="_blank" rel="noopener">
+            {children}
+          </HoverContainerLink>
+        </Tween>
+      </Reveal>
     );
   }
 }
