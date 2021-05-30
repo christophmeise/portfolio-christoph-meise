@@ -27,6 +27,7 @@ const CustomForm = styled.form`
         min-height: 72px;
         padding: 8px 12px;
         padding-left: 28px;
+        box-sizing: border-box;
         width: 100%;
     }
     textarea {
@@ -45,7 +46,7 @@ const CustomForm = styled.form`
         padding-left: 28px;
         padding-right: 24px;
         padding-top: 16px;
-        width: 75%;
+        box-sizing: border-box;
     }
     fieldset {
         border: 0;
@@ -59,7 +60,6 @@ const FormField = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 48px;
-    width: 75%;
 `;
 const Submit = styled.div`
     align-items: flex-start;

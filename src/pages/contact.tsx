@@ -22,16 +22,26 @@ export const ContactDarkModeContainer = styled.div`
   }
 
   h1 {
-    font-size: 68px;
+    font-size: 48px;
     font-weight: 800;
     line-height: 78px;
     margin-top: 0;
   }
   h2 {
-    font-size: 26px;
+    font-size: 20px;
     line-height: 43px;
     margin: 0;
+    word-break: break-word;
   }
+    @media ${device.tablet} {
+      h1 {
+        font-size: 68px;
+      }
+      h2 {
+     font-size: 26px;
+    }
+  }
+
 `;
 export const Subheadline = styled.div`
     display: flex;
@@ -39,8 +49,11 @@ export const Subheadline = styled.div`
 `;
 export const WhiteLine = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
-    margin-right: 28px;
+    margin-right: 16px;
     min-width: 4px;
+        @media ${device.tablet} {
+      margin-right: 28px;
+  }
 `;
 export const ContactGrid = styled.div`
   display: flex;

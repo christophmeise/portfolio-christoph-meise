@@ -88,7 +88,7 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
       children, containerId, large, href
     } = this.props;
     return (
-      <Reveal>
+      <Reveal threshold={0.3}>
         <Tween
           from={{ y: 50, opacity: 0 }}
           to={{ y: 0, opacity: 1 }}

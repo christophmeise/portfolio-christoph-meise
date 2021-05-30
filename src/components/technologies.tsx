@@ -287,10 +287,10 @@ export default class Technologies extends PureComponent {
                             && window.innerWidth <= 768 && (
                               <Tween
                                 from={{
-                                  y: '700px'
+                                  y: '850px'
                                 }}
                                 to={{
-                                  y: '-700px'
+                                  y: '-850px'
                                 }}
                                 stagger={{ from: 'start', amount: 0.25 }}
                               />
