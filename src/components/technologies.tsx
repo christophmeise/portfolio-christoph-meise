@@ -188,7 +188,7 @@ export default class Technologies extends PureComponent {
                 </Scene>
               </ContainerContentStandard>
             </Container>
-            <Scene duration={4000} pin triggerHook={0.1}>
+            <Scene duration={3500} pin triggerHook={0.1}>
               {(progress: any) => (
                 <GlobeSection className="globe-trigger">
                   <TopOverlayContainer />
@@ -252,7 +252,7 @@ export default class Technologies extends PureComponent {
                                 </div>
                               </div>
                               <div className="cv-item">
-                                <h3>Head of UX/UI</h3>
+                                <h3>Head of Development</h3>
                                 <div>
                                   <h4>WeWater gUG</h4>
                                   <p>01/2021 - now</p>
@@ -281,7 +281,7 @@ export default class Technologies extends PureComponent {
                                 to={{
                                   y: '-500px'
                                 }}
-                                stagger={{ from: 'start', amount: 0.25 }}
+                                stagger={{ from: 'start', amount: 0.25, ease: 'sine.out' }}
                               />
                             )}
                           {typeof window !== 'undefined'
@@ -293,7 +293,7 @@ export default class Technologies extends PureComponent {
                                 to={{
                                   y: '-850px'
                                 }}
-                                stagger={{ from: 'start', amount: 0.25 }}
+                                stagger={{ from: 'start', amount: 0.25, ease: 'power1.out' }}
                               />
                             )}
 
@@ -304,7 +304,11 @@ export default class Technologies extends PureComponent {
                             to={{
                               autoAlpha: '1'
                             }}
-                            stagger={{ from: 'start', amount: 0.25 }}
+                            stagger={{
+                              from: 'start',
+                              amount: 0.3,
+                              ease: 'sine.out'
+                            }}
                             duration={0.25}
                             position="<"
                           />

@@ -11,7 +11,7 @@ export const InnerLightContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 48px;
-  padding-left: 10px;
+  padding-left: 24px;
   padding-right: 24px;
   padding-top: 48px;
 

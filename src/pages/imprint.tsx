@@ -5,6 +5,7 @@ import { GlobalStyle } from '../components/globalStyle';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { Container, ContainerContentStandard } from '../styles/container';
+import { device } from '../theme/theme';
 import { ContactGrid, Subheadline, WhiteLine } from './contact';
 
 export const ImprintDarkModeContainer = styled.div`
@@ -21,15 +22,25 @@ export const ImprintDarkModeContainer = styled.div`
   }
 
   h1 {
-    font-size: 68px;
+    font-size: 48px;
     font-weight: 800;
     line-height: 78px;
     margin-top: 0;
   }
   h2 {
-    font-size: 26px;
+    font-size: 20px;
     line-height: 43px;
     margin: 0;
+    word-break: break-word;
+  }
+
+  @media ${device.tablet} {
+      h1 {
+        font-size: 68px;
+      }
+      h2 {
+     font-size: 26px;
+    }
   }
 
   section {
