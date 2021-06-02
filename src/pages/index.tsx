@@ -33,7 +33,7 @@ export const DarkModeContainer = styled.div`
 
 export default class IndexPage extends React.PureComponent<IndexProps> {
   render() {
-    const title = 'Portfolio Christoph Meise - ExploreChristoph';
+    const title = 'Christoph Meise - Software Engineer | Portfolio';
     const description = 'Portfolio of Christoph Meise, Full-Stack Software Engineer and Freelancer in Berlin, Germany. ExploreChristoph now.';
 
     return (
