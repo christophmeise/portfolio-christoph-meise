@@ -102,7 +102,12 @@ export default class WeWaterCard extends PureComponent {
               </Tag>
             </TagContainer>
           </div>
-          <WeWaterIllustration />
+          {
+            typeof window !== 'undefined' && window.innerWidth > 768
+            && (
+              <WeWaterIllustration />
+            )
+          }
         </WeWaterContainer>
       </HoverContainer>
     );

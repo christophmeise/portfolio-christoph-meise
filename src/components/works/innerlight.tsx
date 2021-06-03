@@ -66,18 +66,24 @@ export default class InnerlightCard extends PureComponent {
     return (
       <HoverContainer large containerId="innerlight-container" href="https://innerlight-hypnotherapy.com/">
         <InnerLightContainer>
-          <StaticImage
-            src="../../../static/images/works/innerlight.png"
-            alt="Innerlight devices project image"
-            height={336}
-            width={683}
-            quality={100}
-            className="innerlight-img"
-            loading="eager"
-            objectPosition="left"
-            objectFit="contain"
-            placeholder="none"
-          />
+          {
+            typeof window !== 'undefined' && window.innerWidth > 768
+            && (
+              <StaticImage
+                src="../../../static/images/works/innerlight.png"
+                alt="Innerlight devices project image"
+                height={336}
+                width={683}
+                quality={100}
+                className="innerlight-img"
+                loading="eager"
+                objectPosition="left"
+                objectFit="contain"
+                placeholder="none"
+              />
+            )
+          }
+
           <div className="innerlight-content">
             <LogoInnerLightWhite />
             <h3>
