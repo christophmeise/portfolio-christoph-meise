@@ -8,6 +8,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install fonttools brotli zopfli
       - run: npm install && npm install -g @lhci/cli@0.7.x
       - run: npm run build
       - run: lhci autorun
