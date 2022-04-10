@@ -11,9 +11,11 @@ import { HeadlineDark, SubHeadlineDark } from './globalStyle';
 export const ClientGridContainer = styled.div`
   position: relative;
    &:after {
-      background-image: -webkit-linear-gradient(left,rgb(20 20 43) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 80%,rgb(20 20 43) 100% );
+      background-image: linear-gradient(90deg, rgb(20 20 43) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgb(20 20 43) 100%);
+      background-image: -webkit-linear-gradient(left,rgb(20 20 43) 0%,rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%,rgb(20 20 43) 100% );
       bottom: -20px;
       content: '';
+      inset: -20px 0px;
       left: 0;
       position: absolute;
       right: 0;

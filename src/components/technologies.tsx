@@ -189,7 +189,7 @@ export default class Technologies extends PureComponent {
                 </Scene>
               </ContainerContentStandard>
             </Container>
-            <Scene duration={1500} pin triggerHook={0}>
+            <Scene duration={3000} pin triggerHook={0}>
               {(progress: any) => (
                 <GlobeSection className="globe-trigger">
                   <TopOverlayContainer />
@@ -294,7 +294,7 @@ export default class Technologies extends PureComponent {
                                   y: '500px'
                                 }}
                                 to={{
-                                  y: '-500px'
+                                  y: '-1000px'
                                 }}
                               /*  stagger={{ from: 'start', amount: 0.25, ease: 'sine.out' }} */
                               />
@@ -303,10 +303,10 @@ export default class Technologies extends PureComponent {
                             && window.innerWidth <= 768 && (
                               <Tween
                                 from={{
-                                  y: '850px'
+                                  y: '500px'
                                 }}
                                 to={{
-                                  y: '-850px'
+                                  y: '-1600px'
                                 }}
                               /*  stagger={{ from: 'start', amount: 0.25, ease: 'power1.out' }} */
                               />
