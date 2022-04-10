@@ -4,14 +4,14 @@ const LoadablePlugin = require('@loadable/webpack-plugin');
 
 /** @type { import("gatsby").GatsbyNode } */
 
-export const createPages = async ({
+const createPages = async ({
   graphql,
   actions: { createPage }
 }) => {
   // Create your pages
 };
 
-export const onCreateWebpackConfig = async ({
+const onCreateWebpackConfig = async ({
   stage,
   loaders,
   actions
