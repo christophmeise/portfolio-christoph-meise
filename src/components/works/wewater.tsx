@@ -14,6 +14,7 @@ export const Tag = styled.div`
   align-items: center;
   border: 1px solid #FFFFFF;
   border-radius: 40px;
+  box-shadow: 0 0 1px 0px white inset, 0 0 1px 0px white;
   display: flex;
   justify-content: center;
   margin-bottom: 6px;

@@ -171,12 +171,12 @@ export default class footer extends PureComponent<any, FooterProps> {
                                         +49 1522 4054008
                                     </p>
                                     <p>
-                                        Germany, 12163 Berlin, Ahornstraße 26
+                                        Germany, 14194 Berlin, Orber Straße 18 A
                                     </p>
                                 </div>
                             </FooterContent>
                             <FooterBottomBar>
-                                <p>© 2021 Christoph Meise. All rights reserved</p>
+                                <p>© 2022 Christoph Meise. All rights reserved</p>
                                 <FooterBottomBarLinks>
                                     <Link to="/imprint">Imprint</Link>
                                     <span>|</span>

@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { Container, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
 import { HeadlineDark } from './globalStyle';
+import CelinaCard from './works/celina';
+import DBCard from './works/db';
 import InnerlightCard from './works/innerlight';
-import OriginIsSoundCard from './works/originissound';
-import SCMCard from './works/scm';
+import MercedesCard from './works/mercedes';
+import StellmicheinCard from './works/stellmichein';
 import WeWaterCard from './works/wewater';
 
 export const SelectedWorksGrid = styled.div`
@@ -32,9 +34,12 @@ export default class SelectedWorks extends PureComponent {
         <ContainerContentStandard>
           <HeadlineDark>Selected works</HeadlineDark>
           <SelectedWorksGrid>
+            <MercedesCard />
+            <StellmicheinCard />
+            {/*  <SCMCard /> */}
+            <DBCard />
+            <CelinaCard />
             <WeWaterCard />
-            <SCMCard />
-            <OriginIsSoundCard />
             <InnerlightCard />
           </SelectedWorksGrid>
         </ContainerContentStandard>

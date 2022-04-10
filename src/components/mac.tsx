@@ -62,7 +62,7 @@ export default function Mac() {
                     <MacHeadline>
                       <web.h2 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 50}px,0)`) }}>
                         Are you ready to start?
-                       </web.h2>
+                      </web.h2>
                     </MacHeadline>
                   </ContainerContentStandard>
                 </Container>

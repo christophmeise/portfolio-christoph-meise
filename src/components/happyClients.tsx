@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Container, ContainerContentFull, ContainerContentStandard } from '../styles/container';
 import { device } from '../theme/theme';
 import {
-  LogoBayer, LogoDB, LogoDHL, LogoInnerLight, LogoOpremic, LogoSAP, LogoSCM, LogoSerrala, LogoWeWater
+  LogoDB, LogoInnerLight, LogoMercedes, LogoOpremic, LogoSAP, LogoSCM, LogoSerrala, LogoStellMichEin, LogoWeWater
 } from './clientLogos';
 import { HeadlineDark, SubHeadlineDark } from './globalStyle';
 
@@ -66,6 +66,10 @@ export const ClientGrid = styled.div`
     max-height: 70%;
     max-width: 70%;
   }
+  #mb-svg {
+    max-height: 85% !important;
+    max-width: 85% !important;
+  }
 
   .innerlight {
     path {
@@ -114,7 +118,7 @@ export default class HappyClients extends PureComponent {
                   wrapper={<div className="client-col" />}
                   position="<"
                 >
-                  <div className="client-rectangle"><LogoDHL /></div>
+                  <div className="client-rectangle"><LogoInnerLight /></div>
                 </Tween>
                 <Tween
                   from={{ y: 50, opacity: 0 }}
@@ -124,7 +128,7 @@ export default class HappyClients extends PureComponent {
                   wrapper={<div className="client-col" />}
                   position="<"
                 >
-                  <div className="client-rectangle"><LogoBayer /></div>
+                  <div className="client-rectangle"><LogoStellMichEin /></div>
                   <div className="client-rectangle"><LogoDB /></div>
                 </Tween>
                 <Tween
@@ -137,7 +141,7 @@ export default class HappyClients extends PureComponent {
                 >
                   <div className="client-rectangle"><LogoSerrala /></div>
                   <div className="client-rectangle"><LogoSAP /></div>
-                  <div className="client-rectangle"><LogoInnerLight /></div>
+                  <div className="client-rectangle"><LogoMercedes /></div>
                 </Tween>
                 <Tween
                   from={{ y: 50, opacity: 0 }}

@@ -83,8 +83,8 @@ export default class Imprint extends PureComponent {
                     <p>
                       <b>Christoph Meise</b>
                     </p>
-                    <p>Ahornstraße 26</p>
-                    <p>12163 Berlin</p>
+                    <p>Orber Straße 18 A</p>
+                    <p>14193 Berlin</p>
                     <p>Phone: +49 1522 4054008</p>
                     <p>Email: projects@explorechristoph.com</p>
                   </section>

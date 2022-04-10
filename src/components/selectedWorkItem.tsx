@@ -24,10 +24,33 @@ export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
     grid-column: ${(props) => (props.large ? 'span 2' : 'span 1')};
   }
 
+  &#mercedes-container {
+    background: black;
+    transform-style: preserve-3d;
+    transition: all 0.2s linear 0s;
+    background-image: url("/images/works/amg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &#db-container {
+    background: black;
+    transform-style: preserve-3d;
+    transition: all 0.2s linear 0s;
+    background-image: url("/images/works/db.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   &#wewater-container {
     background: linear-gradient(114.44deg, #624AF2 0%, #50DDC3 100%);
     transform-style: preserve-3d;
     transition: all 0.2s linear 0s;
+  }
+  &#stellmichein-container {
+    background: #FFFFFF;
+    transform-style: preserve-3d;
+    transition: all 0.2s linear 0s;
+    overflow: hidden;
   }
   &#innerlight-container {
     background: linear-gradient(to right, #fdc830, #f37335);
@@ -39,8 +62,8 @@ export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
     transform-style: preserve-3d;
     transition: all 0.2s linear 0s;
   }
-  &#origin-container {
-    background: linear-gradient(114.44deg, #EB0055 0%, #FFFA80 100%);
+  &#celina-container {
+    background: linear-gradient(114.44deg, #C1C0BF 0%, #F7F7F7 100%);
     transform-style: preserve-3d;
     transition: all 0.2s linear 0s;
   }
@@ -54,6 +77,7 @@ interface HoverContainerProps {
   children: any;
   large: boolean;
   href: string;
+  onClick?: any;
 }
 export default class HoverContainer extends PureComponent<HoverContainerProps> {
   componentDidMount() {
@@ -85,7 +109,7 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
 
   render() {
     const {
-      children, containerId, large, href
+      children, containerId, large, href, onClick
     } = this.props;
     return (
       <Reveal threshold={0.3}>
@@ -94,7 +118,7 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
           to={{ y: 0, opacity: 1 }}
           duration={0.3}
         >
-          <HoverContainerLink id={containerId} large={large} href={href} target="_blank" rel="noopener">
+          <HoverContainerLink id={containerId} large={large} href={href} target="_blank" rel="noopener" onClick={onClick}>
             {children}
           </HoverContainerLink>
         </Tween>
