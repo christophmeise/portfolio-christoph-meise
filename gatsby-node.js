@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import LoadablePlugin from '@loadable/webpack-plugin';
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 /** @type { import("gatsby").GatsbyNode } */
 
