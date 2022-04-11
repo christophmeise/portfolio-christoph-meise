@@ -7,15 +7,15 @@ export const siteMetadata = {
 };
 
 export const plugins = [
-  {
-    resolve: 'gatsby-plugin-subfont',
-    options: {
-      silent: false,
-      fallbacks: true,
-      inlineFonts: true,
-      fontDisplay: 'block'
-    }
-  },
+  /*   {
+      resolve: 'gatsby-plugin-subfont',
+      options: {
+        silent: false,
+        fallbacks: true,
+        inlineFonts: true,
+        fontDisplay: 'block'
+      }
+    }, */
   'gatsby-plugin-typescript',
   'gatsby-plugin-styled-components',
   'gatsby-plugin-smoothscroll',
