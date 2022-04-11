@@ -69,7 +69,14 @@ export const MercedesContainer = styled.div`
 export default class MercedesCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large containerId="mercedes-container" href="https://www.mercedes-benz.de/passengercars/configurator.html?kpid=go_cmp-12048946313_adg-117005915220_ad-490888941252_kwd-300735337658_dev-c_ext-&gclid=EAIaIQobChMIlLboqMOH9wIV6YxoCR3YGgHbEAAYASAAEgJeJ_D_BwE&group=all&subgroup=see-all&view=BODYTYPE">
+      <HoverContainer
+        large
+        containerId="mercedes-container"
+        href="https://www.mercedes-benz.de/passengercars/configurator.html?kpid=go_cmp-12048946313_adg-117005915220_ad-490888941252_kwd-300735337658_dev-c_ext-&gclid=EAIaIQobChMIlLboqMOH9wIV6YxoCR3YGgHbEAAYASAAEgJeJ_D_BwE&group=all&subgroup=see-all&view=BODYTYPE"
+        backgroundColor="#000000"
+        radialStartColor="#010101"
+        radialEndColor="#121212"
+      >
         <MercedesContainer>
           <TextContainer>
             <h3>

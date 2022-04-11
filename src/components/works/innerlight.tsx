@@ -16,16 +16,17 @@ export const InnerLightContainer = styled.div`
   padding-top: 48px;
 
   @media ${device.tablet} {
-    padding-bottom: 62px;
+    padding-bottom: 40px;
     padding-left: 10px;
     padding-right: 36px;
-    padding-top: 62px;
+    padding-top: 40px;
 
     .innerlight-img {
-      flex: 3;
+      flex: 4;
+      overflow: visible;
     }
     .innerlight-content {
-    flex: 2;
+    flex: 3;
     padding-left: 40px;
     }
   }
@@ -51,20 +52,29 @@ export const InnerLightContainer = styled.div`
     font-size: 28px;
     font-weight: 800;
     line-height: 40px;
-    margin: 16px 0;
+    margin-bottom: 16px;
+    margin-top: 0;
   }
   p {
     color: ${(props) => props.theme.colors.fontWhite};
     font-size: 17px;
     font-weight: normal;
-    line-height: 32px;
+    line-height: 27px;
   }
 `;
 
 export default class InnerlightCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large containerId="innerlight-container" href="https://innerlight-hypnotherapy.com/">
+      <HoverContainer
+        large
+        containerId="innerlight-container"
+        href="https://innerlight-hypnotherapy.com/"
+        imageId="innerlight-img"
+        backgroundColor="#000000"
+        radialStartColor="#010101"
+        radialEndColor="#121212"
+      >
         <InnerLightContainer>
           {
             typeof window !== 'undefined' && window.innerWidth > 768
@@ -72,8 +82,9 @@ export default class InnerlightCard extends PureComponent {
               <StaticImage
                 src="../../../static/images/works/innerlight.png"
                 alt="Innerlight devices project image"
-                height={336}
-                width={683}
+                id="innerlight-img"
+                height={1828}
+                width={4044}
                 quality={100}
                 className="innerlight-img"
                 loading="eager"

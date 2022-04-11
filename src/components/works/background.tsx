@@ -2,7 +2,7 @@ import React from 'react';
 
 function Background() {
   return (
-    <svg width="400" height="400" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="400" height="400" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg" id="gradient-celina">
       <g opacity="0.3">
         <path d="M30.7841 293.754C37.8546 304.58 46.1432 314.844 55.6497 324.35C65.1562 333.857 75.4195 342.145 86.2457 349.216L30.7841 293.754Z" fill="url(#paint0_linear_801_770)" />
         <path d="M107.61 361.265L18.7353 272.39C16.0474 266.803 13.6486 261.111 11.5391 255.338L124.662 368.461C118.889 366.351 113.197 363.953 107.61 361.265Z" fill="url(#paint1_linear_801_770)" />

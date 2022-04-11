@@ -71,7 +71,14 @@ export const DBTextContainer = styled.div`
 export default class DBCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large={false} containerId="db-container" href="https://inside.bahn.de/fahrgastrechte-online/">
+      <HoverContainer
+        large={false}
+        containerId="db-container"
+        href="https://inside.bahn.de/fahrgastrechte-online/"
+        backgroundColor="#000000"
+        radialStartColor="#010101"
+        radialEndColor="#121212"
+      >
         <DBCardShadow>
           <DBCardContainer>
             <DBTextContainer>

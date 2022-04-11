@@ -16,7 +16,7 @@ export const SelectedWorksGrid = styled.div`
   grid-template-columns: 1fr;
   margin-bottom: 80px;
   margin-top: 48px;
-  perspective: 2000px;
+  perspective: 1201px;
   row-gap: 24px;
   width: 100%;
 

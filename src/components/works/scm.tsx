@@ -91,7 +91,14 @@ export default class SCMCard extends PureComponent {
       stripedTop2 = '320px';
     }
     return (
-      <HoverContainer large={false} containerId="scm-container" href="https://www.scmonline.de/">
+      <HoverContainer
+        large={false}
+        containerId="scm-container"
+        href="https://www.scmonline.de/"
+        backgroundColor="#FFFFFF"
+        radialStartColor="#FCFCFC"
+        radialEndColor="#FEFEFE"
+      >
         <SCMCardContainer>
           <SCMTextContainer>
             <LogoSCM />

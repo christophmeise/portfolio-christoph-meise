@@ -57,6 +57,7 @@ export const StellmicheinContainer = styled.div`
       visibility: visible;
       width: 550px;
       min-width: 550px;
+      overflow: visible;
     }
   }
 
@@ -129,7 +130,15 @@ export default class StellmicheinCard extends PureComponent {
       stripedTop2 = '320px';
     }
     return (
-      <HoverContainer large containerId="stellmichein-container" href="https://stellmichein.de/">
+      <HoverContainer
+        large
+        containerId="stellmichein-container"
+        imageId="talentpool-img"
+        href="https://stellmichein.de/"
+        backgroundColor="#FFFFFF"
+        radialStartColor="#FCFCFC"
+        radialEndColor="#FEFEFE"
+      >
         <StellmicheinContainer>
           <Stripes left="unset" right="50px" top={stripedTop1}>
             <Stripe className="very-small-stripe" stripeColor="#FDC228" translateX={400} />
@@ -187,6 +196,7 @@ export default class StellmicheinCard extends PureComponent {
               <StaticImage
                 src="../../../static/images/works/mac.png"
                 alt="Talentpool Iamge"
+                id="talentpool-img"
                 height={1395}
                 width={2400}
                 quality={100}

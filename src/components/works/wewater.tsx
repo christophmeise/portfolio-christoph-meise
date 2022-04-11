@@ -52,6 +52,7 @@ export const WeWaterContainer = styled.div`
     #wewater-illustration {
       display: block;
       visibility: visible;
+      z-index: 100;
     }
   }
 
@@ -74,7 +75,15 @@ export const WeWaterContainer = styled.div`
 export default class WeWaterCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large containerId="wewater-container" href="https://wewater.org/">
+      <HoverContainer
+        large
+        containerId="wewater-container"
+        href="https://wewater.org/"
+        backgroundColor="linear-gradient(114.44deg, #624AF2 0%, #50DDC3 100%)"
+        radialStartColor="#50DDC3"
+        radialEndColor="#624AF2"
+        imageId="wewater-illustration"
+      >
         <WeWaterContainer>
           <div>
             <LogoWeWaterWhite />

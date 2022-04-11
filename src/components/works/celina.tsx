@@ -82,7 +82,16 @@ export const ComingSoon = styled.p`
 export default class CelinaCard extends PureComponent {
   render() {
     return (
-      <HoverContainer large={false} containerId="celina-container" href="/" onClick={(ev: any) => ev.preventDefault()}>
+      <HoverContainer
+        large={false}
+        containerId="celina-container"
+        href="/"
+        onClick={(ev: any) => ev.preventDefault()}
+        backgroundColor="#000000"
+        radialStartColor="#010101"
+        radialEndColor="#121212"
+        imageId="gradient-celina"
+      >
         <CelinaContainer>
           <div>
             <div className="coming-soon-container">
