@@ -9,6 +9,7 @@ export const TagContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 550px;
 `;
 export const Tag = styled.div`
   align-items: center;
@@ -99,7 +100,19 @@ export default class WeWaterCard extends PureComponent {
                 <span>Headless CMS</span>
               </Tag>
               <Tag>
+                <span>Gatsby Cloud</span>
+              </Tag>
+              <Tag>
                 <span>Internationalization</span>
+              </Tag>
+              <Tag>
+                <span>WooCommerce</span>
+              </Tag>
+              <Tag>
+                <span>Apollo</span>
+              </Tag>
+              <Tag>
+                <span>Less</span>
               </Tag>
             </TagContainer>
           </div>

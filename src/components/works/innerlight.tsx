@@ -105,6 +105,21 @@ export default class InnerlightCard extends PureComponent {
               <Tag>
                 <span>React</span>
               </Tag>
+              <Tag>
+                <span>Netlify</span>
+              </Tag>
+              <Tag>
+                <span>Calendly</span>
+              </Tag>
+              <Tag>
+                <span>Mailerlite</span>
+              </Tag>
+              <Tag>
+                <span>i18n</span>
+              </Tag>
+              <Tag>
+                <span>Figma</span>
+              </Tag>
             </TagContainer>
           </div>
         </InnerLightContainer>

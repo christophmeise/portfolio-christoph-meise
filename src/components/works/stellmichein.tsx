@@ -42,7 +42,7 @@ export const StellmicheinContainer = styled.div`
   @media ${device.tablet} {
     padding: 48px 48px;
   }
-  .sme-logo {
+  #logo-sme {
     height: 55px;
     width: 55px;
   }
@@ -65,7 +65,8 @@ export const StellmicheinContainer = styled.div`
     font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.03em;
-    margin: 16px 0;
+    margin-bottom: 16px;
+    margin-top: 0;
     span {
       color: #FDC228;
     }
@@ -168,6 +169,15 @@ export default class StellmicheinCard extends PureComponent {
               </Tag>
               <Tag>
                 <span>React</span>
+              </Tag>
+              <Tag>
+                <span>Styled Components</span>
+              </Tag>
+              <Tag>
+                <span>GSAP</span>
+              </Tag>
+              <Tag>
+                <span>Vercel</span>
               </Tag>
             </TagContainer>
           </TextContainer>
