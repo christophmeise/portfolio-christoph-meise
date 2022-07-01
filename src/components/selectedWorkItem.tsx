@@ -25,11 +25,15 @@ export const HoverContainerLink = styled.a<SelectedWorksGridItemProps>`
     grid-column: ${(props) => (props.large ? 'span 2' : 'span 1')};
   }
 
+ @media ${device.tablet} {
+    &#mercedes-container {
+      background-image: url("/images/works/amg1.jpg");
+    }
+   }
   &#mercedes-container {
     background: black;
     transform-style: preserve-3d;
     transition: all 0.2s linear 0s;
-    background-image: url("/images/works/amg1.jpg");
     background-repeat: no-repeat;
     /* background-size: cover; */
     background-position-x: 50%;
@@ -240,7 +244,7 @@ export default class HoverContainer extends PureComponent<HoverContainerProps> {
         <Tween
           from={{ y: 50, opacity: 0 }}
           to={{ y: 0, opacity: 1 }}
-          duration={0.3}
+          duration={1}
         >
           <HoverContainerLink id={containerId} large={large} href={href} target="_blank" rel="noopener" onClick={onClick}>
             {children}

@@ -38,6 +38,7 @@ export const StellmicheinContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 48px 24px;
+  position: relative;
 
   @media ${device.tablet} {
     padding: 48px 48px;

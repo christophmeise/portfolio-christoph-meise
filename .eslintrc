@@ -19,6 +19,8 @@
   "rules": {
     "indent": "off",
     "react/jsx-indent": "off",
+    "react/jsx-uses-react": 0,
+    "react/react-in-jsx-scope": 0,
     "no-tabs": "off",
     "no-param-reassign": "off",
     "no-multiple-empty-lines": "off",
