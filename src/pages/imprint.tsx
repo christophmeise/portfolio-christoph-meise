@@ -1,19 +1,29 @@
-import React, { PureComponent } from 'react';
-import { Tween } from 'react-gsap';
-import styled from 'styled-components';
-import { GlobalStyle } from '../components/globalStyle';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
-import { Container, ContainerContentStandard } from '../styles/container';
-import { device } from '../theme/theme';
-import { ContactGrid, Subheadline, WhiteLine } from './contact';
+import React, { PureComponent } from "react";
+import { Tween } from "react-gsap";
+import styled from "styled-components";
+import { GlobalStyle } from "../components/globalStyle";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import { Container, ContainerContentStandard } from "../styles/container";
+import { device } from "../theme/theme";
+import { ContactGrid, Subheadline, WhiteLine } from "./contact";
 
 export const ImprintDarkModeContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryBg};
   min-height: 100vh;
   overflow: hidden;
   width: 100%;
-  h1, h2, h3, h4, h5, h6, p, ul, li, ol, label {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  li,
+  ol,
+  label {
     color: ${(props) => props.theme.colors.fontWhite};
   }
 
@@ -35,11 +45,11 @@ export const ImprintDarkModeContainer = styled.div`
   }
 
   @media ${device.tablet} {
-      h1 {
-        font-size: 68px;
-      }
-      h2 {
-     font-size: 26px;
+    h1 {
+      font-size: 68px;
+    }
+    h2 {
+      font-size: 26px;
     }
   }
 
@@ -49,8 +59,9 @@ export const ImprintDarkModeContainer = styled.div`
 `;
 export default class Imprint extends PureComponent {
   render() {
-    const title = 'Imprint | Portfolio Christoph Meise';
-    const description = 'Imprint for Portfolio of Christoph Meise, Full-Stack Software Engineer and Freelancer in Berlin, Germany.';
+    const title = "Imprint | Portfolio Christoph Meise";
+    const description =
+      "Imprint for Portfolio of Christoph Meise, Full-Stack Software Engineer and Freelancer in Berlin, Germany.";
 
     return (
       <>
@@ -73,9 +84,10 @@ export default class Imprint extends PureComponent {
                       <WhiteLine />
                       <h2>
                         If you have any questions, reach out to me directly
-                        <br />
-                        {' '}
-                        <a href="mailto:projects@explorechristoph.com">projects@explorechristoph.com</a>
+                        <br />{" "}
+                        <a href="mailto:info@christophmeise.com">
+                          info@christophmeise.com
+                        </a>
                       </h2>
                     </Subheadline>
                   </div>
@@ -83,10 +95,10 @@ export default class Imprint extends PureComponent {
                     <p>
                       <b>Christoph Meise</b>
                     </p>
-                    <p>Orber Straße 18 A</p>
-                    <p>14193 Berlin</p>
+                    <p>Bismarckstraße 68 A</p>
+                    <p>12157 Berlin</p>
                     <p>Phone: +49 1522 4054008</p>
-                    <p>Email: projects@explorechristoph.com</p>
+                    <p>Email: info@christophmeise.com</p>
                   </section>
                 </Tween>
               </ContainerContentStandard>

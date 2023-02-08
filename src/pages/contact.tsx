@@ -1,19 +1,22 @@
-import React, { PureComponent } from 'react';
-import { Tween } from 'react-gsap';
-import styled from 'styled-components';
-import ContactForm from '../components/contactForm';
-import { GlobalStyle } from '../components/globalStyle';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
-import { Container, ContainerContentStandard } from '../styles/container';
-import { device } from '../theme/theme';
+import React, { PureComponent } from "react";
+import { Tween } from "react-gsap";
+import styled from "styled-components";
+import ContactForm from "../components/contactForm";
+import { GlobalStyle } from "../components/globalStyle";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import { Container, ContainerContentStandard } from "../styles/container";
+import { device } from "../theme/theme";
 
 export const ContactDarkModeContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryBg};
   min-height: 100vh;
   overflow: hidden;
   width: 100%;
-  h1, h2, p, label {
+  h1,
+  h2,
+  p,
+  label {
     color: ${(props) => props.theme.colors.fontWhite};
   }
 
@@ -33,26 +36,25 @@ export const ContactDarkModeContainer = styled.div`
     margin: 0;
     word-break: break-word;
   }
-    @media ${device.tablet} {
-      h1 {
-        font-size: 68px;
-      }
-      h2 {
-     font-size: 26px;
+  @media ${device.tablet} {
+    h1 {
+      font-size: 68px;
+    }
+    h2 {
+      font-size: 26px;
     }
   }
-
 `;
 export const Subheadline = styled.div`
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 `;
 export const WhiteLine = styled.div`
-    background-color: ${(props) => props.theme.colors.primary};
-    margin-right: 16px;
-    min-width: 4px;
-        @media ${device.tablet} {
-      margin-right: 28px;
+  background-color: ${(props) => props.theme.colors.primary};
+  margin-right: 16px;
+  min-width: 4px;
+  @media ${device.tablet} {
+    margin-right: 28px;
   }
 `;
 export const ContactGrid = styled.div`
@@ -61,13 +63,14 @@ export const ContactGrid = styled.div`
   padding-top: 100px;
 
   @media ${device.tablet} {
-      padding-top: 125px;
+    padding-top: 125px;
   }
 `;
 export default class Contact extends PureComponent {
   render() {
-    const title = 'Contact | Portfolio Christoph Meise';
-    const description = 'Contact for Portfolio of Christoph Meise, Full-Stack Software Engineer and Freelancer in Berlin, Germany.';
+    const title = "Contact | Portfolio Christoph Meise";
+    const description =
+      "Contact for Portfolio of Christoph Meise, Full-Stack Software Engineer and Freelancer in Berlin, Germany.";
 
     return (
       <>
@@ -89,12 +92,13 @@ export default class Contact extends PureComponent {
                     <Subheadline>
                       <WhiteLine />
                       <h2>
-                        Tell me all about your project right here, or send me an email at
-                        {' '}
-                        <a href="mailto:projects@explorechristoph.com">projects@explorechristoph.com</a>
+                        Tell me all about your project right here, or send me an
+                        email at{" "}
+                        <a href="mailto:info@christophmeise.com">
+                          info@christophmeise.com
+                        </a>
                       </h2>
                     </Subheadline>
-
                   </div>
                   <div className="main-content-sections">
                     <section>

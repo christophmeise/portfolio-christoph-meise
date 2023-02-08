@@ -153,7 +153,7 @@ export default class CustomGlobe extends PureComponent {
         {this.positions?.length > 0 && this.GLOBE_RADIUS != null
           && <Planet positions={this.positions} radius={this.GLOBE_RADIUS} />}
         {window.innerWidth > 768
-          && <OrbitControls enableZoom={false} enablePan enableRotate />}
+          && <OrbitControls enableZoom={false} enablePan={false} enableRotate />}
       </Canvas>
     );
   }

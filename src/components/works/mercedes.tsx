@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
-import styled from 'styled-components';
-import { device } from '../../theme/theme';
-import HoverContainer from '../selectedWorkItem';
+import { StaticImage } from "gatsby-plugin-image";
+import React, { PureComponent } from "react";
+import styled from "styled-components";
+import { device } from "../../theme/theme";
+import HoverContainer from "../selectedWorkItem";
 
 export const TagContainer = styled.div`
   column-gap: 8px;
@@ -13,7 +14,7 @@ export const TagContainer = styled.div`
 `;
 export const Tag = styled.div`
   align-items: center;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 40px;
   box-shadow: 0 0 1px 0px white inset, 0 0 1px 0px white;
   display: flex;
@@ -79,11 +80,10 @@ export default class MercedesCard extends PureComponent {
       >
         <MercedesContainer>
           <TextContainer>
-            <h3>
-              Mercedes-Benz Tech Innovation
-            </h3>
+            <h3>Mercedes-Benz Tech Innovation</h3>
             <p>
-              Improving the Mercedes-Benz Online Store and Car Configurator by enabling data enrichment and Car-by-Car comparison.
+              Improving the Mercedes-Benz Online Store and Car Configurator by
+              enabling data enrichment and Car-by-Car comparison.
             </p>
             <TagContainer>
               <Tag>
@@ -115,23 +115,20 @@ export default class MercedesCard extends PureComponent {
               </Tag>
             </TagContainer>
           </TextContainer>
-          {/*           {
-            typeof window !== 'undefined' && window.innerWidth > 768
-            && (
-              <StaticImage
-                src="../../../static/images/works/mercedes.jpg"
-                alt="Mercedes Vehicle"
-                height={420}
-                width={764}
-                quality={100}
-                className="mercedes-img"
-                loading="eager"
-                objectPosition="right"
-                objectFit="contain"
-                placeholder="none"
-              />
-            )
-          } */}
+          {typeof window !== "undefined" && window.innerWidth > 768 && (
+            <StaticImage
+              src="../../../static/images/works/amg.jpg"
+              alt="Mercedes Vehicle"
+              height={420}
+              width={764}
+              quality={100}
+              className="mercedes-img"
+              loading="eager"
+              objectPosition="right"
+              objectFit="contain"
+              placeholder="none"
+            />
+          )}
         </MercedesContainer>
       </HoverContainer>
     );
