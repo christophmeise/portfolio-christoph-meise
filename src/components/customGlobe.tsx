@@ -144,12 +144,12 @@ export default class CustomGlobe extends PureComponent {
         gl={{ antialias: false }}
       >
         <ambientLight intensity={2} />
-        {window.innerWidth > 768
+       {/*  {window.innerWidth > 768
           && (
             <Suspense fallback={null}>
               <Environment preset="night" />
             </Suspense>
-          )}
+          )} */}
         {this.positions?.length > 0 && this.GLOBE_RADIUS != null
           && <Planet positions={this.positions} radius={this.GLOBE_RADIUS} />}
         {window.innerWidth > 768
